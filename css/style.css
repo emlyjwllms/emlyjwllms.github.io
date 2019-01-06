@@ -730,6 +730,9 @@ a:hover {
   content: "";
   display: table;
   clear: both;
+  -webkit-column-rule: 4px double #ff00ff; /* Chrome, Safari, Opera */
+  -moz-column-rule: 4px double #ff00ff; /* Firefox */
+  column-rule: 4px double #ff00ff;
 }
 
 .social-icons a:last-child {
