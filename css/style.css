@@ -718,21 +718,17 @@ a:hover {
   margin-left: 1rem;
 }
 
-.column {
-  float: left;
-  width: 33.33%;
-}
-.column2 {
-  float: left;
-  width: 50%;
-}
-.col:after {
-  content: "";
-  display: table;
-  clear: both;
+.col {
   -webkit-column-rule: 4px double #ff00ff; /* Chrome, Safari, Opera */
   -moz-column-rule: 4px double #ff00ff; /* Firefox */
   column-rule: 4px double #ff00ff;
+  -webkit-column-count: 3; /* Chrome, Safari, Opera */
+  -moz-column-count: 3; /* Firefox */
+  column-count: 3;
+
+  -webkit-column-gap: 40px; /* Chrome, Safari, Opera */
+  -moz-column-gap: 40px; /* Firefox */
+  column-gap: 40px;
 }
 
 .social-icons a:last-child {
