@@ -9,9 +9,9 @@
 //--//-->   STYLES GENERALES
 ======================================*/
 .ready-btn1 {
-  border: 1px solid #f0861a;
+  border: 1px solid #0078ff;
   border-radius: 30px;
-  color: #f0861a;
+  color: #0078ff;
   cursor: pointer;
   display: inline-block;
   font-size: 17px;
@@ -26,8 +26,8 @@
 
 .ready-btn1:hover {
   color: #fff;
-  background: #f0861a;
-  border: 1px solid #f0861a;
+  background: #0078ff;
+  border: 1px solid #0078ff;
   text-decoration: none;
 }
 
