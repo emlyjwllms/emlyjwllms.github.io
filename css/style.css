@@ -8,6 +8,28 @@
 /*======================================
 //--//-->   STYLES GENERALES
 ======================================*/
+.ready-btn1 {
+  border: 1px solid ##0078ff;
+  border-radius: 30px;
+  color: ##0078ff;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 17px;
+  font-weight: 600;
+  margin-top: 30px;
+  padding: 12px 40px;
+  text-align: center;
+  text-transform: uppercase;
+  transition: all 0.4s ease 0s;
+  z-index: 222;
+}
+
+.ready-btn1:hover {
+  color: #fff;
+  background: ##0078ff;
+  border: 1px solid ##0078ff;
+  text-decoration: none;
+}
 
 body {
   background-color: #f5f5f5;
