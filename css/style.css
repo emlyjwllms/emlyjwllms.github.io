@@ -763,7 +763,8 @@ a:hover {
 
 .service-box {
   background-color: #fff;
-  padding: 2.5rem 1.3rem;
+  /*padding: 2.5rem 1.3rem;*/
+  width: 100%;
   border-radius: 3rem;
   margin-bottom: 3rem;
 }
