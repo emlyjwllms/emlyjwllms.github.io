@@ -744,9 +744,9 @@ a:hover {
   -webkit-column-rule: 4px double #ff00ff; /* Chrome, Safari, Opera */
   -moz-column-rule: 4px double #ff00ff; /* Firefox */
   column-rule: 4px double #ff00ff;
-  -webkit-column-count: 1; /* Chrome, Safari, Opera */
-  -moz-column-count: 1; /* Firefox */
-  column-count: 1;
+  -webkit-column-count: 3; /* Chrome, Safari, Opera */
+  -moz-column-count: 3; /* Firefox */
+  column-count: 3;
 
   -webkit-column-gap: 40px; /* Chrome, Safari, Opera */
   -moz-column-gap: 40px; /* Firefox */
@@ -764,6 +764,7 @@ a:hover {
 .service-box {
   background-color: #fff;
   padding: 2.5rem 1.3rem;
+  width: 100%;
   border-radius: 3rem;
   margin-bottom: 3rem;
 }
