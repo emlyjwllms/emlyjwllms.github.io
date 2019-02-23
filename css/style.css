@@ -8,9 +8,12 @@
 /*======================================
 //--//-->   STYLES GENERALES
 ======================================*/
-@media (max-width:768px) {
+@media (max-width:995px) {
   #optional {
     display: none;
+  }
+  .service-box .ico-circle {
+	  visibility: hidden;
   }
 }
 
