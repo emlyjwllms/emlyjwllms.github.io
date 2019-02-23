@@ -9,7 +9,7 @@
 //--//-->   STYLES GENERALES
 ======================================*/
 @media (max-width:629px) {
-  img#optional {
+  #optional {
     display: none;
   }
 }
