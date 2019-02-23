@@ -16,8 +16,8 @@
 	  display: none;
   }
   .service-content {
-	  margin-top: 10%;
-	  margin-bottom: 10%;
+	  padding-top: 10%;
+	  padding-bottom: 5%;
   }
 }
 
