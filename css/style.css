@@ -8,7 +8,7 @@
 /*======================================
 //--//-->   STYLES GENERALES
 ======================================*/
-@media (max-width:629px) {
+@media (max-width:768px) {
   #optional {
     display: none;
   }
