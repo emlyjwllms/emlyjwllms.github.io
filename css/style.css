@@ -740,6 +740,11 @@ a:hover {
   margin-left: 1rem;
 }
 
+.service-content {
+	margin-top: -8rem;
+	margin-bottom: -2rem;
+}
+
 .col {
   -webkit-column-rule: 4px double #ff00ff; /* Chrome, Safari, Opera */
   -moz-column-rule: 4px double #ff00ff; /* Firefox */
@@ -784,6 +789,7 @@ a:hover {
 .service-box .ico-circle {
   transition: all 500ms ease;
   font-size: 4rem;
+  margin-left: 1rem;
 }
 
 .service-box .s-title {
@@ -795,6 +801,8 @@ a:hover {
 
 .service-box .s-description {
   color: #4e4e4e;
+  padding-left: 15%;
+  padding-right: 15%;
 }
 
 /*======================================
