@@ -16,8 +16,12 @@
 	  display: none;
   }
   .service-content {
-	  padding-top: 10%;
-	  padding-bottom: 5%;
+	  margin-top: 0rem;
+	  margin-bottom:0rem;
+  }
+  .service-box .s-description {
+		padding-left: 0%;
+		padding-right: 0:
   }
 }
 
