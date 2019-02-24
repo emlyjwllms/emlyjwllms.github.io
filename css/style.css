@@ -15,6 +15,10 @@
   .service-box .ico-circle {
 	  display: none;
   }
+  .service-content {
+  	margin-top: 0;
+  	margin-bottom: 0;
+  }
 }
 
 .ready-btn1 {
@@ -1340,10 +1344,5 @@ footer .credits a {
 @media (max-width: 768px) {
   .back-to-top {
     bottom: 15px;
-  }
-
-  .service-content {
-  	margin-top: 0;
-  	margin-bottom: 0;
   }
 }
