@@ -8,20 +8,12 @@
 /*======================================
 //--//-->   STYLES GENERALES
 ======================================*/
-@media (max-width:995px) {
+@media only screen and (max-width:995px) {
   #optional {
     display: none;
   }
   .service-box .ico-circle {
 	  display: none;
-  }
-  .service-content {
-	  margin-top: 0rem;
-	  margin-bottom:0rem;
-  }
-  .service-box .s-description {
-		padding-left: 0%;
-		padding-right: 0:
   }
 }
 
