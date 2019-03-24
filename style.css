@@ -164,9 +164,12 @@ section {
 .itempic {
   margin-left:-25%;
   border: solid 10px #0078E1;
-  padding-top:5vw;
-  margin-top: 10%;
-  margin-right:10vw;
+	background-color: #fff;
+	position: relative;
+	z-index: 1;
+	padding-top:5vw;
+	margin-top: 10%;
+	margin-right:10vw;
 }
 
 .itempic:hover {
@@ -259,7 +262,7 @@ section {
 @media only screen and (max-width: 767px) {
 
 	.logo {
-		display:none;
+		display: none;
 	}
 
 	#menu {
@@ -290,7 +293,13 @@ section {
 	}
 
 	#intro #title {
-		display: none;
+		font-family: 'IBM Plex Mono', monospace;;
+		font-size: 100%;
+		color: white;
+		text-decoration: none;
+		float: center;
+		margin-top: -80vw;
+		margin-bottom: 2vw;
 	}
 
   .btn {
@@ -313,11 +322,7 @@ section {
   }
 
 	.abouttitle {
-	  text-decoration: underline;
-	  text-underline-position: under;
-	  text-decoration-color: #0078E1;
-	  float: left;
-		font-size: 80%;
+	  display: none;
 	}
 
 }
@@ -343,7 +348,7 @@ section {
   }
 
 	.logo {
-		width: 15%;
+		display: none;
 	}
 
   .itempic {
@@ -373,6 +378,6 @@ section {
 	  color: darkgrey;
 	  font-size: 50%;
 	  text-align: left;
-		padding-top: 20%;
+		padding-top: 18%;
 	}
 }
