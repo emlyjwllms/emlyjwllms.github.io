@@ -42,7 +42,6 @@ html, body {
 }
 
 .logo {
-  width: 2px;
   border-radius: 50%;
   float: center;
 }
@@ -322,7 +321,7 @@ section {
   }
 
 	.abouttitle {
-	  display: none;
+	  font-size: 80%;
 	}
 
 }
