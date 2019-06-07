@@ -1,499 +1,554 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>Emily Williams </title>
-  <meta content="width=device-width, initial-scale=1.0" name="viewport">
-
-  <link rel="icon" type="image/png" href="favicon.png">
-
-  <link href="style.css" type="text/css" rel="stylesheet">
+    <meta charset="utf-8">
+    <title>Emily Williams </title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="icon" type="image/png" href="favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
+    <link href="style.css" type="text/css" rel="stylesheet">
 </head>
 
 <body>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 
-  <header class="row col-12" id="header">
-			<div class="col-1">
-				<a href="#" class="noline">Emily Williams</a>
-			</div>
-			<nav class="col-11" id="menu">
-				<a href="#about" style="margin-left:40%;" id="menu-item">About</a>
-				<a href="#education" id="menu-item">Education</a>
-				<a href="#experience" id="menu-item">Experience</a>
-				<a href="#projects" id="menu-item">Projects</a>
-        <a href="#service" id="menu-item">Service</a>
-				<a href="#skills" id="menu-item">Skills</a>
-        <a href="#courses" id="menu-item">Coursework</a>
-        <a href="#awards" id="menu-item">Awards</a>
-			</nav>
-		</header>
+    <nav id="mainNavbar" class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="signature.png" height="40" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-    <section id="intro">
-  			<div class="text">
-  				<h3 id="title">Emily Williams</h3>
-  			</div>
-  	</section>
 
-    <section id="about">
-      <section id="main2">
-  			<div class="row">
-  				<div class="col-12">
-  				  <div class="col-6">
-
-            <img src="emily.jpg" align="left" style="width:50%;margin-left:-2%"/>
-            <br><center><a href="emilywilliams.pdf" target="_blank" class="btn" style="width:50%;">RESUME</a></center>
-            <center><a href="https://emilyjwilliams.github.io/portfolio" target="_blank" class="btn" style="width:50%;">PORTFOLIO</a></center>
-            <br class="logo"><br class="logo"><br class="logo"><br class="logo">
-            <!--<a href="https://github.com/emilyjwilliams"><img src="github.png" class="logo" style="width:25%"/></a>
-            <a href="https://www.facebook.com/emily2williams" target="_blank"><img src="facebook.png" class="logo" style="width:25%"/></a>-->
-            <!--<a href="https://www.linkedin.com/in/emily-williams-/" target="_blank"><img src="linkedin.png" class="logo" style="width:25%"/></a>-->
-
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#education">Education</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#experience">Experience</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#projects">Projects</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#service">Service</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#skills">Skills</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#coursework">Coursework</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#awards">Awards</a>
+                    </li>
+                </ul>
             </div>
-            <div class="col-6">
-  						<h1 class="abouttitle">About</h1>
-              <p class="bio"><br><br><br>I'm currently a sophomore aerospace engineering student at the University of Illinois at Urbana-Champaign. I'm interested in working with satellite development and design, and I am confident that my industry experience and educational background will allow me to excel in any position.</p>
+        </div>
+    </nav>
 
+
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="card h-100 justify-content-center px-3">
+                    <img src="emily.jpg" class="img-fluid rounded" />
+                    <div class="row">
+                        <div class="col-lg-12 icon_package">
+                            <a href="mailto:emilyjw2@illinois.edu" target="_blank"><img src="mail.png" class="icon" /></a>
+                            <a href="https://www.facebook.com/emily2williams" target="_blank"><img src="facebook.png" class="icon" /></a>
+                            <a href="https://www.linkedin.com/emily-williams-" target="_blank"><img src="linkedin.png" class="icon" /></a>
+                            <a href="https://www.github.com/emilyjwilliams" target="_blank"><img src="github.png" class="icon" /></a>
+                        </div>
+                    </div>
+                </div>
             </div>
-  				</div>
-  			</div>
-        </section>
-  		</section>
+            <div class="col-lg-9">
+                <div class="card h-100 justify-content-center px-3">
+                    <h1 class="display-4">Hi, I'm Emily.</h1>
+                    <p>I'm currently a junior aerospace engineering student at the University of Illinois at Urbana-Champaign. I'm interested in working with satellite development and design, and I am confident that my industry experience and educational background will allow me to excel in any position.</p>
 
-      <section id="education">
-        <div class="heading"><h1></br>Education</h1></div>
-        <section id = "main2">
-          <div class="row">
-          <div class="col-12">
-            <div class="col-6">
-              <a href="http://ae.illinois.edu/" target="_blank"><img src='uiuc.png' class="itempic" style="width:10vw;"/></a>
+                    <div class="btn-group d-flex justify-content-center flex-column flex-md-row" role="group" aria-label="Basic example">
+                        <a class="btn btn-light btn-lg rounded" href="emilywilliams.pdf" role="button" target="_blank">Resume</a>
+                        <a class="btn btn-light btn-lg rounded" href="https://emilyjwilliams.github.io/portfolio" role="button" target="_blank">Portfolio</a>
+                    </div>
+                </div>
             </div>
-              <div class="col-6">
-              <p class="entry"><strong style="color:black"><a href="http://ae.illinois.edu/" target="_blank">University of Illinois at Urbana-Champaign</a></strong></br></br>
-              AUGUST 2017 - PRESENT<br><br>
-              Bachelor's of Science in Aerospace Engineering</br>
-              Minor in Atmospheric Sciences</br>
-              Overall GPA: 3.93</br>
-              Technical GPA: 3.97</p>
+        </div>
+
+        <section id="education">
+            <h2 class="heading pt-5 pt-sm-0">Education</h2>
+
+            <div class="card d-flex justify-content-center align-items-center text-center py-3">
+                <div class="row">
+                    <div class="col-lg-6 d-flex align-items-center justify-content-center">
+                        <img src="uiuc.png" class="logo" />
+                    </div>
+                    <div class="col-lg-6 content">
+                        <h4 class="title">University of Illinois at Urbana-Champaign</h4>
+                        <p class="text-muted mt-3">August 2017 - May 2021</p>
+                        <p>Bachelor of Science in Aerospace Engineering</p>
+                        <p>Minor in Atmospheric Sciences</p>
+                        <p>Overall GPA: 3.93</p>
+                        <p>Technical GPA: 3.97</p>
+                    </div>
+                </div>
             </div>
-          </div>
-          </div>
-        </section>
 
-        <section id = "main2">
-          <div class="row">
-          <div class="col-12">
-            <div class="col-6">
-              <a href="http://pnhs.psd202.org/" target="_blank"><img src='pnhs.png' class="itempic" style="width:10vw;"/></a>
+            <div class="card d-flex justify-content-center align-items-center text-center py-3">
+                <div class="row">
+                    <div class="col-lg-6 d-flex align-items-center justify-content-center">
+                        <img src="pnhs.png" class="logo" />
+                    </div>
+                    <div class="col-lg-6 content">
+                        <h4 class="title">Plainfield North High School</h4>
+                        <p class="text-muted mt-3">August 2013 - May 2017</p>
+                        <p>National Honor Society President</p>
+                        <p>Computer Science Club President</p>
+                        <p>DECA Public Relations Director</p>
+                        <p>Cumulative GPA: 5.89</p>
+                    </div>
+                </div>
             </div>
-              <div class="col-6">
-              <p class="entry"><strong style="color:black"><a href="http://pnhs.psd202.org/" target="_blank">Plainfield North High School</a></strong></br></br>
-              AUGUST 2013 - MAY 2017<br><br>
-              National Honor Society President</br>
-              Math Team</br>
-              Computer Science Club President</br>
-              DECA Public Relations Director</br>
-              Key Club</br>
-              Cumulative GPA: 5.89</p>
-            </div>
-          </div>
-          </div>
-        </section>
-      </section>
-
-
-
-      <section id="experience">
-          <div class="heading"><h1></br>Experience</h1></div>
-
-          <section id="main2">
-              <div class="row">
-                  <div class="col-12">
-                      <div class="col-6">
-                          <a href="http://www.cuaerospace.com/" target="_blank"><img src='cu.png' class="itempic" style="width:10vw;" /></a>
-                      </div>
-                      <div class="col-6">
-                          <p class="entry">
-                              <strong style="color:black"><a href="http://www.cuaerospace.com/" target="_blank">Undergraduate Research Assistant</a></strong></br></br>
-                              CU Aerospace<br><br>
-                              Leading procedural development processes for thermal vacuum and vibrational testing for thruster package
-                              </br></br>May 2019 - Present
-                          </p>
-                      </div>
-                  </div>
-              </div>
-          </section>
-
-          <section id="main2">
-              <div class="row">
-                  <div class="col-12">
-                      <div class="col-6">
-                          <a href="http://geaviation.com" target="_blank"><img src='ge.png' class="itempic" style="width:10vw;" /></a>
-                      </div>
-                      <div class="col-6">
-                          <p class="entry">
-                              <strong style="color:black"><a href="http://geaviation.com" target="_blank">Product Operations Co-Op</a></strong></br></br>
-                              GE AVIATION<br><br>
-                              Executed technical solutions with cross-functional global teams in time-sensitive cases involving changes in design with FARO arm elimination and forward fan shaft. Reallocated 300+ GEnx 1B booster fan blades in spares inventory to usable parts kitted for application on the assembly line, expediting the development of 20 affected engines. Orchestrated joint GE-customer tour at the Delta Technical Operations facility at their airport hub in Cincinnati accommodating 50+ co-ops. Implemented program for tracking forecasted commits across multiple product lines to proactively address maintenance repair and overhaul (MRO) issues with executive team.
-                              <br><br>
-                              Manager: <a href="mailto:Ed1Landry@ge.com">Ed Landry</a></br></br>
-                              May 2018 - August 2018</br></br>
-                              <a href="GE Aviation 2018 Workflow.pdf" target="_blank" class="btn" style="width:50%;">APPRAISAL</a>
-                          </p>
-                      </div>
-                  </div>
-              </div>
-          </section>
-
-          <section id="main2">
-              <div class="row">
-                  <div class="col-12">
-                      <div class="col-6">
-                          <a href="http://kiewebdev.github.io" target="_blank"><img src='Logo.png' class="itempic" style="width:10vw;" /></a>
-                      </div>
-                      <div class="col-6">
-                          <p class="entry">
-                              <strong style="color:black"><a href="http://kiewebdev.github.io" target="_blank">Founder</a></strong></br></br>
-                              KIE WEB DEVELOPMENT<br><br>
-                              Coding and developing personal and professional websites for clients and their businesses. Using HTML/CSS and Java/JavaScript to create webpages hosted on GitHub. Partaking in joint consulting venture and engineering application to improve online presence of local businesses.
-                              </br></br>January 2019 - Present
-                          </p>
-                      </div>
-                  </div>
-              </div>
-          </section>
-
-          <section id="main2">
-              <div class="row">
-                  <div class="col-12">
-                      <div class="col-6">
-                          <a href="http://iefx.engineering.illinois.edu/ela-position-description-and-application/" target="_blank"><img src='uiuc.png' class="itempic" style="width:10vw;" /></a>
-                      </div>
-                      <div class="col-6">
-                          <p class="entry">
-                              <strong style="color:black"><a href="http://iefx.engineering.illinois.edu/ela-position-description-and-application/" target="_blank">Engineering Learning Assistant</a></strong></br></br>
-                              COLLEGE OF ENGINEERING<br><br>
-                              Will instruct and facilitate one ENG 100 section of 20-25 first-year aerospace undergraduate students. Will provide direction, guidance, and mentorship to students in their ENG 100 section beginning Fall 2019 semester.
-                              <br><br>
-                              Lead ELA: Natalie Pfister
-                              </br></br>Start August 2019
-                          </p>
-                      </div>
-                  </div>
-              </div>
-          </section>
-
-          <section id="main2">
-              <div class="row">
-                  <div class="col-12">
-                      <div class="col-6">
-                          <a href="http://cs.illinois.edu" target="_blank"><img src='uiuc.png' class="itempic" style="width:10vw;" /></a>
-                      </div>
-                      <div class="col-6">
-                          <p class="entry">
-                              <strong style="color:black"><a href="http://cs.illinois.edu" target="_blank">Course Assistant</a></strong></br></br>
-                              DEPARTMENT OF COMPUTER SCIENCE<br><br>
-                              Nominated to supervise and guide freshmen computer science students through laboratory sessions of introductory-level technical course. Working directly with course administration team while holding office hours and discussion sections for students, facilitating learning of Python, MATLAB, and symbolic algebra.
-                              <br><br>
-                              Course Administrator: <a href="mailto:xtang13@illinois.edu">Violet Tang</a></br>
-                              Faculty Advisor: <a href="mailto:davis68@illinois.edu">Neal Davis</a></br>
-                              Course Administration Team: <a href="mailto:cs101admin@cs.illinois.edu">cs101admin@cs.illinois.edu</a>
-                              </br></br>August 2018 - Present
-                          </p>
-                      </div>
-                  </div>
-              </div>
-          </section>
-
-          <section id="main2">
-              <div class="row">
-                  <div class="col-12">
-                      <div class="col-6">
-                          <a href="https://care.engineering.illinois.edu/" target="_blank"><img src='uiuc.png' class="itempic" style="width:10vw;" /></a>
-                      </div>
-                      <div class="col-6">
-                          <p class="entry">
-                              <strong style="color:black"><a href="https://care.engineering.illinois.edu/" target="_blank">Tutor and Peer Advisor</a></strong></br></br>
-                              THE GRAINGER COLLEGE OF ENGINEERING<br><br>
-
-                              <br><br>
-                              Assistant Director: <a href="mailto:tempel1@illinois.edu">Dana Tempel</a>
-                              </br></br>Start August 2019
-                          </p>
-                      </div>
-                  </div>
-              </div>
-          </section>
-
-          <section id="main2">
-              <div class="row">
-                  <div class="col-12">
-                      <div class="col-6">
-                          <a href="https://aerospace.illinois.edu/research/research-facilities/laboratory-advanced-space-systems-illinois-lassi" target="_blank"><img src='lassi.png' class="itempic" style="width:10vw;" /></a>
-                      </div>
-                      <div class="col-6">
-                          <p class="entry">
-                              <strong style="color:black"><a href="https://aerospace.illinois.edu/research/research-facilities/laboratory-advanced-space-systems-illinois-lassi" target="_blank">Program Manager</a></strong></br></br>
-                              LABORATORY FOR ADVANCED SPACE SYSTEMS AT ILLINOIS<br><br>
-                              Overseeing and monitoring all satellite mission progress across entire laboratory program through collaboration with mission coordinators and subteam leads. Implementing robust scheduling system adaptable for tracking mission deliverables and responsibilities for five active satellite programs. Developing software to display pass trends and visual data onscreen through mission control accessible webpages using HTML/CSS.
-                              <br><br>
-                              Faculty Advisor: <a href="mailto:mlembeck@illinois.edu">Dr. Michael Lembeck, PhD</a>
-                              </br></br>January 2019 - Present
-                          </p>
-                      </div>
-                  </div>
-              </div>
-          </section>
-
-          <section id="main2">
-              <div class="row">
-                  <div class="col-12">
-                      <div class="col-6">
-                          <a href="https://aerospace.illinois.edu/research/research-facilities/laboratory-advanced-space-systems-illinois-lassi" target="_blank"><img src='lassi.png' class="itempic" style="width:10vw;" /></a>
-                      </div>
-                      <div class="col-6">
-                          <p class="entry">
-                              <strong style="color:black"><a href="https://aerospace.illinois.edu/research/research-facilities/laboratory-advanced-space-systems-illinois-lassi" target="_blank">Systems Engineer</a></strong></br></br>
-                              LABORATORY FOR ADVANCED SPACE SYSTEMS AT ILLINOIS<br><br>
-                              Drafting proposals and requirements for future NASA-funded missions including satellites capable of laser communication for low-Earth orbit research. Coordinating structural components in Creo for future satellites alongside graduate students and faculty leadership.
-                              <br><br>
-                              Reference: <a href="mailto:stier2@illinois.edu">David Stier</a></br>
-                              Faculty Advisor: <a href="mailto:mlembeck@illinois.edu">Dr. Michael Lembeck, PhD</a>
-                              </br></br>August 2018 - May 2019
-                          </p>
-                      </div>
-                  </div>
-              </div>
-          </section>
-
-
-          <section id="main2">
-              <div class="row">
-                  <div class="col-12">
-                      <div class="col-6">
-                          <a href="https://aerospace.illinois.edu/research/research-facilities/laboratory-advanced-space-systems-illinois-lassi" target="_blank"><img src='lassi.png' class="itempic" style="width:10vw;" /></a>
-                      </div>
-                      <div class="col-6">
-                          <p class="entry">
-                              <strong style="color:black"><a href="https://aerospace.illinois.edu/research/research-facilities/laboratory-advanced-space-systems-illinois-lassi" target="_blank">Structural Test Engineer</a></strong></br></br>
-                              LABORATORY FOR ADVANCED SPACE SYSTEMS AT ILLINOIS<br><br>
-                              Developed cumulative Bill of Materials of structural components of CubeSail by remodeling and dimensioning in Creo for NASA’s CubeSat Launch Initiative. Restructured current IlliniSat-2 satellite bus assembly model to ensure tolerances were met. Oversaw use and experiments involving 3D printers, thermal vacuums, and soldering equipment.
-                              <br><br>
-                              Reference: <a href="mailto:spharris156@gmail.com">Steven Harris</a></br>
-                              Faculty Advisor: Dr. Alexander Ghosh
-                              </br></br>August 2017 - January 2019
-                          </p>
-                      </div>
-                  </div>
-              </div>
-          </section>
-
-          <section id="main2">
-              <div class="row">
-                  <div class="col-12">
-                      <div class="col-6">
-                          <a href="https://wiauiuc.github.io" target="_blank"><img src='wia.png' class="itempic" style="width:10vw;" /></a>
-                      </div>
-                      <div class="col-6">
-                          <p class="entry">
-                              <strong style="color:black"><a href="https://wiauiuc.github.io" target="_blank">Secretary</a></strong></br></br>
-                              WOMEN IN AEROSPACE<br><br>
-                              Facilitated contact between the Executive Board and active members regarding organizational events and community outreach projects. Created new Aerospace Departmental Development Committee to improve female retention rate in curriculum. Rebranded and revamped organization's website to include past successes and future endeavors.
-                              <br><br>
-                              Reference: <a href="mailto:kmcarro2@illinois.edu">Katie Carroll</a></br>
-                              Faculty Advisor: <a href="mailto:gerhold@illinois.edu">Ms. Laura Gerhold</a>
-                              </br></br>May 2018 - Present
-                          </p>
-                      </div>
-                  </div>
-              </div>
-          </section>
-
-          <section id="main2">
-              <div class="row">
-                  <div class="col-12">
-                      <div class="col-6">
-                          <a href="https://wiauiuc.github.io" target="_blank"><img src='wia.png' class="itempic" style="width:10vw;" /></a>
-                      </div>
-                      <div class="col-6">
-                          <p class="entry">
-                              <strong style="color:black"><a href="https://wiauiuc.github.io" target="_blank">External Representative</a></strong></br></br>
-                              WOMEN IN AEROSPACE<br><br>
-                              Organized roundtable discussions advocating for women empowerment by hosting prominent women in engineering and business industry leaders in an inviting setting. Collaborated with the Aerospace Undergraduate Advisory Board to plan and execute social mixer for all registered aerospace student organizations.
-                              <br><br>
-                              Reference: <a href="mailto:kmcarro2@illinois.edu">Katie Carroll</a></br>
-                              Faculty Advisor: <a href="mailto:gerhold@illinois.edu">Ms. Laura Gerhold</a>
-                              </br></br>August 2017 - May 2018
-                          </p>
-                      </div>
-                  </div>
-              </div>
-          </section>
         </section>
 
+        <section id="experience">
+            <h2 class="heading pt-5 pt-sm-0">Experience</h2>
 
-          <section id="projects">
-              <div class="heading"><h1></br>Projects</h1></div>
+            <div class="card d-flex justify-content-center align-items-center text-center py-3">
+                <div class="row">
+                    <div class="col-lg-6 d-flex align-items-center justify-content-center">
+                        <img src="cu.png" class="logo" />
+                    </div>
+                    <div class="col-lg-6 content">
+                        <h4 class="title">Undergraduate Research Assistant</h4>
+                        <h5 class="text-muted mt-3 mb-3">CU Aerospace</h5>
+                        <p>Leading procedural development processes for thermal vacuum and vibrational testing for thruster package.</p>
+                        <p class="text-muted mt-3">May 2019 - Present</p>
+                    </div>
+                </div>
+            </div>
 
-              <section id="main2">
-                  <div class="row">
-                      <div class="col-12">
-                          <div class="col-6">
-                              <a href="https://issmicrognextuiuc.weebly.com/" target="_blank"><img src='isslogo.png' class="itempic" style="width:10vw;" /></a>
-                          </div>
-                          <div class="col-6">
-                              <p class="entry">
-                                  <strong style="color:black"><a href="https://issmicrognextuiuc.weebly.com/" target="_blank">NASA Micro-G Neutral Buoyancy Experiment Design Team</a></strong></br></br>
-                                  ILLINOIS SPACE SOCIETY<br><br>
-                                  Micrometeoroid Impact Detection and Suppression (MIDAS) device detects sharp edges caused by Micrometeroid and Orbital Debris (MMOD) collisions on the exterior handrails of the International Space Station and suppresses the sharp edges by permanently covering the jagged lip with Kapton tape.
-                                  </br></br>
-                                  Reference: <a href="mailto:kmcarro2@illinois.edu">Katie Carroll</a>
-                                  </br></br>Spring 2019
-                          </div>
-                      </div>
-                  </div>
-              </section>
+            <div class="card d-flex justify-content-center align-items-center text-center py-3">
+                <div class="row">
+                    <div class="col-lg-6 d-flex align-items-center justify-content-center">
+                        <img src="ge.png" class="logo" />
+                    </div>
+                    <div class="col-lg-6 content">
+                        <h4 class="title">Product Operations Co-op</h4>
+                        <h5 class="text-muted mt-3 mb-3">GE Aviation</h5>
+                        <p>Executed technical solutions with cross-functional global teams in time-sensitive cases involving changes in design with FARO arm elimination and forward fan shaft. Reallocated 300+ GEnx 1B booster fan blades in spares inventory to usable parts kitted for application on the assembly line, expediting the development of 20 affected engines. Orchestrated joint GE-customer tour at the Delta Technical Operations facility at their airport hub in Cincinnati accommodating 50+ co-ops. Implemented program for tracking forecasted commits across multiple product lines to proactively address maintenance repair and overhaul (MRO) issues with executive team.</p>
+                        <p>Manager: <a href="mailto:Ed1.Landry@ge.com" class="ref">Ed Landry</a></p>
+                        <a class="btn btn-light btn-lg" href="GE Aviation 2018 Workflow.pdf" target="_blank" role="button">Appraisal</a>
+                        <p class="text-muted mt-3">May 2018 - August 2018</p>
+                    </div>
+                </div>
+            </div>
 
-              <section id="main2">
-                  <div class="row">
-                      <div class="col-12">
-                          <div class="col-6">
-                              <a href="https://www.atmos.illinois.edu/" target="_blank"><img src='uiuc.png' class="itempic" style="width:10vw;" /></a>
-                          </div>
-                          <div class="col-6">
-                              <p class="entry">
-                                  <strong style="color:black"><a href="https://www.atmos.illinois.edu/" target="_blank">Active Satellites in Orbit</a></strong></br></br>
-                                  ATMS 305: COMPUTING AND DATA ANALYSIS<br><br>
-                                  My capstone research project for ATMS 305: Computing and Data Analysis relates to my curriculum as an aerospace engineering major and my growing interest in data analysis in the atmospheric sciences realm. For this final project, I used the skills I learned throughout the semester to explore an engineering concept that I'm passionate about and will pursue in graduate school and industry.
-                                  </br></br>
-                                  Spring 2019</br></br>
-                                  <a href="ATMS_305__Final_Project_Abstract.pdf" target="_blank" class="btn" style="width:50%;">ABSTRACT</a>
-                          </div>
-                      </div>
-                  </div>
-              </section>
-          </section>
+            <div class="card d-flex justify-content-center align-items-center text-center py-3">
+                <div class="row">
+                    <div class="col-lg-6 d-flex align-items-center justify-content-center">
+                        <img src="Logo.png" class="logo" />
+                    </div>
+                    <div class="col-lg-6 content">
+                        <h4 class="title">Founder, Full-Stack Developer</h4>
+                        <h5 class="text-muted mt-3 mb-3">KIE Web Development</h5>
+                        <p>Coding and developing personal and professional websites for clients and their businesses. Using HTML/CSS and Java/JavaScript to create webpages hosted on GitHub. Partaking in joint consulting venture and engineering application to improve online presence of local businesses.</p>
+                        <p class="text-muted mt-3">January 2019 - Present</p>
+                    </div>
+                </div>
+            </div>
 
-          <section id="service">
-              <div class="heading"><h1></br>Community Service</h1></div>
+            <div class="card d-flex justify-content-center align-items-center text-center py-3">
+                <div class="row">
+                    <div class="col-lg-6 d-flex align-items-center justify-content-center">
+                        <img src="uiuc.png" class="logo" />
+                    </div>
+                    <div class="col-lg-6 content">
+                        <h4 class="title">Engineering Learning Assistant</h4>
+                        <h5 class="text-muted mt-3 mb-3">The Grainger College of Engineering</h5>
+                        <p>
+                            Instructing and facilitating one ENG 100 section of 20-25 first-year aerospace undergraduate students. Providing direction, guidance, and mentorship to students in introductory engineering course.
+                        </p>
+                        <p>Lead ELA: <a href="mailto:ncp3@illinois.edu" class="ref">Natalie Pfister</a></p>
+                        <p class="text-muted mt-3">August 2019 - Present</p>
+                    </div>
+                </div>
+            </div>
 
-              <section id="main2">
-                  <div class="row">
-                      <div class="col-12">
-                          <div class="col-6">
-                              <a href="https://wiauiuc.github.io" target="_blank"><img src='wia.png' class="itempic" style="width:10vw;" /></a>
-                          </div>
-                          <div class="col-6">
-                              <p class="entry">
-                                  <strong style="color:black"><a href="https://wiauiuc.github.io" target="_blank">Girls Learning Air and Space Sciences (GLASS) Day</a></strong></br></br>
-                                  WOMEN IN AEROSPACE<br><br>
-                                  Organized and led all-day outreach event for over 60 middle school girls interested in STEM. Created and coordinated educational hands-on activities to facilitate learning in aerodynamics and space sciences.
-                                  </br></br>
-                                  Reference: <a href="mailto:kmcarro2@illinois.edu">Katie Carroll</a>
-                                  </br></br>Spring Semesters
-                          </div>
-                      </div>
-                  </div>
-              </section>
+            <div class="card d-flex justify-content-center align-items-center text-center py-3">
+                <div class="row">
+                    <div class="col-lg-6 d-flex align-items-center justify-content-center">
+                        <img src="uiuc.png" class="logo" />
+                    </div>
+                    <div class="col-lg-6 content">
+                        <h4 class="title">Course Assistant</h4>
+                        <h5 class="text-muted mt-3 mb-3">Department of Computer Science</h5>
+                        <p>
+                            Supervising and guiding freshmen computer science students through laboratory sessions of introductory-level technical course. Working directly with course administration team while holding office hours and discussion sections for students, facilitating learning of Python, MATLAB, and symbolic algebra.
+                        </p>
+                        <p>Faculty Advisor: <a href="mailto:davis68@illinois.edu" class="ref">Neal Davis</a></p>
+                        <p class="text-muted mt-3">August 2018 - Present</p>
+                    </div>
+                </div>
+            </div>
 
-              <section id="main2">
-                  <div class="row">
-                      <div class="col-12">
-                          <div class="col-6">
-                              <a href="https://wiauiuc.github.io" target="_blank"><img src='wia.png' class="itempic" style="width:10vw;" /></a>
-                          </div>
-                          <div class="col-6">
-                              <p class="entry">
-                                  <strong style="color:black"><a href="https://wiauiuc.github.io" target="_blank">Millennium Girls</a></strong></br></br>
-                                  WOMEN IN AEROSPACE<br><br>
-                                  Coordinated and executed educational outreach trip at State Farm Center in Bloomington, IL. Organized and led junkyard rockets exhibit and liquid nitrogen display.
-                                  </br></br>
-                                  Reference: <a href="mailto:kmcarro2@illinois.edu">Katie Carroll</a>
-                                  </br></br>Spring Semesters
-                          </div>
-                      </div>
-                  </div>
-              </section>
+            <div class="card d-flex justify-content-center align-items-center text-center py-3">
+                <div class="row">
+                    <div class="col-lg-6 d-flex align-items-center justify-content-center">
+                        <img src="uiuc.png" class="logo" />
+                    </div>
+                    <div class="col-lg-6 content">
+                        <h4 class="title">Tutor and Peer Advisor</h4>
+                        <h5 class="text-muted mt-3 mb-3">The Grainger College of Engineering</h5>
+                        <p>
+                            Assisting and leading exam review sessions and tutoring hours for undergraduate students through the Center for Academic Resources in Engineering.
+                        </p>
+                        <p>Assistant Director: <a href="mailto:tempel1@illinois.edu" class="ref">Dana Tempel</a></p>
+                        <p class="text-muted mt-3">August 2019 - Present</p>
+                    </div>
+                </div>
+            </div>
 
-              <section id="main2">
-                  <div class="row">
-                      <div class="col-12">
-                          <div class="col-6">
-                              <a href="https://wiauiuc.github.io" target="_blank"><img src='wia.png' class="itempic" style="width:10vw;" /></a>
-                          </div>
-                          <div class="col-6">
-                              <p class="entry">
-                                  <strong style="color:black"><a href="https://wiauiuc.github.io" target="_blank">Introduce a Girl to Engineering Day (IGED)</a></strong></br></br>
-                                  WOMEN IN AEROSPACE<br><br>
-                                  Recruited to score and supervise design challenge consisting of constructing catapults. Represented Women In Aerospace at outreach event organized by Society of Women Engineers.
-                                  </br></br>
-                                  Reference: <a href="mailto:kmcarro2@illinois.edu">Katie Carroll</a>
-                                  </br></br>Fall Semesters
-                          </div>
-                      </div>
-                  </div>
-              </section>
+            <div class="card d-flex justify-content-center align-items-center text-center py-3">
+                <div class="row">
+                    <div class="col-lg-6 d-flex align-items-center justify-content-center">
+                        <img src="lassi.png" class="logo" />
+                    </div>
+                    <div class="col-lg-6 content">
+                        <h4 class="title">Program Manager</h4>
+                        <h5 class="text-muted mt-3 mb-3">Laboratory for Advanced Space Systems at Illinois</h5>
+                        <p>
+                            Overseeing and monitoring all satellite mission progress across entire laboratory program through collaboration with mission coordinators and subteam leads. Implementing robust scheduling system adaptable for tracking mission deliverables and responsibilities for five active satellite programs. Developing software to display pass trends and visual data onscreen through mission control accessible webpage using HTML/CSS.
+                        </p>
+                        <p>Faculty Advisor: <a href="mailto:mlembeck@illinois.edu" class="ref">Michael Lembeck, PhD</a></p>
+                        <p class="text-muted mt-3">January 2019 - Present</p>
+                    </div>
+                </div>
+            </div>
 
-              <section id="main2">
-                  <div class="row">
-                      <div class="col-12">
-                          <div class="col-6">
-                              <a href="https://wiauiuc.github.io" target="_blank"><img src='wia.png' class="itempic" style="width:10vw;" /></a>
-                          </div>
-                          <div class="col-6">
-                              <p class="entry">
-                                  <strong style="color:black"><a href="https://wiauiuc.github.io" target="_blank">Aerospace Outreach Air and Space Fair</a></strong></br></br>
-                                  WOMEN IN AEROSPACE<br><br>
-                                  Volunteered at outreach event geared towards middle school and high school students. Supervised Air Tract glider building sessions and liquid nitrogen display.
-                                  </br></br>
-                                  Reference: <a href="mailto:kmcarro2@illinois.edu">Katie Carroll</a>
-                                  </br></br>Fall Semesters
-                          </div>
-                      </div>
-                  </div>
-              </section>
-          </section>
+            <div class="card d-flex justify-content-center align-items-center text-center py-3">
+                <div class="row">
+                    <div class="col-lg-6 d-flex align-items-center justify-content-center">
+                        <img src="lassi.png" class="logo" />
+                    </div>
+                    <div class="col-lg-6 content">
+                        <h4 class="title">Systems Engineer</h4>
+                        <h5 class="text-muted mt-3 mb-3">Laboratory for Advanced Space Systems at Illinois</h5>
+                        <p>
+                            Drafting proposals and requirements for future NASA-funded missions including satellites capable of laser communication for low-Earth orbit research. Coordinating structural components in Creo for future satellites alongside graduate students and faculty leadership.
+                        </p>
+                        <p>
+                            Reference: <a href="mailto:stier2@illinois.edu" class="ref">David Stier</a><br />
+                            Faculty Advisor: <a href="mailto:mlembeck@illinois.edu" class="ref">Michael Lembeck, PhD</a>
+                        </p>
+                        <p class="text-muted mt-3">August 2018 - May 2019</p>
+                    </div>
+                </div>
+            </div>
 
-          <section id="skills">
-              <div class="heading"><h1></br>Skills</h1></div>
-              <section id="main2">
-                  <div class="row">
-                      <div class="col-12">
-                          <p style="color:darkgrey;">Python, Java/JavaScript, HTML/CSS, C, SQL, MATLAB, Creo Parametric, Siemens NX, Microsoft Project, Soldering, 3D Printing, LaTeX, Thermal Vacuum, Mission Operations</p>
-                      </div>
-                  </div>
-              </section>
-          </section>
+            <div class="card d-flex justify-content-center align-items-center text-center py-3">
+                <div class="row">
+                    <div class="col-lg-6 d-flex align-items-center justify-content-center">
+                        <img src="lassi.png" class="logo" />
+                    </div>
+                    <div class="col-lg-6 content">
+                        <h4 class="title">Structural Test Engineer</h4>
+                        <h5 class="text-muted mt-3 mb-3">Laboratory for Advanced Space Systems at Illinois</h5>
+                        <p>
+                            Developed cumulative bill of materials of structural components of satellite mission by remodeling and dimensioning in Creo. Restructured current satellite bus assembly model to ensure tolerances were met. Oversaw use and experiments involving 3D printers, thermal vacuums, and soldering equipment.
+                        </p>
+                        <p>
+                            Lab Manager: <a href="mailto:murph32@illinois.edu" class="ref">Murphy Stratton</a><br />
+                            Faculty Advisor: <a href="mailto:mlembeck@illinois.edu" class="ref">Michael Lembeck, PhD</a>
+                        </p>
+                        <p class="text-muted mt-3">August 2017 - January 2019</p>
+                    </div>
+                </div>
+            </div>
 
-          <section id="courses">
-              <div class="heading"><h1></br>Courses</h1></div>
-              <section id="main2">
-                  <div class="row">
-                      <div class="col-12">
-                          <p style="color:darkgrey;">Nanosatellite Design, Flight Mechanics, Computer-Aided Design, Data Analysis, Engineering Materials, Electric and Electronic Circuits, Geosciences Computing, Statics, Dynamics, Thermodynamics, Severe and Hazardous Weather</p>
-                      </div>
-                  </div>
-              </section>
-          </section>
+            <div class="card d-flex justify-content-center align-items-center text-center py-3">
+                <div class="row">
+                    <div class="col-lg-6 d-flex align-items-center justify-content-center">
+                        <img src="wia.png" class="logo" />
+                    </div>
+                    <div class="col-lg-6 content">
+                        <h4 class="title">President</h4>
+                        <h5 class="text-muted mt-3 mb-3">Women In Aerospace</h5>
+                        <p>
+                            Leading new marketing and outreach initiatives to facilitate recruitment. Introducing new technical competitions for upcoming year to compliment academic curriculum.
+                        </p>
+                        <p>
+                            Faculty Advisor: <a href="mailto:gerhold@illinois.edu" class="ref">Ms. Laura Gerhold</a>
+                        </p>
+                        <p class="text-muted mt-3">May 2019 - President</p>
+                    </div>
+                </div>
+            </div>
 
-          <section id="awards">
-              <div class="heading"><h1></br>Awards and Honors</h1></div>
-              <section id="main2">
-                  <div class="row">
-                      <div class="col-12">
-                          <p style="color:darkgrey;">James Scholar Honors Program, College of Engineering Dean's List, Tau Beta Pi Engineering Honor Society, GE Women's Network Scholarship, Illinois Engineering Achievement Scholarship, Marjorie M. Voigt Turley and William H. Turley Scholarship, MSCI Central States Chapter Scholarship</p>
-                      </div>
-                  </div>
-              </section>
-          </section>
+            <div class="card d-flex justify-content-center align-items-center text-center py-3">
+                <div class="row">
+                    <div class="col-lg-6 d-flex align-items-center justify-content-center">
+                        <img src="wia.png" class="logo" />
+                    </div>
+                    <div class="col-lg-6 content">
+                        <h4 class="title">Secretary</h4>
+                        <h5 class="text-muted mt-3 mb-3">Women In Aerospace</h5>
+                        <p>
+                            Facilitated contact between the executive board and active members regarding organizational events and community outreach projects. Created new Aerospace Departmental Development Committee to improve female retention rate in curriculum. Rebranded and revamped organization's website to include past successes and future endeavors.
+                        </p>
+                        <p>
+                            Reference: <a href="mailto:kmcarro2@illinois.edu" class="ref">Katie Carroll</a><br />
+                            Faculty Advisor: <a href="mailto:gerhold@illinois.edu" class="ref">Ms. Laura Gerhold</a>
+                        </p>
+                        <p class="text-muted mt-3">May 2018 - May 2019</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card d-flex justify-content-center align-items-center text-center py-3">
+                <div class="row">
+                    <div class="col-lg-6 d-flex align-items-center justify-content-center">
+                        <img src="wia.png" class="logo" />
+                    </div>
+                    <div class="col-lg-6 content">
+                        <h4 class="title">External Representative</h4>
+                        <h5 class="text-muted mt-3 mb-3">Women In Aerospace</h5>
+                        <p>
+                            Organized roundtable discussions advocating for women empowerment by hosting prominent women in engineering and business industry leaders in an inviting setting. Collaborated with the Aerospace Undergraduate Advisory Board to plan and execute social mixer for all registered aerospace student organizations.
+                        </p>
+                        <p>
+                            Reference: <a href="mailto:kmcarro2@illinois.edu" class="ref">Katie Carroll</a><br />
+                            Faculty Advisor: <a href="mailto:gerhold@illinois.edu" class="ref">Ms. Laura Gerhold</a>
+                        </p>
+                        <p class="text-muted mt-3">August 2017 - May 2018</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2 class="heading pt-5 pt-sm-0">Projects</h2>
+
+            <div class="card d-flex justify-content-center align-items-center text-center py-3">
+                <div class="row">
+                    <div class="col-lg-6 d-flex align-items-center justify-content-center">
+                        <img src="isslogo.png" class="logo" />
+                    </div>
+                    <div class="col-lg-6 content">
+                        <h4 class="title">NASA Micro-G Neutral Buoyancy Experiment Design Team</h4>
+                        <h5 class="text-muted mt-3 mb-3">Illinois Space Society</h5>
+                        <p>
+                            Micrometeoroid Impact Detection and Suppression (MIDAS) device detects sharp edges caused by Micrometeroid and Orbital Debris (MMOD) collisions on the exterior handrails of the International Space Station and suppresses the sharp edges by permanently covering the jagged lip with Kapton tape.
+                        </p>
+                        <p>
+                            Reference: <a href="mailto:kmcarro2@illinois.edu" class="ref">Katie Carroll</a><br />
+                            Faculty Advisor: <a href="mailto:mlembeck@illinois.edu" class="ref">Michael Lembeck, PhD</a>
+                        </p>
+                        <p class="text-muted mt-3">January 2019 - May 2019</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card d-flex justify-content-center align-items-center text-center py-3">
+                <div class="row">
+                    <div class="col-lg-6 d-flex align-items-center justify-content-center">
+                        <img src="uiuc.png" class="logo" />
+                    </div>
+                    <div class="col-lg-6 content">
+                        <h4 class="title">Active Satellites in Orbit</h4>
+                        <h5 class="text-muted mt-3 mb-3">ATMS 305: Computing and Data Analysis</h5>
+                        <p>
+                            My capstone research project for ATMS 305: Computing and Data Analysis relates to my curriculum as an aerospace engineering major and my growing interest in data analysis in the atmospheric sciences realm. For this final project, I used the skills I learned throughout the semester to explore an engineering concept that I'm passionate about and will pursue in graduate school and industry.
+                        </p>
+                        <p class="text-muted mt-3">January 2019 - May 2019</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="service">
+            <h2 class="heading pt-5 pt-sm-0">Community Service</h2>
+
+            <div class="card d-flex justify-content-center align-items-center text-center py-3">
+                <div class="row">
+                    <div class="col-lg-6 d-flex align-items-center justify-content-center">
+                        <img src="wia.png" class="logo" />
+                    </div>
+                    <div class="col-lg-6 content">
+                        <h4 class="title">Girls Learning Air and Space Sciences (GLASS) Day</h4>
+                        <h5 class="text-muted mt-3 mb-3">Women In Aerospace</h5>
+                        <p>
+                            Organized and led all-day outreach event for over 60 middle school girls interested in STEM. Created and coordinated educational hands-on activities to facilitate learning in aerodynamics and space sciences.
+                        </p>
+                        <p>
+                            Reference: <a href="mailto:kmcarro2@illinois.edu" class="ref">Katie Carroll</a>
+                        </p>
+                        <p class="text-muted mt-3">Spring Semesters</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card d-flex justify-content-center align-items-center text-center py-3">
+                <div class="row">
+                    <div class="col-lg-6 d-flex align-items-center justify-content-center">
+                        <img src="wia.png" class="logo" />
+                    </div>
+                    <div class="col-lg-6 content">
+                        <h4 class="title">Millennium Girls</h4>
+                        <h5 class="text-muted mt-3 mb-3">Women In Aerospace</h5>
+                        <p>
+                            Coordinated and executed educational outreach trip at State Farm Center in Bloomington, IL. Organized and led junkyard rockets exhibit and liquid nitrogen display.
+                        </p>
+                        <p>
+                            Reference: <a href="mailto:kmcarro2@illinois.edu" class="ref">Katie Carroll</a>
+                        </p>
+                        <p class="text-muted mt-3">Fall Semesters</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card d-flex justify-content-center align-items-center text-center py-3">
+                <div class="row">
+                    <div class="col-lg-6 d-flex align-items-center justify-content-center">
+                        <img src="wia.png" class="logo" />
+                    </div>
+                    <div class="col-lg-6 content">
+                        <h4 class="title">Introduce a Girl to Engineering Day (IGED)</h4>
+                        <h5 class="text-muted mt-3 mb-3">Women In Aerospace</h5>
+                        <p>
+                            Recruited to score and supervise design challenge consisting of constructing catapults. Represented Women In Aerospace at outreach event organized by Society of Women Engineers.
+                        </p>
+                        <p>
+                            Reference: <a href="mailto:kmcarro2@illinois.edu" class="ref">Katie Carroll</a>
+                        </p>
+                        <p class="text-muted mt-3">Fall Semesters</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card d-flex justify-content-center align-items-center text-center py-3">
+                <div class="row">
+                    <div class="col-lg-6 d-flex align-items-center justify-content-center">
+                        <img src="wia.png" class="logo" />
+                    </div>
+                    <div class="col-lg-6 content">
+                        <h4 class="title">Aerospace Outreach Air and Space Fair</h4>
+                        <h5 class="text-muted mt-3 mb-3">Women In Aerospace</h5>
+                        <p>
+                            Volunteered at outreach event geared towards middle school and high school students. Supervised Air Tract glider building sessions and liquid nitrogen display.
+                        </p>
+                        <p>
+                            Reference: <a href="mailto:kmcarro2@illinois.edu" class="ref">Katie Carroll</a>
+                        </p>
+                        <p class="text-muted mt-3">Fall Semesters</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <section id="skills">
+            <h2 class="heading pt-5 pt-sm-0">Skills</h2>
+
+            <div class="card d-flex justify-content-center align-items-center text-center py-3">
+                <div class="row">
+                    <div class="col-lg-4 content">
+                        <p>Python</p>
+                        <p>JavaScript</p>
+                        <p>HTML/CSS</p>
+                        <p>SQL</p>
+                        <p>MATLAB</p>
+                    </div>
+                    <div class="col-lg-4 content">
+                        <p>LaTeX</p>
+                        <p>Thermal Vacuum</p>
+                        <p>Visual Studio</p>
+                        <p>Full-Stack Development</p>
+                        <p>Systems Engineering</p>
+                    </div>
+                    <div class="col-lg-4 content">
+                        <p>Creo Parametric</p>
+                        <p>Siemens NX</p>
+                        <p>Microsoft Project</p>
+                        <p>Soldering</p>
+                        <p>3D Printing</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="coursework">
+            <h2 class="heading pt-5 pt-sm-0">Coursework</h2>
+
+            <div class="card d-flex justify-content-center align-items-center text-center py-3">
+                <div class="row">
+                    <div class="col-lg-4 content">
+                        <p>Nanosatellite Design</p>
+                        <p>Cubesat</p>
+                        <p>Flight Mechanics</p>
+                        <p>Data Analysis</p>
+                        <p>Engineering Materials</p>
+                    </div>
+                    <div class="col-lg-4 content">
+                        <p>Electric and Electronic Circuits</p>
+                        <p>Geosciences Computing</p>
+                        <p>Statics</p>
+                        <p>Dyanamics</p>
+                        <p>Thermodynamics</p>
+                    </div>
+                    <div class="col-lg-4 content">
+                        <p>Computer-Aided Design</p>
+                        <p>Incompressible Flow</p>
+                        <p>Structures</p>
+                        <p>Control Systems</p>
+                        <p>Engineering Entrepreneurship</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="awards">
+            <h2 class="heading pt-5 pt-sm-0">Awards and Honors</h2>
+
+            <div class="card d-flex justify-content-center align-items-center text-center py-3">
+                <div class="row">
+                    <div class="col-lg-6 content">
+                        <p>James Scholar Honors Program</p>
+                        <p>College of Engineering Dean's List</p>
+                        <p>Tau Beta Pi Engineering Honor Society</p>
+                        <p>GE Women's Network Scholarship</p>
+                        <p>Illinois Engineering Achievement Scholarship</p>
+                    </div>
+                    <div class="col-lg-6 content">
+                        <p>Marjorie M. Voigt Turley and William H. Turley Scholarship</p>
+                        <p>MSCI Central States Chapter Scholarship</p>
+                        <p>College of Engineering Scholarship for Continuing Students</p>
+                        <p>H.S. Stillwell Memorial Scholarship</p>
+                        <p>Order of Omega Greek Leadership Honor Society</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
 
 
-
-
-          <hr>
-          <div class="col-12">
-              <div class="col-4"><p style="color:lightgrey">.</p></div>
-              <div class="col-4" style="text-align:center"><p style="color:black;font-family:'IBM Plex Mono', monospace;">Copyright &copy; 2019 <a href="https://kiewebdev.github.io" target="_blank" style="color:black">KIE Web Development</a></p></br></div>
-              <div class="col-4"><p style="color:lightgrey">.</p></div>
-          </div>
+    <!-- KIE Web Development Copyright -->
+    <hr />
+    <div class="container copyright">
+        <div class="row">
+            <div class="col-lg-12">
+                Copyright &copy; 2019 <a href="http://www.kiewebdev.com" class="copylink">KIE Web Development</a>
+            </div>
+        </div>
+    </div>
+    <!-- End Copyright-->
 </body>
 </html>
