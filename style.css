@@ -95,22 +95,22 @@ section {
     margin-bottom: 2rem;
 }
 
-.icon_package {
-    text-align: center;
-    margin-top: 2%;
-    margin-bottom: 2%;
+.row {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
 }
 
 .icon {
-    width: 20%;
+    width: 100%;
     border-radius: 50%;
 }
 
-    .icon:hover {
-        background: darkgrey;
-        border-radius: 50%;
-        transition: all 0.2s ease 0s;
-    }
+.icon:hover {
+    background: darkgrey;
+    border-radius: 50%;
+    transition: background 250ms;
+}
 
 hr {
     border: 0;
