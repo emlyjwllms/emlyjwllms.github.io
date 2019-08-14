@@ -112,6 +112,26 @@ section {
     transition: background 250ms;
 }
 
+.url {
+    color: black;
+    text-decoration: none;
+}
+   
+    .url:hover {
+        color: black;
+        text-decoration: underline;
+    }
+
+.url2 {
+    color: grey !important;
+    text-decoration: none !important;
+}
+
+    .url2:hover {
+        color: grey !important;
+        text-decoration: underline !important;
+    }
+
 hr {
     border: 0;
     height: 1px;
