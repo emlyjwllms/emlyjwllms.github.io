@@ -8,10 +8,38 @@
     --mainfont: 'PT Sans', sans-serif;
 }
 
-html, body {
+/*html, body {
     font-family: var(--mainfont);
     height: 100%;
     scroll-behavior: smooth;
+}*/
+
+@font-face {
+    font-family: "Computer Modern";
+    src: url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunss.otf');
+}
+
+@font-face {
+    font-family: "Computer Modern";
+    src: url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunsx.otf');
+    font-weight: bold;
+}
+
+@font-face {
+    font-family: "Computer Modern";
+    src: url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunsi.otf');
+    font-style: italic, oblique;
+}
+
+@font-face {
+    font-family: "Computer Modern";
+    src: url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunbxo.otf');
+    font-weight: bold;
+    font-style: italic, oblique;
+}
+
+body {
+    font-family: "Computer Modern", sans-serif;
 }
 
 .row {
@@ -80,6 +108,11 @@ section {
         padding-top: 2%;
         border-bottom: 5px solid var(--color3);
     }
+
+.title:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
 
 .title:after {
     content: "";
