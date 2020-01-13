@@ -38,8 +38,9 @@
     font-style: italic, oblique;
 }
 
-body {
+html, body {
     font-family: "Computer Modern", sans-serif;
+    scroll-behavior: smooth;
 }
 
 .row {
@@ -135,7 +136,7 @@ section {
 }
 
 .icon {
-    width: 100%;
+    width: 20%;
     border-radius: 50%;
 }
 
@@ -170,7 +171,7 @@ hr {
     height: 1px;
     background: #333;
     background-image: linear-gradient(to right, #ccc, #333, #ccc);
-    margin-top: 15%;
+    margin-top: 5%;
 }
 
 .copyright {
