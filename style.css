@@ -1,20 +1,20 @@
-@import url('https://fonts.googleapis.com/css?family=IBM+Plex+Mono');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu');
 
 :root {
     --color1: #ebebeb;
     --color2: #adcbff;
     --color3: #e8ccff;
     --color4: #303035;
-    --mainfont: 'PT Sans', sans-serif;
+    --mainfont: 'Ubuntu', sans-serif;
 }
 
-/*html, body {
+html, body {
     font-family: var(--mainfont);
     height: 100%;
     scroll-behavior: smooth;
-}*/
+}
 
-@font-face {
+/*@font-face {
     font-family: "Computer Modern";
     src: url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunss.otf');
 }
@@ -41,7 +41,7 @@
 html, body {
     font-family: "Computer Modern", sans-serif;
     scroll-behavior: smooth;
-}
+}*/
 
 .row {
     width: 100%;
@@ -49,12 +49,14 @@ html, body {
 
 body {
     padding-top: 4rem;
+    background-color: #fff;
 }
 
 .navbar-nav .nav-link {
     padding-right: 0;
     padding-left: 0;
     text-transform: uppercase;
+    justify-content: normal;
     font-size: 80%;
     letter-spacing: 0.1rem;
 }
@@ -168,10 +170,9 @@ section {
 
 hr {
     border: 0;
-    height: 1px;
-    background: #333;
-    background-image: linear-gradient(to right, #ccc, #333, #ccc);
-    margin-top: 5%;
+    height: 2px;
+    background: #e8ccff;
+    margin-top: 2.5%;
 }
 
 .copyright {
