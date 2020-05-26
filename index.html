@@ -17,7 +17,11 @@
     <div class="pb-2 border-bottom border-primary" style="background-color:#eef7ff;">
         <div class="container pb-2">
             <h2 class="mt-0 pt-3">Emily Williams</h2>
-            <a href="mailto:emilyjw2@illinois.edu" target="_blank"><img src="email.svg" style="height:15px" /></a> &#183; <a href="https://www.facebook.com/emily2williams" target="_blank"><img src="facebook.svg" style="height:15px" /></a> &#183; <a href="https://www.linkedin.com/in/ejw1" target="_blank"><img src="linkedin.svg" style="height:15px" /></a> &#183; <a href="https://www.github.com/emilyjwilliams" target="_blank"><img src="github.svg" style="height:15px" /></a> &#183; <a href="https://emilyjwilliams.github.io/emilywilliams.pdf" target="_blank"><img src="cloud-computing.svg" style="height:15px" /></a>
+            <a href="https://emilyjwilliams.github.io/emilywilliams.pdf" target="_blank"><button type="button"
+                class="btn btn-outline-dark btn-sm m-0 mb-1">Resume</button></a>
+            <a href="https://emilyjwilliams.github.io/emilywilliams_CV.pdf" target="_blank"><button type="button"
+                class="btn btn-outline-dark btn-sm m-0 mb-1">CV</button></a>
+            <br><a href="mailto:emilyjw2@illinois.edu" target="_blank"><img src="email.svg" style="height:15px" /></a> &#183; <a href="https://www.facebook.com/emily2williams" target="_blank"><img src="facebook.svg" style="height:15px" /></a> &#183; <a href="https://www.linkedin.com/in/ejw2" target="_blank"><img src="linkedin.svg" style="height:15px" /></a> &#183; <a href="https://www.github.com/emilyjwilliams" target="_blank"><img src="github.svg" style="height:15px" /></a>
         </div>
     </div>
 
@@ -34,7 +38,7 @@
 
         <div class="card d-flex justify-content-center align-items-center text-center py-2 mt-2">
             <div class="row justify-content-center align-items-center">
-                <a href="https://emilyjwilliams.github.io/portfolio/" target="_blank"><b>CAD portfolio with models and other tech projects &#8594;</b></a>
+                <a href="https://emilyjwilliams.github.io/portfolio/" target="_blank"><b>CAD portfolio (models from AE 199 / AE 140 and RSOs) &#8594;</b></a>
             </div>
         </div>
 
@@ -149,30 +153,148 @@
         <hr />
 
         <h3>Research</h3>
-        <div class="card d-flex justify-content-center align-items-center text-center py-2 mt-2 mb-3">
-            <div class="row justify-content-center align-items-center">
-                <a href="https://emilywilliams.web.illinois.edu" target="_blank"><b>Check out my research page via web.illinois.edu &#8594;</b></a>
+
+        <h5>Numerics and Unsteady Flows Group (NUF)</h5>
+        <div class="mb-2">
+            <b>Advisor: Andres Goza, PhD</b> [<a href="mailto:agoza@illinois.edu">agoza@illinois.edu</a>]
+        </div>
+        <p>
+            Coming soon.
+        </p>
+
+        <hr style="width:50%"/>
+
+        <h5>Center for Hypersonics & Entry Systems Studies (CHESS)</h5>
+        <div class="mb-2">
+            <b>Advisor: Marco Panesi, PhD</b> [<a href="mailto:mpanesi@illinois.edu">mpanesi@illinois.edu</a>]<br>
+            Mentors: Maitreyee Sharma [<a href="mailto:sharmap2@illinois.edu">sharmap2@illinois.edu</a>], Simone Venturi
+            [<a href="mailto:sventuri@illinois.edu">sventuri@illinois.edu</a>]
+        </div>
+        <p>
+            At CHESS, I spent Spring 2020 looking into the relation of dissociation rates to the centrifugal barrier.
+            Hypersonic reentry flight experiences extreme temperatures leading to a state of chemical non-equilibrium in
+            the flow. To analyze the state-to-state (StS) kinetics for these flows, we propose to fit the kinetics data
+            using sparse regression techniques. The advantages of obtaining an expression includes providing an incite
+            into the relation of dissociation via various levels to the centrifugal barrier and arriving at a
+            physics-informed grouping strategy to reduce the dimension of the kinetics system. This would further aid in
+            modeling the reactions that take place in the flow in a computationally efficient way.
+        </p>
+        <p>
+            Fitting the kinetics data required the use of the MATLAB curve-fitting toolbox. Messing with the different
+            parameters yielded a variety of different initial results, with more accurate results coming from using
+            sparse regression techniques.
+        </p>
+
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <img src="cubic_interp.png" style="width:100%">
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <img src="smoothing_spline.png" style="width:100%">
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <img src="linear_interp.png" style="width:100%">
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <img src="regression.png" style="width:100%">
             </div>
         </div>
-        <b>Independent Study under Prof Andres Goza</b>
+
         <p>
-            In the Numerics and Unsteady Flows Group (NUF), I'm currently working towards developing an existing numerical
-            method into a higher order method of the same algorithm.
+            Looking at the correlation between the dissociation rates and the rotational and vibrational quantum numbers
+            also
+            was able to be visually represented using contour plots with an accurate line of best fit:
         </p>
 
-        <b>Independent Study (AE 497) under Prof Marco Panesi</b>
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <img src="leveljqn.png" style="width:100%">
+            </div>
+            <div class="col-md-6 col-sm-12">
+                <img src="levelvqn.png" style="width:100%">
+            </div>
+        </div>
+
         <p>
-            At the Center for Hypersonics & Entry Systems Studies (CHESS), I'm currently working towards fitting the kinetics data of hypersonic reentry flight using sparse regression techniques
-            to obtain an expression for the state-to-state dissociation rates in terms of the position of the centrifugal barrier.
-            By selecting a large basis set of functions that include exponentials and polynomials motivated by derivations from transition state theory,
-            we can model the chemical reactions that take place in the flow.
+            Future research will be devoted towards analyzing the relations between other parameters as different
+            variables
+            impact the dissociation rates. This research shows that these rates are primarily governed by rotation,
+            which
+            previous studies in this field commonly neglect for simplicity. Once we can understand the extent that
+            rotation affects
+            the dissociation rates, these models can be used for various applications in computational fluid dynamics.
         </p>
 
-        <b>Cubesat I (ENG 491) under Prof Michael Lembeck</b>
+        <div class="row">
+            <div class="col-12" style="text-align: center;">
+                <img src="levelvqn_nocontour.png" style="width:80%">
+            </div>
+        </div>
         <p>
-            At the Laboratory for Advanced Space Systems at Illinois (LASSI), I've managed various teams from mission operations to the entire satellite program after
-            initially assisting with structural CAD tasks and systems engineering with proposals and requirements documents.
+            <ul>
+                <li>
+                    [<a href="Poster.pdf" target="_blank">Poster</a>] "Relation of Dissociation Rates to the Centrifugal
+                    Barrier" (April 2020)
+                    <p>2020 Undergraduate Research Symposium (URS)</p>
+                </li>
+            </ul>
         </p>
+
+        <hr style="width:50%"/>
+        
+        <h5>Laboratory for Advanced Space Systems at Illinois (LASSI)</h5>
+        <div class="mb-2">
+            <b>Advisor: Michael Lembeck, PhD</b> [<a href="mailto:mlembeck@illinois.edu">mlembeck@illinois.edu</a>]<br>
+            Mentor: Hongrui Zhao [<a href="mailto:hongrui5@illinois.edu">hongrui5@illinois.edu</a>]
+        </div>
+        
+        Mission Operations Manager [Spring 2020 - Summer 2020]
+        <ul>
+            <li>
+                Managed and directed software development progress for Steven R. Nagel Mission Operations Center
+            </li>
+            <li>
+                Developed software to display pass trends and visual data onscreen through mission control accessible webpage using HTML/CSS
+            </li>
+        </ul>
+        Program Manager [Spring 2019 - Spring 2020]
+        <ul>
+            <li>
+                Oversaw and monitored all satellite mission progress across entire laboratory program through collaboration with mission coordinators and subteam leads
+            </li>
+            <li>
+                Implemented robust scheduling system adaptable for tracking mission deliverables and responsibilities for five active satellite programs
+            </li>
+        </ul>
+        <div class="row">
+            <div class="col-12" style="text-align: center;">
+                <img src="sat.png" style="width:80%">
+            </div>
+        </div>
+        Systems Engineer [Fall 2018 - Spring 2019]
+        <ul>
+            <li>
+                Drafted proposals and requirements and coordinated structural components in PTC Creo for future NASA-funded missions for low-Earth orbit research
+            </li>
+        </ul>
+        Structural Test Engineer [Fall 2017 - Fall 2018]
+        <ul>
+            <li>
+                Developed cumulative bill of materials and restructured current satellite bus assembly model
+            </li>
+            <li>
+                Oversaw use and experiments involving 3D printers, thermal vacuums, and soldering equipment
+            </li>
+        </ul>
+        <div class="row">
+            <div class="col-md-6 col-sm-12" style="text-align: center;">
+                <img src="cubesail.png" style="height:250px">
+            </div>
+            <div class="col-md-6 col-sm-12" style="text-align: center;">
+                <img src="laser.png" style="height:250px">
+            </div>
+        </div>
+
 
         <hr />
 
