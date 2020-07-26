@@ -17,11 +17,11 @@
     <div class="pb-2 border-bottom border-primary" style="background-color:#eef7ff;">
         <div class="container pb-2">
             <h2 class="mt-0 pt-3">Emily Williams</h2>
-            <a href="https://emilyjwilliams.github.io/emilywilliams.pdf" target="_blank"><button type="button"
+            <!--<a href="https://emilyjwilliams.github.io/emilywilliams.pdf" target="_blank"><button type="button"
                 class="btn btn-outline-dark btn-sm m-0 mb-1">Resume</button></a>
             <a href="https://emilyjwilliams.github.io/emilywilliams_CV.pdf" target="_blank"><button type="button"
-                class="btn btn-outline-dark btn-sm m-0 mb-1">CV</button></a>
-            <br><a href="mailto:emilyjw2@illinois.edu" target="_blank"><img src="email.svg" style="height:15px" /></a> &#183; <a href="https://www.facebook.com/emily2williams" target="_blank"><img src="facebook.svg" style="height:15px" /></a> &#183; <a href="https://www.linkedin.com/in/ejw2" target="_blank"><img src="linkedin.svg" style="height:15px" /></a> &#183; <a href="https://www.github.com/emilyjwilliams" target="_blank"><img src="github.svg" style="height:15px" /></a>
+                class="btn btn-outline-dark btn-sm m-0 mb-1">CV</button></a>-->
+            <a href="mailto:emilyjw2@illinois.edu" target="_blank"><img src="email.svg" style="height:15px" /></a> &#183; <a href="https://www.facebook.com/emily2williams" target="_blank"><img src="facebook.svg" style="height:15px" /></a> &#183; <a href="https://www.linkedin.com/in/ejw2" target="_blank"><img src="linkedin.svg" style="height:15px" /></a> &#183; <a href="https://www.github.com/emilyjwilliams" target="_blank"><img src="github.svg" style="height:15px" /></a>
         </div>
     </div>
 
@@ -31,16 +31,15 @@
         <div class="row mt-5">
             <p>
                 I'm currently a senior aerospace engineering student minoring in atmospheric sciences at the University of Illinois at Urbana-Champaign.
-                My research interests include computational flow and fluid dynamics, numerical methods, and hypersonic reentry flows.
-                This page is meant to consolidate my research milestones, campus involvement, teaching experiences, and other notable skills and awards.
+                My research interests include aerothermodynamics, hypersonics, re-entry flight, computational flow and fluid dynamics, fluid-structure interaction, numerical methods, and machine learning for aerospace applications.
             </p>
         </div>
 
-        <div class="card d-flex justify-content-center align-items-center text-center py-2 mt-2">
+        <!--<div class="card d-flex justify-content-center align-items-center text-center py-2 mt-2">
             <div class="row justify-content-center align-items-center">
                 <a href="https://emilyjwilliams.github.io/portfolio/" target="_blank"><b>CAD portfolio (models from AE 199 / AE 140 and RSOs) &#8594;</b></a>
             </div>
-        </div>
+        </div>-->
 
         <hr />
 
@@ -50,11 +49,12 @@
             Bachelor of Science in Aerospace Engineering, Minor in Atmospheric Sciences<br>
             GPA: 3.95 / 4.00<br>
             Exp. May 2021<br><br>
-            <i>Advanced Coursework (Major):</i> Aerospace Structures, Dynamical and Control Systems, 
-            Compressible and Incompressible Flow, Flight Mechanics, Numerical Methods, 
-            Propulsion, Aerodynamics, Autonomous Systems, Systems Design, Independent Study<br><br>
-            <i>Advanced Coursework (Minor):</i> Meteorology, Climate Data Science, Computing & Data Analysis, 
-            Earth Systems Modeling, Data Science for Geosciences
+            <i>Advanced Coursework (Major):</i> Aerospace Computer-Aided Design, Aerospace Flight Mechanics, Incompressible Flow, 
+            Compressible Flow, Mechanics of Aerospace Structures, Applied Aerospace Structures, 
+            Aerospace Dynamical Systems, Aerospace Control Systems, Aerospace Numerical Methods, 
+            Aerospace Propulsion, Aerospace Systems Design, Aerodynamics & Propulsion Lab, Autonomous Systems Lab, Independent Study<br><br>
+            <i>Advanced Coursework (Minor):</i> Severe & Hazardous Weather, Climate & Global Change, General Physical Meteorology, 
+            Weather & Climate Data Science, Computing & Data Analysis, Earth Systems Modeling, Numerical Fluid Dynamics, Data Science for the Geosciences
         </p>
 
         I am currently looking into graduate programs starting in Fall 2021!
@@ -68,11 +68,37 @@
             <b>Advisor: Andres Goza, PhD</b> [<a href="mailto:agoza@illinois.edu">agoza@illinois.edu</a>]
         </div>
         <p>
-            I'm currently exploring how to make the immersed boundary method higher order as it is applied to
+            I'm currently exploring how to make the immersed boundary (IB) method higher order as it is applied to
             viscous, incompressible Navier Stokes equations, which are spatially discretized using the method of lines.
             I'm developing an algorithm that adheres to the immersed boundary smooth extension method to accomplish this goal.
         </p>
-
+        <p>
+            The immersed boundary smooth extension (IBSE) method poses a higher-order partial differential equation outside of the physical domain, with boundary conditions matching the exact solution,
+            leading to high-order accuracy. The first figure below highlights how, For generic problems, the IB method produces discretizations that are only first-order accurate in the vicinity of domain boundaries or 
+            fluid-structure interfaces. However, the process of making the domain boundary forcing function result in a continuous function across the 
+            entire domain, rather than a piecewise, allows the function to be increasingly differentiable, making the solution able to achieve higher-order accuracy overall.
+        </p>
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-12 col-lg-6" style="text-align: center;">
+                <img src="sols.PNG" style="width:100%">
+            </div>
+        </div>
+        <p>
+            The above figures show the extended forcing made to result in a continuous derivative solution at the boundaries of the physical domain from Stein, Guy, and Thomases (2017).
+        </p>
+        <p>
+            These papers offer more insight into the problem that I'm investigating:
+            <ul>
+                <li>
+                    Stein, D., Guy, R., and Thomases, B. <i>Immersed Boundary Smooth Extension (IBSE): A high-order method for solving incompressible flows in arbitrary smooth domains.</i> 
+                    Journal of Computational Physics, Volume 335, April 2017, Pages 155-178, <a href="https://doi.org/10.1016/j.jcp.2017.01.010" target="_blank">https://doi.org/10.1016/j.jcp.2017.01.010</a>.
+                </li>
+                <li>
+                    Colonius, T., and Taira, K. <i>A fast immersed boundary method using a nullspace approach and multi-domain far-field boundary conditions.</i> 
+                    Computer Methods in Applied Mechanics and Engineering, Volume 197, Issues 25-28, April 2008, Pages 2131-2146, <a href="https://doi.org/10.1016/j.cma.2007.08.014" target="_blank">https://doi.org/10.1016/j.cma.2007.08.014</a>.
+                </li>
+            </ul>
+        </p>
         <hr style="width:50%"/>
 
         <h5>Center for Hypersonics & Entry Systems Studies (CHESS)</h5>
@@ -139,11 +165,11 @@
             the dissociation rates, these models can be used for various applications in computational fluid dynamics.
         </p>
 
-        <div class="row d-flex justify-content-center">
+        <!--<div class="row d-flex justify-content-center">
             <div class="col-md-12 col-lg-6" style="text-align: center;">
                 <img src="levelvqn_nocontour.png" style="width:100%">
             </div>
-        </div>
+        </div>-->
         <div>
             <ul>
                 <li>
@@ -169,11 +195,11 @@
                 Developed software to display pass trends and visual data onscreen through mission control accessible webpage using HTML/CSS
             </li>
         </ul>
-        <div class="row d-flex justify-content-center">
+        <!--<div class="row d-flex justify-content-center">
             <div class="col-md-12 col-lg-6 mb-3" style="text-align: center;">
                 <img src="moc.png" style="width:100%">
             </div>
-        </div>
+        </div>-->
         Program Manager [Spring 2019 - Spring 2020]
         <ul>
             <li>
