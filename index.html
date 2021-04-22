@@ -1,446 +1,255 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8">
     <title>Emily Williams</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=PT+Sans&display=swap" rel="stylesheet">
+    <link id="dark-theme-style" rel="stylesheet" />
     <link href="style.css" type="text/css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
 </head>
+<body>
 
-<body class="pt-0">
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
-    <div class="pb-2 border-bottom border-primary" style="background-color:#eef7ff;">
-        <div class="container pb-2">
-            <h2 class="mt-0 pt-3">Emily Williams</h2>
-            <a href="mailto:emilyjw2@illinois.edu" target="_blank"><img src="email.svg" style="height:15px" /></a> &#183; <a href="https://www.linkedin.com/in/emlyjwllms" target="_blank"><img src="linkedin.svg" style="height:15px" /></a> &#183; <a href="https://www.github.com/emlyjwllms" target="_blank"><img src="github.svg" style="height:15px" /></a>
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Emily Williams</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link" href="projects.html">Projects</a>
+          <a class="nav-link" href="teaching.html">Teaching</a>
+          <a class="nav-link" href="honors.html">Honors</a>
+          <a class="nav-link disabled mr-3" href="publications.html">Publications</a>
+          <!--<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Publications</a>-->
+          <a
+                  href="javascript:void()"
+                  class="btn btn-secondary btn-md custom"
+                  id="theme-toggler"
+                  onclick="toggleTheme()"
+                ></a>
         </div>
+      </div>
+    </div>
+  </nav>
+
+<div class="container">
+  <div class="row mb-3">
+      <div class="col-lg-9 my-3">
+        I'm currently a senior aerospace engineering student minoring in atmospheric sciences with a concentration in computational science and engineering at the University of Illinois at Urbana-Champaign. I am starting my PhD in Fall 2021 @ MIT. I'll be working with Dr. Adri&aacute;n Lozano-Dur&aacute;n on artifical intelligence and quantum computing for numerical simulations of fluids in the hypersonic regime. The simulation below is from <a href="https://doi.org/10.1017/jfm.2014.575" target="_blank" style="color: inherit">Lozano-Dur&aacute;n et al. JFM 2014</a>.
+        <div class="embed-responsive embed-responsive-16by9 mt-2">
+          <iframe src="https://www.youtube.com/embed/lqbOQb2gB_0?playlist=lqbOQb2gB_0&autoplay=1&mute=1&controls=0&loop=1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="col-lg-3 order-first order-lg-last" align="center">
+        <div class="card my-3">
+          <img src="ejw.JPG" class="card-img-top">
+          <div class="card-body px-0">
+            <p class="card-text">
+
+              <a href="mailto:ejwllms@mit.edu" style="text-decoration: none;color: inherit">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-envelope-fill mx-2" viewBox="0 0 16 16">
+              <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z"/>
+              </svg>
+              </a>
+
+              <a href="EJW_CV.pdf" target="_blank" style="text-decoration: none;color: inherit">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-download mx-2" viewBox="0 0 16 16">
+                <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V1.5a.5.5 0 0 0-1 0v8.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+              </svg>
+              </a>
+
+              <a href="https://www.github.com/emlyjwllms" target="_blank" style="text-decoration: none;color: inherit">
+              <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-github mx-2" viewBox="0 0 16 16">
+                <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/>
+              </svg>
+              </a>
+
+              <a href="https://www.linkedin.com/in/emlyjwllms" target="_blank" style="text-decoration: none;color: inherit">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-linkedin mx-2" viewBox="0 0 16 16">
+                  <path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016a5.54 5.54 0 0 1 .016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/>
+                </svg>
+              </a>
+
+            </p>
+            <p class="card-text">(2021-) MS/PhD AE, MIT<br>(2017-2021) BS AE, UIUC<br>
+            <hr>
+                  Research Interests: <br>
+                  <ul align="left">
+                    <li>Aerothermodynamics</li>
+                    <li>Hypersonics</li>
+                    <li>Computational Aerodynamics</li>
+                    <li>Numerical Methods</li>
+                    <li>Machine Learning</li>
+
+                  </ul>
+                  </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+      <div class="row mb-3">
+      <div class = "col-lg-12">
+        <h5>Numerics and Unsteady Flows Group [<a href="https://sites.google.com/illinois.edu/nufgroup/home" style="color: inherit" target="_blank">NUF</a>]</h5>
+                <div class="mb-2">
+                    <b>Advisor: Andres Goza, PhD</b>
+                </div>
+                <p>
+                    I'm currently exploring how to make the immersed boundary (IB) method higher order as it is applied to
+                    viscous, incompressible Navier Stokes equations, which are spatially discretized using the method of lines.
+                    I'm employing the immersed boundary smooth extension method to accomplish this goal.
+                </p>
+                <p>
+                    The immersed boundary smooth extension (IBSE) method poses a higher-order partial differential equation outside of the physical domain, with boundary conditions matching the exact solution,
+                    leading to high-order accuracy. The first figure below highlights how, for generic problems, the IB method produces discretizations that are only first-order accurate in the vicinity of domain boundaries or
+                    fluid-structure interfaces. However, the process of making the domain boundary forcing function result in a continuous function across the
+                    entire domain, rather than a piecewise, allows the function to be increasingly differentiable, making the solution able to achieve higher-order accuracy overall.
+                </p>
+                <div class="row d-flex justify-content-center mb-2">
+                    <div class="col-lg-12" style="text-align: center;">
+                        <img src="sols.PNG" style="width:90%">
+                    </div>
+                </div>
+                <p>
+                    The above figures show the extended forcing made to result in a continuous derivative solution at the boundaries of the physical domain from Stein, Guy, and Thomases (2017).
+                </p>
+                <p>
+                    These papers offer more insight into the problem that I'm investigating:
+                    <ul>
+                        <li>
+                            Qadeer, S., and Griffith, B. <i>The Smooth Forcing Extension Method: A High-Order Technique for Solving Elliptic Equations on Complex Domains.</i> March 2020,
+                            <a href="arXiv:2003.04924v1" target="_blank">arXiv:2003.04924v1</a>.
+                        </li>
+                        <li>
+                            Stein, D., Guy, R., and Thomases, B. <i>Immersed Boundary Smooth Extension (IBSE): A high-order method for solving incompressible flows in arbitrary smooth domains.</i>
+                            Journal of Computational Physics, Volume 335, April 2017, Pages 155-178, <a href="https://doi.org/10.1016/j.jcp.2017.01.010" target="_blank" style="color: inherit">https://doi.org/10.1016/j.jcp.2017.01.010</a>.
+                        </li>
+                        <li style="margin-bottom:3em;">
+                            Colonius, T., and Taira, K. <i>A fast immersed boundary method using a nullspace approach and multi-domain far-field boundary conditions.</i>
+                            Computer Methods in Applied Mechanics and Engineering, Volume 197, Issues 25-28, April 2008, Pages 2131-2146, <a href="https://doi.org/10.1016/j.cma.2007.08.014" target="_blank" style="color: inherit">https://doi.org/10.1016/j.cma.2007.08.014</a>.
+                        </li>
+                    </ul>
+                </p>
+
+
+                <hr>
+
+                <h5>Center for Hypersonics & Entry Systems Studies [<a href="https://www.chess.aerospace.illinois.edu/" style="color: inherit" target="_blank">CHESS</a>]</h5>
+                        <div class="mb-2">
+                            <b>Advisor: Marco Panesi, PhD</b>
+                        </div>
+                        <p>
+                            For Fall 2020, I'm currently using TensorFlow neural networks to fit 3D potential energy surfaces to acquire the reaction rates of the hydrogen cyanide (HCN) system.
+                            Optimization and regularization are being used on permutationally invariant polynomials with uncertainty quantification to determine the accuracy needed for the diatomic potential fit to be acceptable.
+                        </p>
+                        <p>
+                            Machine learning techniques are very powerful in modeling, simulation, and (sometimes) prediction. Different Python packages are available that employ machine learning and neural networks to fit given data.
+                            Training sets are used to train the modeling algorithm and then applied to fit new data to test the algorithm. For the data sets displayed, the red line represents the results from the trained model and the green line represents the actual solution returned by the function.
+                            The training set data is generated by adding noise to the set function. The keras library was used in Python for developing and evaluating these models.
+                        </p>
+
+                        <div class="row mb-3">
+                            <div class="col-lg-6">
+                                <img src="ts1.png" style="width:90%">
+                            </div>
+                            <div class="col-lg-6">
+                                <img src="r1.png" style="width:90%">
+                            </div>
+                            <div class="col-lg-6">
+                                <img src="ts2.png" style="width:90%">
+                            </div>
+                            <div class="col-lg-6">
+                                <img src="r2.png" style="width:90%">
+                            </div>
+                        </div>
+
+                        <p>
+                            These papers offer more insight into the problem that I'm investigating:
+                            <ul>
+                                <li>
+                                    Venturi, S., Jaffe, R. L., and Panesi, M. <i>Bayesian Machine Learning Approach to the Quantification of Uncertainties on Ab Initio Potential Energy Surfaces.</i>
+                                    The Journal of Physical Chemistry, American Chemical Society, Volume 124, Issue 25, May 2020, <a href="https://doi.org/10.1021/acs.jpca.0c02395" style="color: inherit" target="_blank">https://doi.org/10.1021/acs.jpca.0c02395</a>.
+                                </li>
+                                <li>
+                                    Venturi, S., Sharma, M. P., Racca, A., and Panesi, M. <i>Effect of Ab-Initio Potential Energy Surfaces on O<sub>2</sub>+O Non-equilibrium Kinetics.</i>
+                                    AIAA Aviation 2019 Forum, June 2019, <a href="https://doi.org/10.2514/6.2019-3358" target="_blank">https://doi.org/10.2514/6.2019-3358</a>.
+                                </li>
+                                <li>
+                                    Yang, K. R., Varga, Z., and Truhlar, D. <i>PIPFit: A program to perform linear least-squares fitting of potential energy surfaces using permutationally invariant polynomials.</i>
+                                    University of Minnesota, Department of Chemistry, Chemical Theory Center, and Supercomputing Institute, July 2015, <a href="https://comp.chem.umn.edu/pipfit/" style="color: inherit" target="_blank">https://comp.chem.umn.edu/pipfit/</a>.
+                                </li>
+                            </ul>
+                        </p>
+                        <p>
+                            I spent Spring 2020 looking into the relation of dissociation rates to the centrifugal barrier.
+                            Hypersonic re-entry flight experiences extreme temperatures leading to a state of chemical non-equilibrium in
+                            the flow. To analyze the state-to-state (StS) kinetics for these flows, we propose to fit the kinetics data
+                            using sparse regression techniques. The advantages of obtaining an expression includes providing an insight
+                            into the relation of dissociation via various levels to the centrifugal barrier and arriving at a
+                            physics-informed grouping strategy to reduce the dimension of the kinetics system. This would further aid in
+                            modeling the reactions that take place in the flow in a computationally efficient way.
+                        </p>
+                        <p>
+                            Fitting the kinetics data required the use of the MATLAB curve-fitting toolbox. Messing with the different
+                            parameters yielded a variety of different initial results, with more accurate results coming from using
+                            sparse regression techniques.
+                        </p>
+
+                        <div class="row mb-3">
+                            <div class="col-lg-6">
+                                <img src="cubic_interp.png" style="width:90%">
+                            </div>
+                            <div class="col-lg-6">
+                                <img src="smoothing_spline.png" style="width:90%">
+                            </div>
+                            <div class="col-lg-6">
+                                <img src="linear_interp.png" style="width:90%">
+                            </div>
+                            <div class="col-lg-6">
+                                <img src="regression.png" style="width:90%">
+                            </div>
+                        </div>
+
+                        <p>
+                            Looking at the correlation between the dissociation rates and the rotational and vibrational quantum numbers
+                            also
+                            was able to be visually represented using contour plots with an accurate line of best fit:
+                        </p>
+
+                        <div class="row mb-3">
+                            <div class="col-lg-6">
+                                <img src="leveljqn.png" style="width:90%">
+                            </div>
+                            <div class="col-lg-6">
+                                <img src="levelvqn.png" style="width:90%">
+                            </div>
+                        </div>
+
+                        <p>
+                            Future research will be devoted towards analyzing the relations between other parameters as different
+                            variables
+                            impact the dissociation rates. This research shows that these rates are primarily governed by rotation,
+                            which
+                            previous studies in this field commonly neglect for simplicity. Once we can understand the extent that
+                            rotation affects
+                            the dissociation rates, these models can be used for various applications in computational fluid dynamics.
+                        </p>
+
+      </div>
     </div>
 
 
 
-    <div class="container">
-        <div class="row mt-5">
-            <p>
-                I'm currently a senior aerospace engineering student minoring in atmospheric sciences with a concentration in computational science and engineering at the University of Illinois at Urbana-Champaign.
-                My research interests include aerothermodynamics, hypersonics, computational aerodynamics, numerical methods, and machine learning for aerospace applications.
-            </p>
-            <p>
-                <!--Click <a href="EJW_RESUME.pdf" target="_blank">here</a> to see my resume or <a href="EJW_CV.pdf" target="_blank">here</a> to see my CV.-->
-                Click <a href="EJW_CV.pdf" target="_blank">here</a> to see my CV.
-            </p>
-        </div>
-
-        <!--<div class="card d-flex justify-content-center align-items-center text-center py-2 mt-2">
-            <div class="row justify-content-center align-items-center">
-                <a href="https://emilyjwilliams.github.io/portfolio/" target="_blank"><b>CAD portfolio (models from AE 199 / AE 140 and RSOs) &#8594;</b></a>
-            </div>
-        </div>-->
-
-        <hr />
-
-        <h3>Education</h3>
-        <b>University of Illinois at Urbana-Champaign, Grainger College of Engineering</b>
-        <p>
-            Bachelor of Science in Aerospace Engineering, Minor in Atmospheric Sciences<br>
-            GPA: 3.95 / 4.00<br>
-            Exp. May 2021<br><br>
-            <i>Advanced Coursework (Major):</i> Aerospace Computer-Aided Design, Aerospace Flight Mechanics, Incompressible Flow,
-            Compressible Flow, Mechanics of Aerospace Structures, Applied Aerospace Structures,
-            Aerospace Dynamical Systems, Aerospace Control Systems, Aerospace Numerical Methods,
-            Aerospace Propulsion, Aerospace Systems Design, Aerodynamics & Propulsion Lab, Autonomous Systems Lab,
-            Hypersonic Aerothermodynamics, Computational Aerodynamics, Structures & Controls Lab, Independent Study<br><br>
-            <i>Advanced Coursework (Minor):</i> Severe & Hazardous Weather, Climate & Global Change, General Physical Meteorology,
-            Weather & Climate Data Science, Computing & Data Analysis, Earth Systems Modeling, Numerical Fluid Dynamics, Risk Analysis in Earth Science
-        </p>
-        <br>
-        <b>I am starting my PhD in Fall 2021 @ MIT.</b> I'll be working with Dr. Adri&aacute;n Lozano-Dur&aacute;n on artificial intelligence and quantum computing for numerical simulations of fluids in the hypersonic regime.
-
-        <hr />
-
-        <h3>Research</h3>
-
-        <h5>Numerics and Unsteady Flows Group [<a href="https://sites.google.com/illinois.edu/nufgroup/home" target="_blank">NUF</a>]</h5>
-        <div class="mb-2">
-            <b>Advisor: Andres Goza, PhD</b> [<a href="mailto:agoza@illinois.edu">agoza@illinois.edu</a>]
-        </div>
-        <p>
-            I'm currently exploring how to make the immersed boundary (IB) method higher order as it is applied to
-            viscous, incompressible Navier Stokes equations, which are spatially discretized using the method of lines.
-            I'm employing the immersed boundary smooth extension method to accomplish this goal.
-        </p>
-        <p>
-            The immersed boundary smooth extension (IBSE) method poses a higher-order partial differential equation outside of the physical domain, with boundary conditions matching the exact solution,
-            leading to high-order accuracy. The first figure below highlights how, for generic problems, the IB method produces discretizations that are only first-order accurate in the vicinity of domain boundaries or
-            fluid-structure interfaces. However, the process of making the domain boundary forcing function result in a continuous function across the
-            entire domain, rather than a piecewise, allows the function to be increasingly differentiable, making the solution able to achieve higher-order accuracy overall.
-        </p>
-        <div class="row d-flex justify-content-center">
-            <div class="col-md-12 col-lg-6" style="text-align: center;">
-                <img src="sols.PNG" style="width:100%">
-            </div>
-        </div>
-        <p>
-            The above figures show the extended forcing made to result in a continuous derivative solution at the boundaries of the physical domain from Stein, Guy, and Thomases (2017).
-        </p>
-        <p>
-            These papers offer more insight into the problem that I'm investigating:
-            <ul>
-                <li>
-                    Qadeer, S., and Griffith, B. <i>The Smooth Forcing Extension Method: A High-Order Technique for Solving Elliptic Equations on Complex Domains.</i> March 2020,
-                    <a href="arXiv:2003.04924v1" target="_blank">arXiv:2003.04924v1</a>.
-                </li>
-                <li>
-                    Stein, D., Guy, R., and Thomases, B. <i>Immersed Boundary Smooth Extension (IBSE): A high-order method for solving incompressible flows in arbitrary smooth domains.</i>
-                    Journal of Computational Physics, Volume 335, April 2017, Pages 155-178, <a href="https://doi.org/10.1016/j.jcp.2017.01.010" target="_blank">https://doi.org/10.1016/j.jcp.2017.01.010</a>.
-                </li>
-                <li>
-                    Colonius, T., and Taira, K. <i>A fast immersed boundary method using a nullspace approach and multi-domain far-field boundary conditions.</i>
-                    Computer Methods in Applied Mechanics and Engineering, Volume 197, Issues 25-28, April 2008, Pages 2131-2146, <a href="https://doi.org/10.1016/j.cma.2007.08.014" target="_blank">https://doi.org/10.1016/j.cma.2007.08.014</a>.
-                </li>
-            </ul>
-        </p>
-        <hr style="width:50%"/>
-
-        <h5>Center for Hypersonics & Entry Systems Studies [<a href="https://www.chess.aerospace.illinois.edu/" target="_blank">CHESS</a>]</h5>
-        <div class="mb-2">
-            <b>Advisor: Marco Panesi, PhD</b> [<a href="mailto:mpanesi@illinois.edu">mpanesi@illinois.edu</a>]<br>
-            Mentors: Maitreyee Sharma [<a href="mailto:sharmap2@illinois.edu">sharmap2@illinois.edu</a>], Simone Venturi
-            [<a href="mailto:sventuri@illinois.edu">sventuri@illinois.edu</a>]
-        </div>
-        <p>
-            For Fall 2020, I'm currently using TensorFlow neural networks to fit 3D potential energy surfaces to acquire the reaction rates of the hydrogen cyanide (HCN) system.
-            Optimization and regularization are being used on permutationally invariant polynomials with uncertainty quantification to determine the accuracy needed for the diatomic potential fit to be acceptable.
-        </p>
-        <p>
-            Machine learning techniques are very powerful in modeling, simulation, and (sometimes) prediction. Different Python packages are available that employ machine learning and neural networks to fit given data.
-            Training sets are used to train the modeling algorithm and then applied to fit new data to test the algorithm. For the data sets displayed, the red line represents the results from the trained model and the green line represents the actual solution returned by the function.
-            The training set data is generated by adding noise to the set function. The keras library was used in Python for developing and evaluating these models.
-        </p>
-
-        <div class="row">
-            <div class="col-md-6 col-sm-12">
-                <img src="ts1.png" style="width:100%">
-            </div>
-            <div class="col-md-6 col-sm-12">
-                <img src="r1.png" style="width:100%">
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6 col-sm-12">
-                <img src="ts2.png" style="width:100%">
-            </div>
-            <div class="col-md-6 col-sm-12">
-                <img src="r2.png" style="width:100%">
-            </div>
-        </div>
-
-        <p>
-            These papers offer more insight into the problem that I'm investigating:
-            <ul>
-                <li>
-                    Venturi, S., Jaffe, R. L., and Panesi, M. <i>Bayesian Machine Learning Approach to the Quantification of Uncertainties on Ab Initio Potential Energy Surfaces.</i>
-                    The Journal of Physical Chemistry, American Chemical Society, Volume 124, Issue 25, May 2020, <a href="https://doi.org/10.1021/acs.jpca.0c02395" target="_blank">https://doi.org/10.1021/acs.jpca.0c02395</a>.
-                </li>
-                <li>
-                    Venturi, S., Sharma, M. P., Racca, A., and Panesi, M. <i>Effect of Ab-Initio Potential Energy Surfaces on O<sub>2</sub>+O Non-equilibrium Kinetics.</i>
-                    AIAA Aviation 2019 Forum, June 2019, <a href="https://doi.org/10.2514/6.2019-3358" target="_blank">https://doi.org/10.2514/6.2019-3358</a>.
-                </li>
-                <li>
-                    Yang, K. R., Varga, Z., and Truhlar, D. <i>PIPFit: A program to perform linear least-squares fitting of potential energy surfaces using permutationally invariant polynomials.</i>
-                    University of Minnesota, Department of Chemistry, Chemical Theory Center, and Supercomputing Institute, July 2015, <a href="https://comp.chem.umn.edu/pipfit/" target="_blank">https://comp.chem.umn.edu/pipfit/</a>.
-                </li>
-            </ul>
-        </p>
-        <p>
-            I spent Spring 2020 looking into the relation of dissociation rates to the centrifugal barrier.
-            Hypersonic re-entry flight experiences extreme temperatures leading to a state of chemical non-equilibrium in
-            the flow. To analyze the state-to-state (StS) kinetics for these flows, we propose to fit the kinetics data
-            using sparse regression techniques. The advantages of obtaining an expression includes providing an insight
-            into the relation of dissociation via various levels to the centrifugal barrier and arriving at a
-            physics-informed grouping strategy to reduce the dimension of the kinetics system. This would further aid in
-            modeling the reactions that take place in the flow in a computationally efficient way.
-        </p>
-        <p>
-            Fitting the kinetics data required the use of the MATLAB curve-fitting toolbox. Messing with the different
-            parameters yielded a variety of different initial results, with more accurate results coming from using
-            sparse regression techniques.
-        </p>
-
-        <div class="row">
-            <div class="col-md-6 col-sm-12">
-                <img src="cubic_interp.png" style="width:100%">
-            </div>
-            <div class="col-md-6 col-sm-12">
-                <img src="smoothing_spline.png" style="width:100%">
-            </div>
-            <div class="col-md-6 col-sm-12">
-                <img src="linear_interp.png" style="width:100%">
-            </div>
-            <div class="col-md-6 col-sm-12">
-                <img src="regression.png" style="width:100%">
-            </div>
-        </div>
-
-        <p>
-            Looking at the correlation between the dissociation rates and the rotational and vibrational quantum numbers
-            also
-            was able to be visually represented using contour plots with an accurate line of best fit:
-        </p>
-
-        <div class="row">
-            <div class="col-md-6 col-sm-12">
-                <img src="leveljqn.png" style="width:100%">
-            </div>
-            <div class="col-md-6 col-sm-12">
-                <img src="levelvqn.png" style="width:100%">
-            </div>
-        </div>
-
-        <p>
-            Future research will be devoted towards analyzing the relations between other parameters as different
-            variables
-            impact the dissociation rates. This research shows that these rates are primarily governed by rotation,
-            which
-            previous studies in this field commonly neglect for simplicity. Once we can understand the extent that
-            rotation affects
-            the dissociation rates, these models can be used for various applications in computational fluid dynamics.
-        </p>
-
-        <!--<div class="row d-flex justify-content-center">
-            <div class="col-md-12 col-lg-6" style="text-align: center;">
-                <img src="levelvqn_nocontour.png" style="width:100%">
-            </div>
-        </div>-->
-        <div>
-            <ul>
-                <li>
-                    [<a href="Poster.pdf" target="_blank">Poster</a>] "Relation of Dissociation Rates to the Centrifugal
-                    Barrier" (April 2020) - 2020 Undergraduate Research Symposium (URS)
-                </li>
-            </ul>
-        </div>
-
-        <hr style="width:50%"/>
-
-        <h5>Laboratory for Advanced Space Systems at Illinois [<a href="https://aerospace.illinois.edu/research/research-facilities/laboratory-advanced-space-systems-illinois-lassi" target="_blank">LASSI</a>]</h5>
-        <div class="mb-2">
-            <b>Advisor: Michael Lembeck, PhD</b> [<a href="mailto:mlembeck@illinois.edu">mlembeck@illinois.edu</a>]
-        </div>
-        <p>
-            I spent my first three years on campus as an undergrad involved in LASSI. LASSI is a cube satellite laboratory located in Talbot Lab. I excelled in many different management and leadership roles. Throughout my sophomore and junior years, I served as the Program Manager, where I oversaw and monitored all satellite mission progress across entire laboratory program through collaboration with mission coordinators and subteam leads. In this role, I implemented a robust scheduling system adaptable for tracking mission deliverables and responsibilities for five active satellite programs.
-        </p>
-        <p>
-            After that, I served as the Mission Operations Manager, managing and directing software development progress for the new Steven R. Nagel Mission Operations Center. My team developed software to display pass trends and visual data onscreen through the mission control accessible webpage using HTML, CSS, and Django.
-        </p>
-        <!--<div class="row d-flex justify-content-center">
-            <div class="col-md-12 col-lg-6 mb-3" style="text-align: center;">
-                <img src="moc.png" style="width:100%">
-            </div>
-        </div>-->
-
-        <div class="row">
-            <div class="col-12" style="text-align: center;">
-                <img src="sat.png" style="width:80%">
-            </div>
-        </div>
-
-        <p>
-            My earlier roles included being a systems engineer my freshman and sophomore years, where I drafted proposals and requirements and coordinated structural components in PTC Creo for future NASA-funded missions for low-Earth orbit research. I was promoted to this role after starting out as a structural test engineer my freshman year, developing cumulative bills of materials and restructuring the current satellite bus assembly model, while overseeing experiments involving 3D printers, thermal vacuums, and soldering equipment.
-        </p>
-        <div class="row">
-            <div class="col-md-6 col-sm-12" style="text-align: center;">
-                <img src="cubesail.PNG" style="height:250px">
-            </div>
-            <div class="col-md-6 col-sm-12" style="text-align: center;">
-                <img src="laser.PNG" style="height:250px">
-            </div>
-        </div>
 
 
-        <hr />
 
-        <h3>Teaching and Mentoring Experience</h3>
-        <b>ENG 100: Engineering Orientation</b> [<a href="https://courses.illinois.edu/schedule/2020/fall/ENG/100">Fall 2020</a>, <a href="https://courses.illinois.edu/schedule/2019/fall/ENG/100">Fall 2019</a>]
-        <p>
-            ENG 100 is where I first got into teaching as I helped guide first-semester freshmen through their first few months on campus.
-            I still often meet with some of my students one-on-one to discuss academic plans, internships, and research opportunities within the Department of Aerospace Engineering.
-        </p>
-        <div class="card d-flex justify-content-center align-items-center text-center py-2 mt-2  mb-3">
-            <div class="row justify-content-center align-items-center">
-                <a href="https://students.grainger.illinois.edu/gfx/eng100--engineering-orientation/" target="_blank"><b>Learn more about ENG 100 &#8594;</b></a>
-            </div>
-        </div>
-        <b>ENG 177: GFX Leadership Scholars</b> [<a href="https://courses.illinois.edu/schedule/2020/fall/ENG/177">Fall 2020</a>, <a href="https://courses.illinois.edu/schedule/2020/spring/ENG/177">Spring 2020</a>]
-        <p>
-            177 Leadership Scholars is a section of Grainger Engineering First-Year Experience Seminars that helps students get a jump start on working towards the Leadership Certificate or a minor in Leadership Studies.
-            I'm currently revising the curriculum plan to be more digestible and worthwhile for first-year students.
-            I was selected to teach this course due to my experience in the Leadership Certificate Program and role as a Cohort Lead.
-        </p>
-        <div class="card d-flex justify-content-center align-items-center text-center py-2 mt-2 mb-3">
-            <div class="row justify-content-center align-items-center">
-                <a href="https://students.grainger.illinois.edu/GFX/[ls]-leadership-home/" target="_blank"><b>Learn more about ENG 177 &#8594;</b></a>
-            </div>
-        </div>
-        <b>AE 199 SAT: Intro to CubeSats</b> [<a href="https://courses.illinois.edu/schedule/2020/spring/AE/199">Spring 2020</a>]
-        <p>
-            199 has been developed from an 8-week course to a fully complete semester-long course.
-            The course is designed to offer introductory background into the design and development of cubesats as prep for undergrad research within the Laboratory for Advanced Space Systems at Illinois (LASSI).
-        </p>
-        <div class="card d-flex justify-content-center align-items-center text-center py-2 mt-2">
-            <div class="row justify-content-center align-items-center">
-                <a href="https://courses.illinois.edu/schedule/2020/spring/AE/199" target="_blank"><b>Learn more about AE 199 SAT &#8594;</b></a>
-            </div>
-        </div>
-        <h5>Teaching Outside of the Classroom</h5>
-        <b>Grainger Engineering First-Year Experience</b>
-        <p>
-            I also served as one of two Head Engineering Learning Assistants for the GFX administration team.
-            As Head ELA, I oversaw and managed all of the other ELAs within the entire college, while
-            also modifying lesson guides and implementing new curriculum standards. I adjusted the course curriculum to account for the extension of ENG 100 from an 8-week course to full-semester course, placing an added emphasis on building good study habits, practicing time management, and making friends in a virtual learning environment.
-        </p>
-        <div class="card d-flex justify-content-center align-items-center text-center py-2 mt-2 mb-3">
-            <div class="row justify-content-center align-items-center">
-                <a href="https://students.grainger.illinois.edu/gfx/home/" target="_blank"><b>Learn more about GFX &#8594;</b></a>
-            </div>
-        </div>
-
-        <b>Center for Academic Resources in Engineering</b>
-        <p>
-            I was also a lead tutor on the leadership team for CARE, where I helped oversee and manage all 50+ tutors and peer advisors, while also holding my own walk-in hours twice a week.
-            I also led the Math 241 (Calc 3) review team, modifying the exam review worksheets to adhere to 6 mini-exams for this semester rather than the traditional 3 midterms and final exam.
-            In the past, I led the PHYS 212 (Electricity and Magnetism) and Math 285 (Intro to Differential Equations) review teams.
-        </p>
-        <div class="card d-flex justify-content-center align-items-center text-center py-2 mt-2 mb-3">
-            <div class="row justify-content-center align-items-center">
-                <a href="https://care.engineering.illinois.edu" target="_blank"><b>Learn more about CARE &#8594;</b></a>
-            </div>
-        </div>
-
-        <b>Department of Computer Science</b>
-        <p>
-            I helped out with the CS 101 (Intro to Programming for Engineers and Scientists) course administration
-            team to revise and modify course curriculum and facilitate laboratory sessions and office hours.
-            The students I regularly saw often asked me for advice on internships, research, and further course
-            recommendations as the semester progresses.
-        </p>
-        <div class="card d-flex justify-content-center align-items-center text-center py-2 mt-2">
-            <div class="row justify-content-center align-items-center">
-                <a href="https://cs.illinois.edu/courses/profile/CS101" target="_blank"><b>Learn more about CS 101 &#8594;</b></a>
-            </div>
-        </div>
-
-        <h5>Recognitions</h5>
-        <ul>
-            <li>
-                Teachers Ranked as Excellent by Their Students; 2019 - Center for Innovation in Teaching &amp; Learning at the University of Illinois
-            </li>
-        </ul>
-
-        <hr />
-
-        <h3>Industry Experience</h3>
-        <b>The Boeing Company</b>
-        <p>
-            I interned at Boeing in the summer of 2020 virtually as a design automation intern working within the digital and array space electronics product design group.
-            Working remotely for the Boeing Satellite Development Center headquartered in El Segundo, CA,
-            under Boeing Defense, Space &amp; Security (BDS) was a challenge initially, but I was quickly integrated with the rest of the team and was able to exceed the performance expectations my manager had set for me. The work I did on my project is currently set to put my team a year ahead of schedule, and the tool I developed was implemented fully as part of the analysis and review process.
-            I was hired through the Engineering Accelerated Hiring Initiative (EAHI) Program.
-        </p>
-        <div class="card d-flex justify-content-center align-items-center text-center py-2 mt-2 mb-3">
-            <div class="row justify-content-center align-items-center">
-                <a href="https://www.boeing.com/space/boeing-satellite-family/" target="_blank"><b>Learn more about Boeing satellites &#8594;</b></a>
-            </div>
-        </div>
-        <b>CU Aerospace</b>
-        <p>
-            My summer of 2019 was spent on campus, where I worked on a collaborative project between LASSI and CU Aerospace.
-            I served as a liaison between on-site and campus lab teams working on a joint payload project where I helped to lead procedural
-            development processes for thermal vacuum and vibrational testing for the monofilament vaporization propulsion (MVP) thruster system.
-        </p>
-        <div class="card d-flex justify-content-center align-items-center text-center py-2 mt-2 mb-3">
-            <div class="row justify-content-center align-items-center">
-                <a href="https://www.cuaerospace.com/technology-products/compact-small-satellite-propulsion-unit-cubesats/" target="_blank"><b>Learn more about CUA smallsat propulsion &#8594;</b></a>
-            </div>
-        </div>
-        <b>GE Aviation</b>
-        <p>
-            I interned at GE as a product operations intern the summer after my freshman year.
-            At GE, I executed technical solutions with cross-functional global teams in time-sensitive cases involving changes in design with outdated tools and spare parts.
-            I also reallocated 300+ fan blades in spares inventory to usable parts kitted for application on the assembly line, expediting the development of 20 affected engines.
-        </p>
-        <div class="card d-flex justify-content-center align-items-center text-center py-2 mt-2 mb-3">
-            <div class="row justify-content-center align-items-center">
-                <a href="https://www.geaviation.com/commercial/engines/genx-engine" target="_blank"><b>Learn more about the GEnx engine &#8594;</b></a>
-            </div>
-        </div>
-
-        <hr />
-
-        <h3>Campus Leadership</h3>
-        <b>Women in Aerospace</b>
-        <p>
-            I served as President of WIA for two consecutive years. Our organization has grown substantially
-            throughout my years on the executive board. With a current board of 10+ members, we have a ton of different professional conferences and industry visit trips in the planning stages, as well as virtual outreach activities and professional development workshops for this upcoming semester.
-        </p>
-        <div class="card d-flex justify-content-center align-items-center text-center py-2 mt-2 mb-3">
-            <div class="row justify-content-center align-items-center">
-                <a href="https://wia.ae.illinois.edu" target="_blank"><b>Learn more about WIA &#8594;</b></a>
-            </div>
-        </div>
-
-        <b>Satellite Development Organization</b>
-        <p>
-            I'm previous President of SatDev, an organization within the Department
-            of Aerospace Engineering that focuses on recruitment and retention of undergraduate researchers within LASSI.
-            I introduced the idea of having interest groups with mentors to facilitate the learning and development of technical skills for our
-            membership of 300+, eventually leading to the creation of AE 199 SAT.
-        </p>
-        <div class="card d-flex justify-content-center align-items-center text-center py-2 mt-2">
-            <div class="row justify-content-center align-items-center">
-                <a href="https://satdev.ae.illinois.edu" target="_blank"><b>Learn more about SatDev &#8594;</b></a>
-            </div>
-        </div>
-
-        <hr />
-
-        <h3>Awards, Honors, Affiliations, Etc.</h3>
-        <p>
-            James Scholar Honors Program<br />
-            College of Engineering Dean's List<br />
-            Knight of St. Patrick 2021<br />
-            Tau Beta Pi Engineering Honor Society<br />
-            Boeing Women in Engineering Scholarship<br />
-            Dale Margerum Memorial Award<br />
-            Philip Lazzara Memorial Scholarship<br />
-            Scott R. White Aerospace Engineering Visionary Scholarship<br />
-            Illinois Space Grant (ISGC) Scholarship<br />
-            GE Women's Network Scholarship<br />
-            Department of Aerospace Engineering Academic Scholarship<br />
-            Illinois Engineering Achievement Scholarship<br />
-            Marjorie M. Voigt Turley and William H. Turley Scholarship<br />
-            MSCI Central States Chapter Scholarship<br />
-            College of Engineering Scholarship for Continuing Students<br />
-            H.S. Stillwell Memorial Scholarship<br />
-            Order of Omega Greek Leadership Honor Society<br />
-            Alpha Omega Epsilon Engineering Sorority<br />
-            Harold and Ruth Hayward/Tau Beta Pi Scholarship
-        </p>
-
-        <hr />
-
-        <h3>References</h3>
-        <p>
-            <a href="mailto:gerhold@illinois.edu">Laura Gerhold</a> (Academic Advisor)<br />
-            <a href="mailto:agoza@illinois.edu">Andres Goza, PhD</a> (Director of NUF Group)<br />
-            <a href="mailto:tsaxtonf@illinois.edu">Tess Saxton-Fox, PhD</a> (Faculty Advisor of WIA)<br />
-            <a href="mailto:mpanesi@illinois.edu">Marco Panesi, PhD</a> (Director of CHESS)<br />
-            <a href="mailto:gforman@illinois.edu">Gretchen Forman</a> (Assistant Director of GFX)<br />
-            <a href="mailto:tempel1@illinois.edu">Dana Tempel</a> (Assistant Director of CARE)<br />
-        </p>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+<script src="index.js"></script>
 </body>
 </html>

@@ -1,191 +1,28 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu');
 
-:root {
-    --color1: #ebebeb;
-    --color2: #adcbff;
-    --color3: #e8ccff;
-    --color4: #303035;
-    --mainfont: 'Ubuntu', sans-serif;
-}
-
 html, body {
-    font-family: var(--mainfont);
     height: 100%;
     scroll-behavior: smooth;
 }
 
-/*@font-face {
-    font-family: "Computer Modern";
-    src: url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunss.otf');
-}
-
-@font-face {
-    font-family: "Computer Modern";
-    src: url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunsx.otf');
-    font-weight: bold;
-}
-
-@font-face {
-    font-family: "Computer Modern";
-    src: url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunsi.otf');
-    font-style: italic, oblique;
-}
-
-@font-face {
-    font-family: "Computer Modern";
-    src: url('http://mirrors.ctan.org/fonts/cm-unicode/fonts/otf/cmunbxo.otf');
-    font-weight: bold;
-    font-style: italic, oblique;
-}
-
-html, body {
-    font-family: "Computer Modern", sans-serif;
-    scroll-behavior: smooth;
-}*/
-
-.row {
-    width: 100%;
+.custom {
+    width: 50px !important;
 }
 
 body {
-    padding-top: 4rem;
-    background-color: #fff;
+    padding-top: 6rem;
+  font-family: 'Ubuntu', sans-serif;
 }
 
-.navbar-nav .nav-link {
-    padding-right: 0;
-    padding-left: 0;
-    text-transform: uppercase;
-    justify-content: normal;
-    font-size: 80%;
-    letter-spacing: 0.1rem;
+h5 {
+  margin-top:2em;
 }
 
-.ref {
-    color: var(--color4);
+table, th, td {
+  border: 1px solid black;
+  text-align: center;
 }
 
-.ref:hover {
-    text-decoration: none;
-    color: var(--color2);
+th, td {
+  padding: 10px;
 }
-
-.profile {
-    width: 80%;
-    margin: 2% auto;
-    display: block;
-}
-
-.btn, .text-muted {
-    text-transform: uppercase;
-}
-
-.content {
-    display: block;
-    margin: auto;
-}
-
-section {
-    margin-top: 10%;
-}
-
-.btn {
-    text-transform: uppercase;
-    margin: 2%;
-}
-
-.logo {
-    width: 35%;
-}
-
-.heading {
-    text-transform: uppercase;
-    text-align: center;
-}
-
-    .heading:after {
-        content: "";
-        display: block;
-        margin: 0 auto;
-        width: 10%;
-        padding-top: 2%;
-        border-bottom: 5px solid var(--color3);
-    }
-
-.title:hover {
-    text-decoration: underline;
-    cursor: pointer;
-}
-
-.title:after {
-    content: "";
-    display: block;
-    margin: 0 auto;
-    width: 30%;
-    padding-top: 2%;
-    border-bottom: 5px solid var(--color2);
-}
-
-.card {
-    margin-top: 2rem;
-    margin-bottom: 2rem;
-}
-
-.row {
-    width: 100%;
-    margin-left: 0;
-    margin-right: 0;
-}
-
-.icon {
-    width: 20%;
-    border-radius: 50%;
-}
-
-.icon:hover {
-    background: darkgrey;
-    border-radius: 50%;
-    transition: background 250ms;
-}
-
-.url {
-    color: black;
-    text-decoration: none;
-}
-   
-    .url:hover {
-        color: black;
-        text-decoration: underline;
-    }
-
-.url2 {
-    color: grey !important;
-    text-decoration: none !important;
-}
-
-    .url2:hover {
-        color: grey !important;
-        text-decoration: underline !important;
-    }
-
-hr {
-    border: 0;
-    height: 2px;
-    background: #e8ccff;
-    margin-top: 2.5%;
-}
-
-.copyright {
-    text-align: center;
-    color: black;
-    margin-bottom: 2%;
-}
-
-.copylink {
-    color: black;
-}
-
-    .copylink:hover {
-        text-decoration: none;
-        color: var(--color2);
-    }
