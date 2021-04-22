@@ -54,7 +54,7 @@
   where $K_0(x) = \bar{\rho}(x)\bar{p}(x)$ is the bulk modulus of compressibility of the gas, where $\bar{\rho}(x)$ and $\bar{p}(x)$ are the flow background density and pressure, and $p(x,t)$ and $u(x,t)$ are the unknowns of the problem. We consider a fluid in a channel of unit width and assume that the background velocity of the flow is negligible ($\bar{u}=0$). We wish to study the equations of linear acoustics in a layered medium in which $\bar{\rho}$ and $K_0$ are piecewise constant functions of $x$. We define the speed of sound $c(x)$ and the impedance $Z(x)$ as:
   \begin{align}
     c(x) &amp;= \sqrt{\frac{K_0(x)}{\bar{\rho}(x)}} = \begin{cases} c_l, & \text{if }x \leq a\\ c_c, & \text{if }x\in(a,b) \\ c_r, & \text{if }x\geq b \\ \end{cases}\\
-    Z(x) &amp;= \bar{\rho}(x)c(x) = \sqrt{K_0(x)\bar{\rho}(x)} = \begin{cases} K_l, & \text{if }x \leq a\\ K_c, & \text{if }x\in(a,b) \\ K_r, & \text{if }x\geq b \\ \end{cases}
+    Z(x) &amp;= \bar{\rho}(x)c(x) = \begin{cases} K_l, & \text{if }x \leq a\\ K_c, & \text{if }x\in(a,b) \\ K_r, & \text{if }x\geq b \\ \end{cases}
   \end{align}
   A finite-difference solver was developed to solve the linear acoustic equations on a finite domain $x \in [-5,5]$. The boundary at $x=5$ models a solid wall ($u(5,t)=0$), while at $x=-5$, a non-reflecting boundary condition is imposed such that the amplitude of the incoming characteristic is zero. The initial conditions were given as:
   \begin{align}
@@ -65,7 +65,7 @@
   \begin{align}
     \frac{\partial q}{\partial t} + A\frac{\partial q}{\partial x} = 0
   \end{align}
-  where $q = [p,u]^T$ and $A = [ 0 K_0 ; 1/\bar{\rho} 0 ] = [ 0 cZ ; c/Z 0 ]$. Eigenvalues of A were determine to represent the speed of sound $c(x)$. Using the characteristic variables, boundary conditions that needed to be applied at $x=5$ to achieve a solid wall and $x=-5$ to achieve a non-reflection condition were determined by defining $w = X^{-1}q$ and $\Lambda = X^{-1}AX$:
+  where $q = [p,u]^T$ and $A$ = $[$ $0$ $K_0$ ; $1/\bar{\rho}$ $0$ $]$ = $[$ $0$ $cZ$ ; $c/Z$ $0$ $]$. Eigenvalues of A were determine to represent the speed of sound $c(x)$. Using the characteristic variables, boundary conditions that needed to be applied at $x=5$ to achieve a solid wall and $x=-5$ to achieve a non-reflection condition were determined by defining $w = X^{-1}q$ and $\Lambda = X^{-1}AX$:
   \begin{align}
     X^{-1} [\frac{\partial q}{\partial t} + A\frac{\partial q}{\partial x} &amp;= 0] \\
     \frac{\partial X^{-1} q}{\partial t} + \frac{\partial X^{-1} Aq}{\partial x} &amp;= 0 \\
@@ -128,7 +128,7 @@ Correct implementation of the matrix approximation $D$ of $\partial/\partial x$ 
   \end{align}
   The solution domain is a 1D mesh (grid) of $nx$ points. The PDEs above are solved for each point on this mesh. The initial condition is a single sine wave with a wavelength of $nx\Delta x$ with a periodic boundary condition (i.e. the wave "exits" on the right side of the domain and "re-enters" on the left side for speed $c > 0$). The Lax-Wendroff scheme with forward time differencing and centered space differencing is employed to solve these PDEs:
   \begin{align}
-    q_j^{n+1} = q_j^n - \frac{\nu}{2}(q_{j+1}^n - q_{j-1}^n) + \sigma(q_{j+1}^n - 2q_j^n + q_{j-1}^n)
+    q_j^{n+1} = q_j^n - \frac{\nu}{2}(q_{j+1}^n - q_{j-1}^n)\\ + \sigma(q_{j+1}^n - 2q_j^n + q_{j-1}^n)
   \end{align}
   where $q$ is the scalar field that is being advected, $n$ is the time level, $j$ is indexing the $nx$ grid points, $\nu$ is the Courant number, and $\sigma = \nu^2/2$. For the linear case, $\nu = c\Delta t/\Delta x$, and $q_j^n \Delta t/\Delta x$ otherwise. Three cases were implemented in C:
   <table align="center" class="my-3">
@@ -223,7 +223,7 @@ Correct implementation of the matrix approximation $D$ of $\partial/\partial x$ 
   \end{align}
   <p>where $f'(\eta) = u/V_e$ and $g(\eta) = T/T_e$. These equations are subject to the following boundary conditions:</p>
   \begin{align}
-    &amp; \text{Wall: } f(0) = f'(0) = 0 \text{ and } g(0) = g_w \text{ or } g'(0) = 0 \\
+    &amp; \text{Wall: } f(0) = f'(0) = 0 \text{, } g(0) = g_w \text{ or } g'(0) = 0 \\
     &amp; \text{Edge: } f'(\infty) = g(\infty) = 1
   \end{align}
   The solution procedure is to use a shooting technique:
@@ -236,9 +236,9 @@ Correct implementation of the matrix approximation $D$ of $\partial/\partial x$ 
   The state vector of unknows is $F = (f,f',f'',g,g')$. As input parameters, we need to define $\text{M}_e, \text{Pr}, \gamma$ and an expression for the Chapman-Rubesin parameter $C = (\rho\mu)/(\rho_e \mu_e)$. Using a power law of exponent $\sigma$ for the viscosity $\mu/\mu_e = (T/T_e)^\sigma$. Using the ideal gas law, we have $C = (\rho\mu)/(\rho_e \mu_e) = g^{\sigma - 1}$. The governing equations can be rewritten:
   \begin{align}
     &amp; f''' = -\frac{f''}{g^{\sigma-1}}[(\sigma-1)g^{\sigma-2}g' + f] \\
-    &amp; g'' = -\frac{1}{g^{\sigma-1}}[(\sigma-1)g^{\sigma-2}g'^2 + \text{Pr}fg' + \text{Pr}g^{\sigma-1}(\gamma-1)\text{M}_e^2f''^2] = 0
+    &amp; g'' = -\frac{1}{g^{\sigma-1}}[(\sigma-1)g^{\sigma-2}g'^2 + \text{Pr}fg'\\&amp; + \text{Pr}g^{\sigma-1}(\gamma-1)\text{M}_e^2f''^2] = 0
   \end{align}
-  We assumed $\sigma = 0.75, \text{Pr} = 0.72, \text{ and } \gamma = 1.4 \text{ calorically perfect}$. We considered a boundary layer with the following edge conditions: $\text{M}_e = 5, \text{Re}_{e,x} = 10,000, T_e = 223 \text{ K}, P_e = 1000 \text{ Pa}, \mu_e = 1.2 \times 10^{-5} \text{ Pa-s}$. Self-similar boundary layer temperature and velocity profiles for adiabatic and isothermal walls with $T_w/T_E = 6$ were plotted using Python:
+  We assumed $\sigma = 0.75, \text{Pr} = 0.72, \text{ and } \gamma = 1.4$. We considered a boundary layer with the following edge conditions: $\text{M}_e = 5$, $\text{Re}_{e,x} = 10,000$, $T_e = 223 \text{ K}$, $P_e = 1000 \text{ Pa}$, $\mu_e = 1.2 \times 10^{-5}$ Pa-s. Self-similar boundary layer temperature and velocity profiles for adiabatic and isothermal walls with $T_w/T_E = 6$ were plotted using Python:
   <div class="row my-3" align="center">
     <div class="col-lg-6">
       <img src="ss_bl_ad.png" style="width:90%">
@@ -269,19 +269,19 @@ Correct implementation of the matrix approximation $D$ of $\partial/\partial x$ 
       <th>$\text{St}$</th>
     </tr>
     <tr>
-      <th>Adiabatic ($T_w/T_e = 6$)</th>
-      <td>0.005624</td>
+      <th>Adiabatic$T_w/T_e = 6$</th>
+      <td>$0.005624$</td>
       <td>Undefined</td>
     </tr>
     <tr>
-      <th>Isothermal ($T_w/T_e = 4$)</th>
-      <td>0.005735</td>
-      <td>0.003471</td>
+      <th>Isothermal $T_w/T_e = 4$</th>
+      <td>$0.005735$</td>
+      <td>$0.003471$</td>
     </tr>
     <tr>
-      <th>Isothermal ($T_w/T_e = 8$)</th>
-      <td>0.005420</td>
-      <td>0.003428</td>
+      <th>Isothermal $T_w/T_e = 8$</th>
+      <td>$0.005420$</td>
+      <td>$0.003428$</td>
     </tr>
   </table>
   These calculated values are in agreement with the work of Van Driest.
@@ -293,11 +293,11 @@ Correct implementation of the matrix approximation $D$ of $\partial/\partial x$ 
 <p>
   For this project, I devised a numerical method to study the wave equation. The wave equation serves as a timeless model used in various simulations for different engineering applications. Sound waves can be modeled using the acoustic wave equation. Piano tuners also utilize acoustic waves to match frequences of certain keys to keep pianos in tune. Oftentimes, pianos and other instruments are tuned using A440 (the A key just above middle C) as a reference. I looked into why the A note is used to tune instruments and whether there is an acoustic reason for this choice. The 1D wave equation took the following form for this study:
   \begin{align}
-    \frac{\partial^2 u}{\partial t^2} = c^2 \frac{\partial^2 u}{\partial x^2} + g(x,t), \quad 0 \leq t \leq T, a \leq x \leq b
+    &amp;\frac{\partial^2 u}{\partial t^2} = c^2 \frac{\partial^2 u}{\partial x^2} + g(x,t)\\ &amp;\quad 0 \leq t \leq T, a \leq x \leq b
   \end{align}
   where time $t$ spans from 0 to final time $T$, position $x$ spans from $a$ to $b$, $g(x,t)$ is the appropriate source term dependent on the exact solution, and $c$ is the speed of sound, assumed to be 343 m/s. To generate an exact solution in order to test the correctness of approximation methods used, the method of manufactured solutions is implemented using a very well-chosen solution to the wave equation as prescribed: $u(x,t) = u_m \sin{(\omega t - kx)}$, where $u_m$ is the amplitude of the wave, $\omega$ is the angular frequency, and $k$ is the wave number. For the case of the piano, $u_m$ is assumed to reach a maximum of 50 decibels. To solve for the source term $g(x,t)$, the generated exact solution can be substituted into the original wave equation, yielding $g(x,t) = u_m(c^2 k^2 - \omega^2)\sin{(\omega t - kx)}$. The complete form of the wave equation can be rewritten as:
   \begin{align}
-    \frac{\partial^2 u}{\partial t^2} = c^2 \frac{\partial^2 u}{\partial x^2} + u_m(c^2 k^2 - \omega^2)\sin{(\omega t - kx)}, \quad 0 \leq t \leq T, a \leq x \leq b
+    \frac{\partial^2 u}{\partial t^2} = c^2 &amp;\frac{\partial^2 u}{\partial x^2} + u_m(c^2 k^2 - \omega^2)\sin{(\omega t - kx)}\\ &amp;0 \leq t \leq T, a \leq x \leq b
   \end{align}
   Initial and boundary conditions can then be prescribed and a finite difference method can be implemented by using local interpolation through the method of lines. When solving initial boundary value problems (IBVPs), methods for solving time-dependent problems must be combined with methods for solving space-dependent problems. The method of lines helps discretize the IBVP in space to get a resulting initial value problem (IVP) of the form $\ddot{\boldsymbol{u}} = \boldsymbol{f}(\boldsymbol{u},t)$ with $\boldsymbol{f}(\boldsymbol{u},t) = \boldsymbol{Au} + \boldsymbol{g}(t)$ that can be solved using a numerical method. In order to solve the resulting IVP, a state-space representation is used by relating the system of first-order differential euqations to be able to step through the solution using the Crank-Nicolson method based on the trapezoidal rule, giving second-order convergence in time. The derivation of the Crank-Nicolson method begins by integrating the IVP from $t_k$ to $t_{k+1}$:
   \begin{align}
@@ -309,9 +309,9 @@ Correct implementation of the matrix approximation $D$ of $\partial/\partial x$ 
   \end{align}
   Substituting $\boldsymbol{\tilde{f}}(\boldsymbol{z},t) = \boldsymbol{Bz}+\boldsymbol{p}$:
   \begin{align}
-    \boldsymbol{z}_{k+1} = (\boldsymbol{I}-\frac{\Delta t}{2}\boldsymbol{B})^{-1}(\boldsymbol{z}_k + \frac{\Delta t}{2}\boldsymbol{Bz}_k + \frac{\Delta t}{2}(\boldsymbol{p}_k + \boldsymbol{p}_{k+1}))
+    \boldsymbol{z}_{k+1} = (\boldsymbol{I}-\frac{\Delta t}{2}\boldsymbol{B})^{-1}(\boldsymbol{z}_k +\\ \frac{\Delta t}{2}\boldsymbol{Bz}_k + \frac{\Delta t}{2}(\boldsymbol{p}_k + \boldsymbol{p}_{k+1}))
   \end{align}
-  Absolute stability regions can be determined for methods used. The Crank-Nicolson method is absolutely stable when $|1 + \lambda_j \Delta t/2|/|1 - \lambda_j \Delta t/2|$:
+  Absolute stability regions can be determined. The Crank-Nicolson method is absolutely stable when $|1 + \lambda_j \Delta t/2|/|1 - \lambda_j \Delta t/2|$:
   <div class="row my-3" align="center">
     <div class="col-xl-4">
       <img src="FE_stab.png" style="width:90%">
@@ -325,19 +325,19 @@ Correct implementation of the matrix approximation $D$ of $\partial/\partial x$ 
   </div>
   The truncation error is then derived for the Crank-Nicolson method to prove that it is indeed a second-order method and therefore more accurate than first-order Euler methods for a given $\Delta t$:
   \begin{align}
-    \tau_k &amp;= \frac{\boldsymbol{u}(t_{k+1})-\boldsymbol{u}(t_k)}{\Delta t} - \frac{1}{2}(\boldsymbol{f}(\boldsymbol{u}(t_k),t_k)+\boldsymbol{f}(\boldsymbol{u}(t_{k+1}),t_{k+1})) \\
+    \tau_k &amp;= \frac{\boldsymbol{u}(t_{k+1})-\boldsymbol{u}(t_k)}{\Delta t} - \frac{1}{2}(\boldsymbol{f}(\boldsymbol{u}(t_k),t_k)\\&amp;+\boldsymbol{f}(\boldsymbol{u}(t_{k+1}),t_{k+1})) \\
     \tau_k &amp;= \frac{\boldsymbol{u}(t_{k+1})-\boldsymbol{u}(t_k)}{\Delta t} - \frac{1}{2}(\boldsymbol{\dot{u}}(t_k)+\boldsymbol{\dot{u}}(t_{k+1}))
   \end{align}
-  Employing a Taylor series expansion can be used to express all quantities evaluated at $t_{k+1}$ in terms of $t_k$:
+  Employing a Taylor series expansion lets us express all quantities evaluated at $t_{k+1}$ in terms of $t_k$:
   \begin{align}
-  \boldsymbol{u}(t_{k+1}) &amp;= \boldsymbol{u}(t_k) + \Delta t \boldsymbol{\dot{u}}(t_k) + \frac{\Delta t^{2}}{2}\boldsymbol{\ddot{u}}(t_k) + \frac{\Delta t^{3}}{6}\boldsymbol{\dddot{u}}(t_k) + H.O.T. \\
-  \boldsymbol{\dot{u}}(t_{k+1}) &amp;= \boldsymbol{\dot{u}}(t_k) + \Delta t \boldsymbol{\ddot{u}}(t_k) + \frac{\Delta t^{2}}{2}\boldsymbol{\dddot{u}}(t_k) + H.O.T.
+  \boldsymbol{u}(t_{k+1}) &amp;= \boldsymbol{u}(t_k) + \Delta t \boldsymbol{\dot{u}}(t_k) + \frac{\Delta t^{2}}{2}\boldsymbol{\ddot{u}}(t_k)\\&amp; + \frac{\Delta t^{3}}{6}\boldsymbol{\dddot{u}}(t_k) + H.O.T. \\
+  \boldsymbol{\dot{u}}(t_{k+1}) &amp;= \boldsymbol{\dot{u}}(t_k) + \Delta t \boldsymbol{\ddot{u}}(t_k) \\&amp;+ \frac{\Delta t^{2}}{2}\boldsymbol{\dddot{u}}(t_k) + H.O.T.
   \end{align}
   And upon substitution:
   \begin{align}
-    \boldsymbol{\tau}_k &amp;= \frac{\Delta t \boldsymbol{\dot{u}}(t_k) + \frac{\Delta t^{2}}{2}\boldsymbol{\ddot{u}}(t_k) + \frac{\Delta t^{3}}{6}\boldsymbol{\dddot{u}}(t_k)}{\Delta t} - \frac{1}{2}\left(2\boldsymbol{\dot{u}}(t_k) + \Delta t \boldsymbol{\ddot{u}}(t_k) + \frac{\Delta t^{2}}{2}\boldsymbol{\dddot{u}}(t_k)\right) + H.O.T. \\
-    \boldsymbol{\tau}_k &amp;= -\frac{\Delta t^2}{6}\boldsymbol{\dddot{u}}(t_k) + H.O.T. \\
-    \boldsymbol{\tau}_k &amp;= O(\Delta t^2)
+    &amp;\boldsymbol{\tau}_k = \frac{\Delta t \boldsymbol{\dot{u}}(t_k) + \frac{\Delta t^{2}}{2}\boldsymbol{\ddot{u}}(t_k) + \frac{\Delta t^{3}}{6}\boldsymbol{\dddot{u}}(t_k)}{\Delta t}\\&amp; - \frac{1}{2}\left(2\boldsymbol{\dot{u}}(t_k) + \Delta t \boldsymbol{\ddot{u}}(t_k) + \frac{\Delta t^{2}}{2}\boldsymbol{\dddot{u}}(t_k)\right) + H.O.T. \\
+    &amp;\boldsymbol{\tau}_k = -\frac{\Delta t^2}{6}\boldsymbol{\dddot{u}}(t_k) + H.O.T. \\
+    &amp;\boldsymbol{\tau}_k = O(\Delta t^2)
   \end{align}
   Performing a spatial convergence test demonstrates that the Crank-Nicolson algorithm scales as $O(\Delta x^2)$ by using a fixed small $\Delta t$ of $\Delta t = 10^{-1}$ for $n = [20,40,80,100]^T$. Using a fixed small value of $\Delta t$ helps to ensure that the temporal error contribution is small, so the spatial error is dominant. Waterfall plots for the exact and finite difference solutions for the finest value of $n$ show that the solutions appear to agree.
   <div class="row my-3" align="center">
@@ -366,7 +366,7 @@ Correct implementation of the matrix approximation $D$ of $\partial/\partial x$ 
       <img src="temp_be.png" style="width:90%">
     </div>
   </div>
-  Various different methods to test error convergence as well as visual representations of the approximation in action demonstrate that the implementation has been achieved accurately. Following verification and validation of the successful implementation of the approximation generated by the Crank-Nicolson method, focus can now be directed towards the use of this model to analyze the tuning methods of pianos and other instruments. So why do piano tuners use A440 as the primary reference? This topic can be explored by looking at the shape of sound waves of certain keys as the wave propagates in space. For example, G$_4$ (the G key just above middle C) has an audio frequency of 391.9954 Hertz (Hz). The same approximation can be applied to different notes, just by changing the frequencies. To acquire the rest of the wave properties needed to plot accurately, we set frequency $f = 391.9954$ Hz, angular frequency $\omega=2\pi f$, and wave number $k = \omega/c$. Amplitude $u_m$ can be approximated at about 50 decibles (more like 80 decibels when playing $fortissimo$). Just by changing the frequencies of the musical pitches of different notes, the spatial wave propagations can be approximated and compared:
+  Various different methods to test error convergence as well as visual representations of the approximation in action demonstrate that the implementation has been achieved accurately. Following verification and validation of the successful implementation of the approximation generated by the Crank-Nicolson method, focus can now be directed towards the use of this model to analyze the tuning methods of pianos and other instruments. So why do piano tuners use A440 as the primary reference? This topic can be explored by looking at the shape of sound waves of certain keys as the wave propagates in space. For example, G$_4$ (the G key just above middle C) has an audio frequency of $391.9954$ Hertz (Hz). The same approximation can be applied to different notes, just by changing the frequencies. To acquire the rest of the wave properties needed to plot accurately, we set frequency $f = 391.9954$ Hz, angular frequency $\omega=2\pi f$, and wave number $k = \omega/c$. Amplitude $u_m$ can be approximated at about 50 decibles (more like 80 decibels when playing $fortissimo$). Just by changing the frequencies of the musical pitches of different notes, the spatial wave propagations can be approximated and compared:
   <div class="row my-3" align="center">
     <div class="col-lg-6">
       <img src="G4.png" style="width:90%">
@@ -400,39 +400,39 @@ Correct implementation of the matrix approximation $D$ of $\partial/\partial x$ 
     </tr>
     <tr>
       <th>A8</th>
-      <td>7040</td>
+      <td>$7040$</td>
     </tr>
     <tr>
       <th>A7</th>
-      <td>3520</td>
+      <td>$3520$</td>
     </tr>
     <tr>
       <th>A6</th>
-      <td>1760</td>
+      <td>$1760$</td>
     </tr>
     <tr>
       <th>A5</th>
-      <td>880</td>
+      <td>$880$</td>
     </tr>
     <tr>
       <th>A4 (A440)</th>
-      <td>440</td>
+      <td>$440$</td>
     </tr>
     <tr>
       <th>C4 (Middle C)</th>
-      <td>261.6256</td>
+      <td>$261.6256$</td>
     </tr>
     <tr>
       <th>A3</th>
-      <td>220</td>
+      <td>$220$</td>
     </tr>
     <tr>
       <th>A2</th>
-      <td>110</td>
+      <td>$110$</td>
     </tr>
     <tr>
       <th>A1</th>
-      <td>55</td>
+      <td>$55$</td>
     </tr>
   </table>
   So what is special about A440? It is the first musical pitch of the A-note right above middle C, and, across octaves, all A-notes propagate remarkably similarly with other specific A-notes, making A440 a prime choice for piano tuners to use when tuning using frequencies. This study proved that the Crank-Nicolson method accurately approximates the solution to the wave equation as it is applicable to acoustic sound waves produced by pianos and other instruments. The Crank-Nicolson algorithm is a good candidate due to its large stability region and accuracy as compared with other methods such as RK4, backward Euler, and forward Euler.<br><br><br><br>
