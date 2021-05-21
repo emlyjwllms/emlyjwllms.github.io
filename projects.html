@@ -40,9 +40,34 @@
 
     <h4>Projects</h4>
 
-<!--ADD LATER<h5>Nonlinear 1D Navier-Stokes Eulerian Solver</h5>
-<p>AE 410: Computational Aerodynamics, UIUC (2021)</p>-->
+<h5>FV Eulerian Solver for 1D Nonlinear Simplified Navier-Stokes Equations</h5>
+<p>AE 410: Computational Aerodynamics, UIUC (2021)</p>
+<p>
+  Euler equations can be obtained from the nonlinear, 1D Navier-Stokes equations assuming vanishing viscosity and thermal conductivity:
+  \begin{align}
+    \frac{\partial \rho}{\partial t} + \frac{\partial \rho u}{\partial x} &amp;= 0 \\
+    \frac{\partial \rho u}{\partial t} + \frac{\partial}{\partial x} (\rho u^2 + p) = \frac{\partial \tau}{\partial x} &amp;= 0 \\
+    \frac{\partial \rho E}{\partial t} + \frac{\partial}{\partial x}[(\rho E + p)u] = \frac{\partial}{\partial x}(\tau u - q) &amp;= 0
+  \end{align}
+  where $\rho$ is the fluid density, $u$ is the fluid velocity, and $p$ is the thermodynamic pressure. Total energy density is defined as:
+  \begin{align}
+    \rho E = \rho e + \frac{1}{2} \rho u^2
+  \end{align}
+  The pressure is related to $\rho E$ by the equation of state:
+  \begin{align}
+    p = (\gamma-1)\bigg(\rho E - \frac{1}{2} \rho u^2 \bigg)
+  \end{align}
+The Euler equations were solved using Roe's method to discretize the convective fluxes using a finite-volume method with equally spaced volumes to span the flow volume from 0 to 1. The characteristic boundary condition was used for the subsonic outlet and numerical flux functions were computed using the Roe scheme. Post-shock initial conditions were found using the Rankine-Hugonoit equations. Mass flow surrounding the stationary shock occuring at $x = 0.5$ is shown below, with a number of waves being shed by the shock and traveling downstream as expected.
+<div class="row my-3" align="center">
+  <div class="col-lg-12">
+    <div class="embed-responsive embed-responsive-16by9">
+      <iframe src="massflow.mp4" style="width:100%" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+</p>
 
+<hr>
 <h5>FD Solver for 1D Linear Euler Equations</h5>
 <p>AE 410: Computational Aerodynamics, UIUC (2021)</p>
 <p>
