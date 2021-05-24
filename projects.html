@@ -57,7 +57,7 @@
   \begin{align}
     p = (\gamma-1)\bigg(\rho E - \frac{1}{2} \rho u^2 \bigg)
   \end{align}
-The Euler equations were solved using Roe's method to discretize the convective fluxes using a finite-volume method with equally spaced volumes to span the flow volume from 0 to 1. The characteristic boundary condition was used for the subsonic outlet and numerical flux functions were computed using the Roe scheme. Post-shock initial conditions were found using the Rankine-Hugonoit equations. Mass flow surrounding the stationary shock occuring at $x = 0.5$ is shown below, with a number of waves being shed by the shock and traveling downstream as expected.
+The Euler equations were solved using Roe's method to discretize the convective fluxes using a finite-volume method with equally spaced volumes to span the flow volume from 0 to 1. The characteristic boundary condition was used for the subsonic outlet and numerical flux functions were computed using the Roe scheme. Post-shock initial conditions were found using the Rankine-Hugoniot equations. Mass flow surrounding the stationary shock occuring at $x = 0.5$ is shown below, with a number of waves being shed by the shock and traveling downstream as expected.
 <div class="row my-3" align="center">
   <div class="col-lg-12">
     <div class="embed-responsive embed-responsive-16by9">
@@ -78,30 +78,21 @@ The Euler equations were solved using Roe's method to discretize the convective 
   \end{align}
   where $K_0(x) = \bar{\rho}(x)\bar{p}(x)$ is the bulk modulus of compressibility of the gas, where $\bar{\rho}(x)$ and $\bar{p}(x)$ are the flow background density and pressure, and $p(x,t)$ and $u(x,t)$ are the unknowns of the problem. We consider a fluid in a channel of unit width and assume that the background velocity of the flow is negligible ($\bar{u}=0$). We wish to study the equations of linear acoustics in a layered medium in which $\bar{\rho}$ and $K_0$ are piecewise constant functions of $x$. We define the speed of sound $c(x)$ and the impedance $Z(x)$ as:
   \begin{align}
-    c(x) &amp;= \sqrt{\frac{K_0(x)}{\bar{\rho}(x)}} = \begin{cases} c_l, & \text{if }x \leq a\\ c_c, & \text{if }x\in(a,b) \\ c_r, & \text{if }x\geq b \\ \end{cases}\\
-    Z(x) &amp;= \bar{\rho}(x)c(x) = \begin{cases} K_l, & \text{if }x \leq a\\ K_c, & \text{if }x\in(a,b) \\ K_r, & \text{if }x\geq b \\ \end{cases}
+    c(x) &amp;= \sqrt{\frac{K_0(x)}{\bar{\rho}(x)}} \\
+    Z(x) &amp;= \bar{\rho}(x)c(x) 
   \end{align}
-  A finite-difference solver was developed to solve the linear acoustic equations on a finite domain $x \in [-5,5]$. The boundary at $x=5$ models a solid wall ($u(5,t)=0$), while at $x=-5$, a non-reflecting boundary condition is imposed such that the amplitude of the incoming characteristic is zero. The initial conditions were given as:
-  \begin{align}
-    p(x,0) &amp;= 2 \text{exp} (-(x+3.0)^2/0.6^2) \\
-    u(x,0) &amp;= 2 \text{exp} (-(x+3.0)^2/0.6^2)
-  \end{align}
-  The equations were integrated for at least 10 seconds using 151 points in the $x$-direction. The system of equations were rearranged in the following form:
+  A finite-difference solver was developed to solve the linear acoustic equations on a finite domain $x \in [-5,5]$. The boundary at $x=5$ models a solid wall ($u(5,t)=0$), while at $x=-5$, a non-reflecting boundary condition is imposed such that the amplitude of the incoming characteristic is zero. The initial conditions were given as exponential functions.
+  The equations were integrated for at least 10 seconds using 151 points in the $x$-direction. The system of equations was rearranged in the following form:
   \begin{align}
     \frac{\partial q}{\partial t} + A\frac{\partial q}{\partial x} = 0
   \end{align}
-  where $q = [p,u]^T$ and $A$ = $[$ $0$ $K_0$ ; $1/\bar{\rho}$ $0$ $]$ = $[$ $0$ $cZ$ ; $c/Z$ $0$ $]$. Eigenvalues of A were determine to represent the speed of sound $c(x)$. Using the characteristic variables, boundary conditions that needed to be applied at $x=5$ to achieve a solid wall and $x=-5$ to achieve a non-reflection condition were determined by defining $w = X^{-1}q$ and $\Lambda = X^{-1}AX$:
+  where $q = [p,u]^T$ and $A$ = $[$ $0$ $K_0$ ; $1/\bar{\rho}$ $0$ $]$ = $[$ $0$ $cZ$ ; $c/Z$ $0$ $]$. Eigenvalues of A were determined to represent the speed of sound $c(x)$. Using the characteristic variables, boundary conditions that needed to be applied at $x=5$ to achieve a solid wall and $x=-5$ to achieve a non-reflection condition were determined by defining $w = X^{-1}q$ and $\Lambda = X^{-1}AX$:
   \begin{align}
-    X^{-1} [\frac{\partial q}{\partial t} + A\frac{\partial q}{\partial x} &amp;= 0] \\
-    \frac{\partial X^{-1} q}{\partial t} + \frac{\partial X^{-1} Aq}{\partial x} &amp;= 0 \\
-    \frac{\partial X^{-1} q}{\partial t} + \frac{\partial X^{-1} A XX^{-1}q}{\partial x} &amp;= 0 \\
-    \frac{\partial X^{-1} q}{\partial t} + \frac{\partial \Lambda X^{-1} q}{\partial x} &amp;= 0 \\
     \frac{\partial w}{\partial t} + \Lambda\frac{\partial w}{\partial x} &amp;= 0
   \end{align}
   The specular reflection at the right boundary is defined as $\frac{\partial u}{\partial t}(x=5) = \frac{\partial w_2}{\partial t}(x=5) = 0$. The non-reflection at the left boundary is enforced by prescribing $\frac{\partial w}{\partial t}(x=-5) = 0$.
-</p>
 Three FD schemes were implemented: 2nd-order central, 3rd-order biased, and 6th-order Pad&eacute;. The equations were integrated and then pressure and velocity profiles at different times are captured.
-
+</p>
 <div class="row my-3" align="center">
   <div class="col-lg-12">
     <div class="embed-responsive embed-responsive-16by9">
@@ -155,83 +146,18 @@ Three FD schemes were implemented: 2nd-order central, 3rd-order biased, and 6th-
   \begin{align}
     q_j^{n+1} = q_j^n - \frac{\nu}{2}(q_{j+1}^n - q_{j-1}^n)\\ + \sigma(q_{j+1}^n - 2q_j^n + q_{j-1}^n)
   \end{align}
-  where $q$ is the scalar field that is being advected, $n$ is the time level, $j$ is indexing the $nx$ grid points, $\nu$ is the Courant number, and $\sigma = \nu^2/2$. For the linear case, $\nu = c\Delta t/\Delta x$, and $q_j^n \Delta t/\Delta x$ otherwise. Three cases were implemented in C:
-  <table align="center" class="my-3">
-    <tr>
-      <th>Case</th>
-      <th>Advection</th>
-      <th>$\Delta t$</th>
-      <th>$\nu$</th>
-      <th>Expected Results</th>
-    </tr>
-    <tr>
-      <th>A</th>
-      <td>Linear</td>
-      <td>0.05</td>
-      <td>0.5</td>
-      <td>Good Solution</td>
-    </tr>
-    <tr>
-      <th>B</th>
-      <td>Linear</td>
-      <td>0.105</td>
-      <td>1.05</td>
-      <td>Instability</td>
-    </tr>
-    <tr>
-      <th>C</th>
-      <td>Nonlinear</td>
-      <td>0.05</td>
-      <td>1</td>
-      <td>Shock</td>
-    </tr>
-  </table>
-  Initial conditions were implemented in a subroutine in C and verified to be consistent across the cases:
+  where $q$ is the scalar field that is being advected, $n$ is the time level, $j$ is indexing the $nx$ grid points, $\nu$ is the Courant number, and $\sigma = \nu^2/2$. For the linear case, $\nu = c\Delta t/\Delta x$, and $q_j^n \Delta t/\Delta x$ otherwise. Both linear and nonlinear cases were simulated with a timestep $\Delta t = 0.05$ for 150 steps.
+  The simulations show the formation of a shock with nonlinear advection, while the linear case results in a stabilizing solution.
   <div class="row my-3" align="center">
-    <div class="col-xl-4">
-      <img src="a-ic.png" style="width:90%">
+    <div class="col-lg-6">
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe src="linear.mp4" style="width:100%" allowfullscreen></iframe>
+      </div>
     </div>
-    <div class="col-xl-4">
-      <img src="b-ic.png" style="width:90%">
-    </div>
-    <div class="col-xl-4">
-      <img src="c-ic.png" style="width:90%">
-    </div>
-  </div>
-  Final solutions either converged or blew up as expected:
-  <div class="row my-3" align="center">
-    <div class="col-xl-4">
-      <img src="a-sol.png" style="width:90%">
-    </div>
-    <div class="col-xl-4">
-      <img src="b-sol.png" style="width:90%">
-    </div>
-    <div class="col-xl-4">
-      <img src="c-sol.png" style="width:90%">
-    </div>
-  </div>
-  We also looked at the change in maximum position value against time, which agrees with the final solution results:
-  <div class="row my-3" align="center">
-    <div class="col-xl-4">
-      <img src="a-smax.png" style="width:90%">
-    </div>
-    <div class="col-xl-4">
-      <img src="b-smax.png" style="width:90%">
-    </div>
-    <div class="col-xl-4">
-      <img src="c-smax.png" style="width:90%">
-    </div>
-  </div>
-  Surface plots were also generated to be able to visualize the results:
-  <div class="row my-3" align="center">
-    <div class="col-xl-4">
-      <img src="a-3d.png" style="width:90%">
-    </div>
-    <div class="col-xl-4">
-      <img src="b-3d.png" style="width:90%">
-    </div>
-    <div class="col-xl-4">
-      <img src="c-3d.png" style="width:90%">
+    <div class="col-lg-6">
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe src="nonlinear.mp4" style="width:100%" allowfullscreen></iframe>
+      </div>
     </div>
   </div>
 </p>
@@ -251,19 +177,13 @@ Three FD schemes were implemented: 2nd-order central, 3rd-order biased, and 6th-
     &amp; \text{Wall: } f(0) = f'(0) = 0 \text{, } g(0) = g_w \text{ or } g'(0) = 0 \\
     &amp; \text{Edge: } f'(\infty) = g(\infty) = 1
   \end{align}
-  The solution procedure is to use a shooting technique:
-  <ol>
-    <li>make a first guess for $f''(0)$ and $g'(0)$</li>
-    <li>integrate the governing equations across the boundary layer to values of $\eta$ large enough that $f'(\eta)$ and $g(\eta)$ are constant (up to the outer flow)</li>
-    <li>verify that the resulting values of $f'(\eta)$ and $g(\eta)$ satisfy the freestream boundary conditions on the edge</li>
-    <li>repeat the process adjusting the guesses until convergence is achieved</li>
-  </ol>
-  The state vector of unknows is $F = (f,f',f'',g,g')$. As input parameters, we need to define $\text{M}_e, \text{Pr}, \gamma$ and an expression for the Chapman-Rubesin parameter $C = (\rho\mu)/(\rho_e \mu_e)$. Using a power law of exponent $\sigma$ for the viscosity $\mu/\mu_e = (T/T_e)^\sigma$. Using the ideal gas law, we have $C = (\rho\mu)/(\rho_e \mu_e) = g^{\sigma - 1}$. The governing equations can be rewritten:
+  The solution procedure is to use a shooting technique. The state vector of unknows is $F = (f,f',f'',g,g')$. As input parameters, we need to define $\text{M}_e, \text{Pr}, \gamma$ and an expression for the Chapman-Rubesin parameter $C = (\rho\mu)/(\rho_e \mu_e)$. Using a power law of exponent $\sigma$ for the viscosity $\mu/\mu_e = (T/T_e)^\sigma$. Using the ideal gas law, we have $C = (\rho\mu)/(\rho_e \mu_e) = g^{\sigma - 1}$. The governing equations can be rewritten:
   \begin{align}
     &amp; f''' = -\frac{f''}{g^{\sigma-1}}[(\sigma-1)g^{\sigma-2}g' + f] \\
     &amp; g'' = -\frac{1}{g^{\sigma-1}}[(\sigma-1)g^{\sigma-2}g'^2 + \text{Pr}fg'\\&amp; + \text{Pr}g^{\sigma-1}(\gamma-1)\text{M}_e^2f''^2] = 0
   \end{align}
-  We assumed $\sigma = 0.75, \text{Pr} = 0.72, \text{ and } \gamma = 1.4$. We considered a boundary layer with the following edge conditions: $\text{M}_e = 5$, $\text{Re}_{e,x} = 10,000$, $T_e = 223 \text{ K}$, $P_e = 1000 \text{ Pa}$, $\mu_e = 1.2 \times 10^{-5}$ Pa-s. Self-similar boundary layer temperature and velocity profiles for adiabatic and isothermal walls with $T_w/T_E = 6$ were plotted using Python:
+  We assumed $\sigma = 0.75, \text{Pr} = 0.72, \text{ and } \gamma = 1.4$. We considered a boundary layer with the following edge conditions: $\text{M}_e = 5$, $\text{Re}_{e,x} = 10,000$, $T_e = 223 \text{ K}$, $P_e = 1000 \text{ Pa}$, $\mu_e = 1.2 \times 10^{-5}$ Pa-s. Self-similar boundary layer temperature and velocity profiles for adiabatic and isothermal walls with $T_w/T_E = 6$ were plotted using Python.
+  We also plotted dimensional boundary layer profiles of static (dashed) temperature, stagnation (solid) temperature, and streamwise velocity for the adiabatic wall, isothermal wall with $T_w/T_e = 4$, and isothermal wall with $T_w/T_e = 8$.
   <div class="row my-3" align="center">
     <div class="col-lg-6">
       <img src="ss_bl_ad.png" style="width:90%">
@@ -272,7 +192,6 @@ Three FD schemes were implemented: 2nd-order central, 3rd-order biased, and 6th-
       <img src="ss_bl_iso.png" style="width:90%">
     </div>
   </div>
-  We also plotted dimensional boundary layer profiles of static (dashed) temperature, stagnation (solid) temperature, and streamwise velocity for the adiabatic wall, isothermal wall with $T_w/T_e = 4$, and isothermal wall with $T_w/T_e = 8$.
   <div class="row my-3" align="center">
     <div class="col-lg-6">
       <img src="bl_temp.png" style="width:90%">
@@ -286,7 +205,8 @@ Three FD schemes were implemented: 2nd-order central, 3rd-order biased, and 6th-
     &amp; C_f = \sqrt{2}C_w\frac{f''(0)}{\sqrt{\text{Re}_{e,x}}} \\
     &amp; \text{St } = \frac{1}{\sqrt{2}}\frac{C_w}{\text{Pr}}\frac{T_e}{T_{aw}-T_w}\frac{g'(0)}{\sqrt{\text{Re}_{e,x}}}
   \end{align}
-  where $C_w = g_w^{\sigma-1}$ and $T_{aw} = T_e + \sqrt{\text{Pr}}(T_{0e}-T_e)$.
+  where $C_w = g_w^{\sigma-1}$ and $T_{aw} = T_e + \sqrt{\text{Pr}}(T_{0e}-T_e)$. 
+  These calculated values are in agreement with the work of Van Driest.
   <table align="center" class="my-3">
     <tr>
       <th></th>
@@ -308,9 +228,62 @@ Three FD schemes were implemented: 2nd-order central, 3rd-order biased, and 6th-
       <td>$0.005420$</td>
       <td>$0.003428$</td>
     </tr>
-  </table>
-  These calculated values are in agreement with the work of Van Driest.
+  </table><br>
 </p>
+
+<hr>
+<h5>Hypersonic Limit of Inviscid Flow</h5>
+<p>AE 498: Hypersonic Aerothermodynamics, UIUC (2020)</p>
+<p>
+  While viscous effects are the essence of hypersonic flows, it is convenient to analyze the limit where the flow in inviscid. In this limit, transport phenomena such as viscosity, thermal conduction, diffusion, and high temperature effects are neglected.
+  The limit for inviscid flow is satisfied when the Reynolds number is moderately large. This is preferentially obtained in freestream regions away from surfaces.
+  From the compressible flow theory, there are two fundamental angles that describe the behavior of a streamline across the shock: streamline deflection angle $\theta$ and the angle of incidence (wave angle) $\beta$.
+  The integral form of conservation equations across an oblique shock take the form:
+  \begin{align}
+    \rho_1 V_{1n} &amp;= \rho_2 V_{2n} \\
+    \rho_1 V^2_{1n} + p_1 &amp;= \rho_2 V^2_{2n} + p_2 \\
+    V_{1t} &amp;= V_{2t} \\
+    h_{0_{1}} = h_1 + \frac{V^2_{1n}}{2} &amp;=  h_2 + \frac{V^2_{2n}}{2} = h_{0_{2}}
+  \end{align}
+  These equations lead to the Rankine-Hugoniot jump conditions:
+  \begin{align}
+    \frac{\rho_2}{\rho_1} &amp;= \frac{(\gamma+1)M^2_{1n}}{2+(\gamma-1)M^2_{1n}} \\
+    \frac{p_2}{p_1} &amp;= 1 + \frac{2\gamma}{\gamma+1}(M^2_{1n}-1) \\
+    \frac{T_2}{T_1} &amp;= \frac{p_2}{p_1} \frac{\rho_1}{\rho_2} \\
+    \frac{u_{2n}}{u_{1n}} &amp;= \frac{\rho_1}{\rho_2} \\
+    M^2_{2n} &amp;= \frac{2+(\gamma-1)M^2_{1n}}{2\gamma M^2_{1n}+1-\gamma}
+  \end{align}
+  $M_{1n}$ refers to the normal Mach number such that $M_{1n} = u_{1n}/a_1$ where $u_{1n} = u_1 \sin{\beta}$ is the flow velocity normal to the shock and $u_{1t} = u_1 \cos{\beta}$ is the tangential flow velocity.
+  The corresponding components of the post-shock gas are then derived as $u_{2n} = u_2 \sin{(\beta-\theta)}$ and $u_{2t} = u_2 \cos{(\beta-\theta)}$ with $M_{1n} = M_1 \sin{\beta}$ and $M_{2n} = M_2 \sin{(\beta-\theta)}$ for the Mach numbers in the normal direction (the former defined as Tsien's hypersonics similarity parameter).
+  A relation between the wave angle $\beta$ and the angle of streamline deflection $\theta$ can be obtained using the ratio $u_{2n}/u_{1n} = \tan{(\beta-\theta)}/\tan{\beta}$ along with the Rankine-Hugoniot conditions.
+  The $\theta-\beta-M$ relation is then derived and shown in the plot below next to the Rankine-Hugoniot ratios as the normal incoming Mach number approaches infinity:
+  \begin{align}
+    \tan{\theta} = \frac{2\cot{\beta}(M^2_1 \sin^2{\beta} - 1)}{2 + M^2_1 [\gamma + \cos{(2\beta)}]}
+  \end{align}
+  In the hypersonic limit, the pressure and temperature ratios increase unboundedly with the squared Mach number. The density reaches a maximum compression ratio of $(\gamma + 1)/(\gamma - 1) \approx 6$. The proportionality of the temperature ratio with the squared Mach number at large Mach numbers is the prediction of unrealistically high temperatures in the shock layer.
+  The expansion of a supersonic flow can be achieved through a convex corner, which generates an expansion fan through which the flow is accelerated and expanded isentropically.
+  In contrast to shock waves, the expansion fan occupies a finite-thickness region of space. Analysis of the stream deflection is achieved though the Prandtl-Meyer function:
+  \begin{align}
+    \nu(M) = \sqrt{\frac{\gamma + 1}{\gamma - 1}} \tan^{-1}{\sqrt{\frac{\gamma - 1}{\gamma + 1}(M^2 - 1)}} - \tan^{-1}{\sqrt{M^2 - 1}}
+  \end{align}
+  <div class="row my-3" align="center">
+    <div class="col-lg-6">
+      <img src="tbm_hl.png" style="width:100%">
+    </div>
+    <div class="col-lg-6">
+      <img src="rh_hl.png" style="width:100%">
+    </div>
+  </div>
+  <div class="row my-3" align="center">
+    <div class="col-lg-6">
+      <img src="pm_hl.png" style="width:100%">
+    </div>
+    <div class="col-lg-6">
+      <img src="theta_hl.png" style="width:100%">
+    </div>
+  </div>
+</p>
+
 <!-- 
 <hr>
 <h5>Crank-Nicolson FD for 1D Acoustic Wave Equation</h5>
