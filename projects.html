@@ -166,7 +166,7 @@ Three FD schemes were implemented: 2nd-order central, 3rd-order biased, and 6th-
   \end{align}
   The solution domain is a 1D mesh (grid) of $nx$ points. The PDEs above are solved for each point on this mesh. The initial condition is a single sine wave with a wavelength of $nx\Delta x$ with a periodic boundary condition (i.e. the wave "exits" on the right side of the domain and "re-enters" on the left side for speed $c > 0$). The Lax-Wendroff scheme with forward time differencing and centered space differencing is employed to solve these PDEs:
   \begin{align}
-    q_j^{n+1} = q_j^n - \frac{\nu}{2}(q_{j+1}^n - q_{j-1}^n)\\ + \sigma(q_{j+1}^n - 2q_j^n + q_{j-1}^n)
+    q_j^{n+1} = q_j^n - \frac{\nu}{2}(q_{j+1}^n - q_{j-1}^n) + \sigma(q_{j+1}^n - 2q_j^n + q_{j-1}^n)
   \end{align}
   where $q$ is the scalar field that is being advected, $n$ is the time level, $j$ is indexing the $nx$ grid points, $\nu$ is the Courant number, and $\sigma = \nu^2/2$. For the linear case, $\nu = c\Delta t/\Delta x$, and $q_j^n \Delta t/\Delta x$ otherwise. Both linear and nonlinear cases were simulated with a timestep $\Delta t = 0.05$ for 150 steps.
   The simulations show the formation of a shock with nonlinear advection, while the linear case results in a stabilizing solution.
@@ -201,7 +201,7 @@ Three FD schemes were implemented: 2nd-order central, 3rd-order biased, and 6th-
   The solution procedure is to use a shooting technique. The state vector of unknows is $F = (f,f',f'',g,g')$. As input parameters, we need to define $\text{M}_e, \text{Pr}, \gamma$ and an expression for the Chapman-Rubesin parameter $C = (\rho\mu)/(\rho_e \mu_e)$. Using a power law of exponent $\sigma$ for the viscosity $\mu/\mu_e = (T/T_e)^\sigma$. Using the ideal gas law, we have $C = (\rho\mu)/(\rho_e \mu_e) = g^{\sigma - 1}$. The governing equations can be rewritten:
   \begin{align}
     &amp; f''' = -\frac{f''}{g^{\sigma-1}}[(\sigma-1)g^{\sigma-2}g' + f] \\
-    &amp; g'' = -\frac{1}{g^{\sigma-1}}[(\sigma-1)g^{\sigma-2}g'^2 + \text{Pr}fg'\\&amp; + \text{Pr}g^{\sigma-1}(\gamma-1)\text{M}_e^2f''^2] = 0
+    &amp; g'' = -\frac{1}{g^{\sigma-1}}[(\sigma-1)g^{\sigma-2}g'^2 + \text{Pr}fg' + \text{Pr}g^{\sigma-1}(\gamma-1)\text{M}_e^2f''^2] = 0
   \end{align}
   We assumed $\sigma = 0.75, \text{Pr} = 0.72, \text{ and } \gamma = 1.4$. We considered a boundary layer with the following edge conditions: $\text{M}_e = 5$, $\text{Re}_{e,x} = 10,000$, $T_e = 223 \text{ K}$, $P_e = 1000 \text{ Pa}$, $\mu_e = 1.2 \times 10^{-5}$ Pa-s. Self-similar boundary layer temperature and velocity profiles for adiabatic and isothermal walls with $T_w/T_E = 6$ were plotted using Python.
   We also plotted dimensional boundary layer profiles of static (dashed) temperature, stagnation (solid) temperature, and streamwise velocity for the adiabatic wall, isothermal wall with $T_w/T_e = 4$, and isothermal wall with $T_w/T_e = 8$.
