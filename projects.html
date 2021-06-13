@@ -137,7 +137,8 @@ Three FD schemes were implemented: 2nd-order central, 3rd-order biased, and 6th-
   The computational domain is a 2D staggered C-grid. All methods are 2-time-level and 1D. Directional splitting applies advection in the $x$-direction followed by the $y$-direction. Up to 3 ghost points are required (for Crowley 6th order, where $\alpha = U\Delta t/\Delta x$).
   \begin{align}
     \text{Lax-Wendroff: } \quad s_j^{n+1} = s_j^n &amp; - \frac{\nu}{2}\bigg(s_{j+1}^n - s_{j-1}^n\bigg) + \frac{\nu^2}{2}\bigg(s_{j+1}^n - 2 s_j^n + s_{j-1}^n\bigg) \\
-    \text{Takacs: } \quad s_j^{n+1} = s_j^n &amp; - \frac{\nu}{2}\bigg(s_{j+1}^n - s_{j-1}^n\bigg) + \frac{\nu^2}{2}\bigg(s_{j+1}^n - 2s_j^n + s_{j-1}^n\bigg) - \Bigg(\frac{1+\nu}{6}\Bigg)\nu(\nu-1)\bigg(s_{j+1}^n - 3s_j^n + 3s_{j-1}^n - s_{j-2}^n\bigg) \\
+    \text{Takacs: } \quad s_j^{n+1} = s_j^n &amp; - \frac{\nu}{2}\bigg(s_{j+1}^n - s_{j-1}^n\bigg) + \frac{\nu^2}{2}\bigg(s_{j+1}^n - 2s_j^n + s_{j-1}^n\bigg) \\
+                                            &amp; - \Bigg(\frac{1+\nu}{6}\Bigg)\nu(\nu-1)\bigg(s_{j+1}^n - 3s_j^n + 3s_{j-1}^n - s_{j-2}^n\bigg) \\
     \text{Crowley: } \quad s_j^{n+1} = s_j^n &amp; + \frac{\alpha}{60}\bigg(s_{j-3}^n - 9s_{j-2}^n + 45s_{j-1}^n - 45s_{j+1}^n + 9s_{j+2}^n - s_{j+3}^n\bigg) \\
                                       &amp; + \frac{\alpha^2}{360}\bigg(2s_{j-3}^n - 27s_{j-2}^n + 270s_{j-1}^n - 490s_j^n + 270s_{j+1}^n - 27s_{j+2}^n + 2s_{j+3}^n\bigg) \\
                                       &amp; + \frac{\alpha^3}{48}\bigg(-s_{j-3}^n + 8s_{j-2}^n - 13s_{j-1}^n + 13s_{j+1}^n - 8s_{j+2}^n + s_{j+3}^n\bigg) \\
