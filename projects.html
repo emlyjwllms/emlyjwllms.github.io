@@ -127,14 +127,35 @@ Three FD schemes were implemented: 2nd-order central, 3rd-order biased, and 6th-
 
 <hr>
 <h5>Nonlinear 2D Quasi-Compressible Flow</h5>
-<p>ATMS 502/CSE 566: Numerical Fluid Dynamics, UIUC (2021)</p>
-
-<hr>
-<h5>2D Advection Rotational Flow</h5>
 <p>ATMS 502/CSE 566: Numerical Fluid Dynamics, UIUC (2021)</p>-->
 
 <hr>
-<h5>1D Linear and Nonlinear Advection</h5>
+<h5>2D Rotational Flow</h5>
+<p>ATMS 502/CSE 566: Numerical Fluid Dynamics, UIUC (2021)</p>
+<p>
+  For this project, 2D linear advection is solved via fractional (directional) step splitting with a circularl field initial conditions and 0-gradient boundary conditions. The rotational flow field is constant with time and integrated using 3 different methods: Lax-Wendroff, Takacs, and Crowley.
+  The computational domain is a 2D staggered C-grid. All methods are 2-time-level and 1D. Directional splitting applies advection in the $x$-direction followed by the $y$-direction. Up to 3 ghost points are required (for Crowley 6th order, where $\alpha = U\Delta t/\Delta x$).
+  \begin{align}
+    \text{Lax-Wendroff: } \quad s_j^{n+1} = s_j^n &amp; - \frac{\nu}{2}\bigg(s_{j+1}^n - s_{j-1}^n\bigg) + \frac{\nu^2}{2}\bigg(s_{j+1}^n - 2 s_j^n + s_{j-1}^n\bigg) \\
+    \text{Takacs: } \quad s_j^{n+1} = s_j^n &amp; - \frac{\nu}{2}\bigg(s_{j+1}^n - s_{j-1}^n\bigg) + \frac{\nu^2}{2}\bigg(s_{j+1}^n - 2s_j^n + s_{j-1}^n\bigg) - \Bigg(\frac{1+\nu}{6}\Bigg)\nu(\nu-1)\bigg(s_{j+1}^n - 3s_j^n + 3s_{j-1}^n - s_{j-2}^n\bigg) \\
+    \text{Crowley: } \quad s_j^{n+1} = s_j^n &amp; + \frac{\alpha}{60}\bigg(s_{j-3}^n - 9s_{j-2}^n + 45s_{j-1}^n - 45s_{j+1}^n + 9s_{j+2}^n - s_{j+3}^n\bigg) \\
+                                      &amp; + \frac{\alpha^2}{360}\bigg(2s_{j-3}^n - 27s_{j-2}^n + 270s_{j-1}^n - 490s_j^n + 270s_{j+1}^n - 27s_{j+2}^n + 2s_{j+3}^n\bigg) \\
+                                      &amp; + \frac{\alpha^3}{48}\bigg(-s_{j-3}^n + 8s_{j-2}^n - 13s_{j-1}^n + 13s_{j+1}^n - 8s_{j+2}^n + s_{j+3}^n\bigg) \\
+                                      &amp; + \frac{\alpha^4}{144}\bigg(-s_{j-3}^n + 12s_{j-2}^n - 39s_{j-1}^n + 56s_j^n - 39s_{j+1}^n + 12s_{j+2}^n - s_{j+3}^n\bigg) \\
+                                      &amp; + \frac{\alpha^5}{240}\bigg(s_{j-3}^n - 4s_{j-2}-39s_{j-1}^n + 56s_j^n -39s_{j+1}^n + 12s_{j+2}^n - s_{j+3}^n\bigg) \\
+                                      &amp; + \frac{\alpha^6}{720}\bigg(s_{j-3}^n - 6s_{j-2}^n + 15s_{j-1}^n - 20s_j^n + 15s_{j+1}^n - 6s_{j+2}^n + s_{j+3}^n\bigg)
+  \end{align}
+  <div class="row" align="center">
+    <div class="col-lg-12">
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe src="advect2d_crowley.mp4" style="width:100%" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</p>
+
+<hr>
+<h5>1D Advection</h5>
 <p>ATMS 502/CSE 566: Numerical Fluid Dynamics, UIUC (2021)</p>
 <p>
   For this project, we needed to solve the 1D advection (transport) equation for a variable $q$ in linear and nonlinear cases:
@@ -160,7 +181,6 @@ Three FD schemes were implemented: 2nd-order central, 3rd-order biased, and 6th-
       </div>
     </div>
   </div>
-</p>
 </p>
 
 <hr>
