@@ -133,7 +133,7 @@ Three FD schemes were implemented: 2nd-order central, 3rd-order biased, and 6th-
 <h5>2D Rotational Flow</h5>
 <p>ATMS 502/CSE 566: Numerical Fluid Dynamics, UIUC (2021)</p>
 <p>
-  For this project, 2D linear advection is solved via fractional (directional) step splitting with a circularl field initial conditions and 0-gradient boundary conditions. The rotational flow field is constant with time and integrated using 3 different methods: Lax-Wendroff, Takacs, and Crowley.
+  For this project, 2D linear advection is solved via fractional (directional) step splitting with a circular field initial conditions and 0-gradient boundary conditions. The rotational flow field is constant with time and integrated using 3 different methods: Lax-Wendroff, Takacs, and Crowley.
   The computational domain is a 2D staggered C-grid. All methods are 2-time-level and 1D. Directional splitting applies advection in the $x$-direction followed by the $y$-direction. Up to 3 ghost points are required (for Crowley 6th order, where $\alpha = U\Delta t/\Delta x$).
   \begin{align}
     \text{Lax-Wendroff: } \quad s_j^{n+1} = s_j^n &amp; - \frac{\nu}{2}\bigg(s_{j+1}^n - s_{j-1}^n\bigg) + \frac{\nu^2}{2}\bigg(s_{j+1}^n - 2 s_j^n + s_{j-1}^n\bigg) \\
