@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Emily Williams</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link id="dark-theme-style" rel="stylesheet" />
+    <link href="style.css" type="text/css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Emily Williams</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link active" href="projects.html">Projects</a>
+          <a class="nav-link" href="teaching.html">Teaching</a>
+          <a class="nav-link" href="honors.html">Honors</a>
+          <a class="nav-link disabled mr-3" href="publications.html">Publications</a>
+          <!--<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Publications</a>-->
+          <a
+                  href="javascript:void()"
+                  class="btn btn-secondary btn-md custom"
+                  id="theme-toggler"
+                  onclick="toggleTheme()"
+                ></a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+<div class="container">
+
+    <h4>Projects</h4>
+
+<h5>FV Eulerian Solver for 1D Nonlinear Simplified Navier-Stokes Equations</h5>
+<p>AE 410: Computational Aerodynamics, UIUC (2021)</p>
+<p>
+  Euler equations can be obtained from the nonlinear, 1D Navier-Stokes equations assuming vanishing viscosity and thermal conductivity:
+  \begin{align}
+    \frac{\partial \rho}{\partial t} + \frac{\partial \rho u}{\partial x} &amp;= 0 \\
+    \frac{\partial \rho u}{\partial t} + \frac{\partial}{\partial x} (\rho u^2 + p) = \frac{\partial \tau}{\partial x} &amp;= 0 \\
+    \frac{\partial \rho E}{\partial t} + \frac{\partial}{\partial x}[(\rho E + p)u] = \frac{\partial}{\partial x}(\tau u - q) &amp;= 0
+  \end{align}
+  where $\rho$ is the fluid density, $u$ is the fluid velocity, and $p$ is the thermodynamic pressure. Total energy density is defined as:
+  \begin{align}
+    \rho E = \rho e + \frac{1}{2} \rho u^2
+  \end{align}
+  The pressure is related to $\rho E$ by the equation of state:
+  \begin{align}
+    p = (\gamma-1)\bigg(\rho E - \frac{1}{2} \rho u^2 \bigg)
+  \end{align}
+The Euler equations were solved using Roe's method to discretize the convective fluxes using a finite-volume method with equally spaced volumes to span the flow volume from 0 to 1. The characteristic boundary condition was used for the subsonic outlet and numerical flux functions were computed using the Roe scheme. Post-shock initial conditions were found using the Rankine-Hugoniot equations. Mass flow surrounding the stationary shock occuring at $x = 0.5$ is shown below, with a number of waves being shed by the shock and traveling downstream as expected.
+<div class="row my-3" align="center">
+  <div class="col-lg-12">
+    <div class="embed-responsive embed-responsive-16by9">
+      <iframe src="massflow.mp4" style="width:100%" allowfullscreen></iframe>
+    </div>
+  </div>
+</div>
+</p>
+
+<hr>
+<h5>FD Solver for 1D Linear Euler Equations</h5>
+<p>AE 410: Computational Aerodynamics, UIUC (2021)</p>
+<p>
+  To derive the 1D linear acoustic equations in $p$ and $\rho$, we start from the linearized Euler equations, neglecting the energy equation:
+  \begin{align}
+    \frac{\partial p}{\partial t} + K_0 \frac{\partial u}{\partial x} &amp;= 0 \\
+    \bar{\rho} \frac{\partial u}{\partial t} + \frac{\partial p}{\partial x} &amp;= 0
+  \end{align}
+  where $K_0(x) = \bar{\rho}(x)\bar{p}(x)$ is the bulk modulus of compressibility of the gas, where $\bar{\rho}(x)$ and $\bar{p}(x)$ are the flow background density and pressure, and $p(x,t)$ and $u(x,t)$ are the unknowns of the problem. We consider a fluid in a channel of unit width and assume that the background velocity of the flow is negligible ($\bar{u}=0$). We wish to study the equations of linear acoustics in a layered medium in which $\bar{\rho}$ and $K_0$ are piecewise constant functions of $x$. We define the speed of sound $c(x)$ and the impedance $Z(x)$ as:
+  \begin{align}
+    c(x) &amp;= \sqrt{\frac{K_0(x)}{\bar{\rho}(x)}} \\
+    Z(x) &amp;= \bar{\rho}(x)c(x) 
+  \end{align}
+  A finite-difference solver was developed to solve the linear acoustic equations on a finite domain $x \in [-5,5]$. The boundary at $x=5$ models a solid wall ($u(5,t)=0$), while at $x=-5$, a non-reflecting boundary condition is imposed such that the amplitude of the incoming characteristic is zero. The initial conditions were given as exponential functions.
+  The equations were integrated for at least 10 seconds using 151 points in the $x$-direction. The system of equations was rearranged in the following form:
+  \begin{align}
+    \frac{\partial q}{\partial t} + A\frac{\partial q}{\partial x} = 0
+  \end{align}
+  where $q = [p,u]^T$ and $A$ = $[$ $0$ $K_0$ ; $1/\bar{\rho}$ $0$ $]$ = $[$ $0$ $cZ$ ; $c/Z$ $0$ $]$. Eigenvalues of A were determined to represent the speed of sound $c(x)$. Using the characteristic variables, boundary conditions that needed to be applied at $x=5$ to achieve a solid wall and $x=-5$ to achieve a non-reflection condition were determined by defining $w = X^{-1}q$ and $\Lambda = X^{-1}AX$:
+  \begin{align}
+    \frac{\partial w}{\partial t} + \Lambda\frac{\partial w}{\partial x} &amp;= 0
+  \end{align}
+  The specular reflection at the right boundary is defined as $\frac{\partial u}{\partial t}(x=5) = \frac{\partial w_2}{\partial t}(x=5) = 0$. The non-reflection at the left boundary is enforced by prescribing $\frac{\partial w}{\partial t}(x=-5) = 0$.
+Three FD schemes were implemented: 2nd-order central, 3rd-order biased, and 6th-order Pad&eacute;. The equations were integrated and then pressure and velocity profiles at different times are captured.
+</p>
+<div class="row my-3" align="center">
+  <div class="col-lg-12">
+    <div class="embed-responsive embed-responsive-16by9">
+      <iframe src="vel.mp4" style="width:100%" allowfullscreen></iframe>
+    </div>
+  </div>
+  <!-- <div class="col-lg-12 my-3">
+    <div class="embed-responsive embed-responsive-16by9">
+      <iframe src="biased3.mp4" style="width:56.25%;margin-left:21%;" allowfullscreen></iframe>
+    </div>
+  </div> -->
+  <!-- <div class="col-lg-12 mb-3">
+    <div class="embed-responsive embed-responsive-16by9">
+      <iframe src="compact6.mp4" style="width:56.25%;margin-left:21%;" allowfullscreen></iframe>
+    </div>
+  </div> -->
+</div>
+<!-- Correct implementation of the matrix approximation $D$ of $\partial/\partial x$ for each scheme can be demonstrated by comparing the exact solution with the approximation and comparing the truncation error obtained analytically to that obtained numerically:
+<div class="row my-3" align="center">
+  <div class="col-xl-6">
+    <img src="approx_midterm.png" style="width:90%">
+  </div>
+  <div class="col-xl-6">
+    <img src="error_midterm.png" style="width:90%">
+  </div>
+</div> -->
+
+
+<!--ADD LATER<hr>
+<h5>Linear Advection Rotational Flow with Nesting</h5>
+<p>ATMS 502/CSE 566: Numerical Fluid Dynamics, UIUC (2021)</p>
+
+<hr>
+<h5>Nonlinear 2D Quasi-Compressible Flow</h5>
+<p>ATMS 502/CSE 566: Numerical Fluid Dynamics, UIUC (2021)</p>-->
+
+<hr>
+<h5>2D Rotational Flow</h5>
+<p>ATMS 502/CSE 566: Numerical Fluid Dynamics, UIUC (2021)</p>
+<p>
+  For this project, 2D linear advection is solved via fractional (directional) step splitting with a circular field initial conditions and 0-gradient boundary conditions. The rotational flow field is constant with time and integrated using 3 different methods: Lax-Wendroff, Takacs, and Crowley.
+  The computational domain is a 2D staggered C-grid. All methods are 2-time-level and 1D. Directional splitting applies advection in the $x$-direction followed by the $y$-direction. Up to 3 ghost points are required (for Crowley 6th order, where $\alpha = U\Delta t/\Delta x$).
+  \begin{align}
+    \text{Lax-Wendroff: } \quad s_j^{n+1} = s_j^n &amp; - \frac{\nu}{2}\bigg(s_{j+1}^n - s_{j-1}^n\bigg) + \frac{\nu^2}{2}\bigg(s_{j+1}^n - 2 s_j^n + s_{j-1}^n\bigg) \\
+    \text{Takacs: } \quad s_j^{n+1} = s_j^n &amp; - \frac{\nu}{2}\bigg(s_{j+1}^n - s_{j-1}^n\bigg) + \frac{\nu^2}{2}\bigg(s_{j+1}^n - 2s_j^n + s_{j-1}^n\bigg) \\
+                                            &amp; - \Bigg(\frac{1+\nu}{6}\Bigg)\nu(\nu-1)\bigg(s_{j+1}^n - 3s_j^n + 3s_{j-1}^n - s_{j-2}^n\bigg) \\
+    \text{Crowley: } \quad s_j^{n+1} = s_j^n &amp; + \frac{\alpha}{60}\bigg(s_{j-3}^n - 9s_{j-2}^n + 45s_{j-1}^n - 45s_{j+1}^n + 9s_{j+2}^n - s_{j+3}^n\bigg) \\
+                                      &amp; + \frac{\alpha^2}{360}\bigg(2s_{j-3}^n - 27s_{j-2}^n + 270s_{j-1}^n - 490s_j^n + 270s_{j+1}^n - 27s_{j+2}^n + 2s_{j+3}^n\bigg) \\
+                                      &amp; + \frac{\alpha^3}{48}\bigg(-s_{j-3}^n + 8s_{j-2}^n - 13s_{j-1}^n + 13s_{j+1}^n - 8s_{j+2}^n + s_{j+3}^n\bigg) \\
+                                      &amp; + \frac{\alpha^4}{144}\bigg(-s_{j-3}^n + 12s_{j-2}^n - 39s_{j-1}^n + 56s_j^n - 39s_{j+1}^n + 12s_{j+2}^n - s_{j+3}^n\bigg) \\
+                                      &amp; + \frac{\alpha^5}{240}\bigg(s_{j-3}^n - 4s_{j-2}-39s_{j-1}^n + 56s_j^n -39s_{j+1}^n + 12s_{j+2}^n - s_{j+3}^n\bigg) \\
+                                      &amp; + \frac{\alpha^6}{720}\bigg(s_{j-3}^n - 6s_{j-2}^n + 15s_{j-1}^n - 20s_j^n + 15s_{j+1}^n - 6s_{j+2}^n + s_{j+3}^n\bigg)
+  \end{align}
+  <div class="row" align="center">
+    <div class="col-lg-12">
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe src="advect2d_crowley.mp4" style="width:100%" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</p>
+
+<hr>
+<h5>1D Advective Flow</h5>
+<p>ATMS 502/CSE 566: Numerical Fluid Dynamics, UIUC (2021)</p>
+<p>
+  For this project, we needed to solve the 1D advection (transport) equation for a variable $q$ in linear and nonlinear cases:
+  \begin{align}
+    \text{Linear: } \frac{\partial q}{\partial t} &amp;= -c \frac{\partial q}{\partial x} \\
+    \text{Nonlinear: } \frac{\partial q}{\partial t} &amp;= -q \frac{\partial q}{\partial x}
+  \end{align}
+  The solution domain is a 1D mesh (grid) of $nx$ points. The PDEs above are solved for each point on this mesh. The initial condition is a single sine wave with a wavelength of $nx\Delta x$ with a periodic boundary condition (i.e. the wave "exits" on the right side of the domain and "re-enters" on the left side for speed $c > 0$). The Lax-Wendroff scheme with forward time differencing and centered space differencing is employed to solve these PDEs:
+  \begin{align}
+    q_j^{n+1} = q_j^n - \frac{\nu}{2}(q_{j+1}^n - q_{j-1}^n) + \sigma(q_{j+1}^n - 2q_j^n + q_{j-1}^n)
+  \end{align}
+  where $q$ is the scalar field that is being advected, $n$ is the time level, $j$ is indexing the $nx$ grid points, $\nu$ is the Courant number, and $\sigma = \nu^2/2$. For the linear case, $\nu = c\Delta t/\Delta x$, and $q_j^n \Delta t/\Delta x$ otherwise. Both linear and nonlinear cases were simulated with a timestep $\Delta t = 0.05$ for 150 steps.
+  The simulations show the formation of a shock with nonlinear advection, while the linear case results in a stabilizing solution.
+  <div class="row my-3" align="center">
+    <div class="col-lg-6">
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe src="linear.mp4" style="width:100%" allowfullscreen></iframe>
+      </div>
+    </div>
+    <div class="col-lg-6">
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe src="nonlinear.mp4" style="width:100%" allowfullscreen></iframe>
+      </div>
+    </div>
+  </div>
+</p>
+
+<hr>
+<h5>Compressible Boundary Layer over Flat Plate</h5>
+<p>AE 498: Hypersonic Aerothermodynamics, UIUC (2020)</p>
+<p>
+  For this project, we integrated a compressible boundary layer over a flat plate with zero pressure gradient, under the assumption of calorically perfect gas. The governing equations are:
+  \begin{align}
+    &amp; (Cf'')' + ff' = 0 \\
+    &amp; (Cg') + \text{Pr} fg' + \text{Pr} C(\gamma - 1) \text{M}_e^2f''^2 = 0
+  \end{align}
+  <p>where $f'(\eta) = u/V_e$ and $g(\eta) = T/T_e$. These equations are subject to the following boundary conditions:</p>
+  \begin{align}
+    &amp; \text{Wall: } f(0) = f'(0) = 0 \text{, } g(0) = g_w \text{ or } g'(0) = 0 \\
+    &amp; \text{Edge: } f'(\infty) = g(\infty) = 1
+  \end{align}
+  The solution procedure is to use a shooting technique. The state vector of unknows is $F = (f,f',f'',g,g')$. As input parameters, we need to define $\text{M}_e, \text{Pr}, \gamma$ and an expression for the Chapman-Rubesin parameter $C = (\rho\mu)/(\rho_e \mu_e)$. Using a power law of exponent $\sigma$ for the viscosity $\mu/\mu_e = (T/T_e)^\sigma$. Using the ideal gas law, we have $C = (\rho\mu)/(\rho_e \mu_e) = g^{\sigma - 1}$. The governing equations can be rewritten:
+  \begin{align}
+    &amp; f''' = -\frac{f''}{g^{\sigma-1}}[(\sigma-1)g^{\sigma-2}g' + f] \\
+    &amp; g'' = -\frac{1}{g^{\sigma-1}}[(\sigma-1)g^{\sigma-2}g'^2 + \text{Pr}fg' + \text{Pr}g^{\sigma-1}(\gamma-1)\text{M}_e^2f''^2] = 0
+  \end{align}
+  We assumed $\sigma = 0.75, \text{Pr} = 0.72, \text{ and } \gamma = 1.4$. We considered a boundary layer with the following edge conditions: $\text{M}_e = 5$, $\text{Re}_{e,x} = 10,000$, $T_e = 223 \text{ K}$, $P_e = 1000 \text{ Pa}$, $\mu_e = 1.2 \times 10^{-5}$ Pa-s. Self-similar boundary layer temperature and velocity profiles for adiabatic and isothermal walls with $T_w/T_E = 6$ were plotted using Python.
+  We also plotted dimensional boundary layer profiles of static (dashed) temperature, stagnation (solid) temperature, and streamwise velocity for the adiabatic wall, isothermal wall with $T_w/T_e = 4$, and isothermal wall with $T_w/T_e = 8$.
+  <div class="row my-3" align="center">
+    <div class="col-lg-6">
+      <img src="ss_bl_ad.png" style="width:90%">
+    </div>
+    <div class="col-lg-6">
+      <img src="ss_bl_iso.png" style="width:90%">
+    </div>
+  </div>
+  <div class="row my-3" align="center">
+    <div class="col-lg-6">
+      <img src="bl_temp.png" style="width:90%">
+    </div>
+    <div class="col-lg-6">
+      <img src="bl_vel.png" style="width:90%">
+    </div>
+  </div>
+  Skin friction coefficients $C_f$ and Stanton numbers $\text{ St }$ were computed for the three cases analyzed:
+  \begin{align}
+    &amp; C_f = \sqrt{2}C_w\frac{f''(0)}{\sqrt{\text{Re}_{e,x}}} \\
+    &amp; \text{St } = \frac{1}{\sqrt{2}}\frac{C_w}{\text{Pr}}\frac{T_e}{T_{aw}-T_w}\frac{g'(0)}{\sqrt{\text{Re}_{e,x}}}
+  \end{align}
+  where $C_w = g_w^{\sigma-1}$ and $T_{aw} = T_e + \sqrt{\text{Pr}}(T_{0e}-T_e)$. 
+  These calculated values are in agreement with the work of Van Driest.
+  <table align="center" class="my-3">
+    <tr>
+      <th></th>
+      <th>$C_f$</th>
+      <th>$\text{St}$</th>
+    </tr>
+    <tr>
+      <th>Adiabatic $T_w/T_e = 6$</th>
+      <td>$0.005624$</td>
+      <td>Undefined</td>
+    </tr>
+    <tr>
+      <th>Isothermal $T_w/T_e = 4$</th>
+      <td>$0.005735$</td>
+      <td>$0.003471$</td>
+    </tr>
+    <tr>
+      <th>Isothermal $T_w/T_e = 8$</th>
+      <td>$0.005420$</td>
+      <td>$0.003428$</td>
+    </tr>
+  </table><br>
+</p>
+
+<hr>
+<h5>Hypersonic Limit of Inviscid Flow</h5>
+<p>AE 498: Hypersonic Aerothermodynamics, UIUC (2020)</p>
+<p>
+  While viscous effects are the essence of hypersonic flows, it is convenient to analyze the limit where the flow in inviscid. In this limit, transport phenomena such as viscosity, thermal conduction, diffusion, and high temperature effects are neglected.
+  The limit for inviscid flow is satisfied when the Reynolds number is moderately large. This is preferentially obtained in freestream regions away from surfaces.
+  From the compressible flow theory, there are two fundamental angles that describe the behavior of a streamline across the shock: streamline deflection angle $\theta$ and the angle of incidence (wave angle) $\beta$.
+  The integral form of conservation equations across an oblique shock take the form:
+  \begin{align}
+    \rho_1 V_{1n} &amp;= \rho_2 V_{2n} \\
+    \rho_1 V^2_{1n} + p_1 &amp;= \rho_2 V^2_{2n} + p_2 \\
+    V_{1t} &amp;= V_{2t} \\
+    h_{0_{1}} = h_1 + \frac{V^2_{1n}}{2} &amp;=  h_2 + \frac{V^2_{2n}}{2} = h_{0_{2}}
+  \end{align}
+  These equations lead to the Rankine-Hugoniot jump conditions:
+  \begin{align}
+    \frac{\rho_2}{\rho_1} &amp;= \frac{(\gamma+1)M^2_{1n}}{2+(\gamma-1)M^2_{1n}} \\
+    \frac{p_2}{p_1} &amp;= 1 + \frac{2\gamma}{\gamma+1}(M^2_{1n}-1) \\
+    \frac{T_2}{T_1} &amp;= \frac{p_2}{p_1} \frac{\rho_1}{\rho_2} \\
+    \frac{u_{2n}}{u_{1n}} &amp;= \frac{\rho_1}{\rho_2} \\
+    M^2_{2n} &amp;= \frac{2+(\gamma-1)M^2_{1n}}{2\gamma M^2_{1n}+1-\gamma}
+  \end{align}
+  $M_{1n}$ refers to the normal Mach number such that $M_{1n} = u_{1n}/a_1$ where $u_{1n} = u_1 \sin{\beta}$ is the flow velocity normal to the shock and $u_{1t} = u_1 \cos{\beta}$ is the tangential flow velocity.
+  The corresponding components of the post-shock gas are then derived as $u_{2n} = u_2 \sin{(\beta-\theta)}$ and $u_{2t} = u_2 \cos{(\beta-\theta)}$ with $M_{1n} = M_1 \sin{\beta}$ and $M_{2n} = M_2 \sin{(\beta-\theta)}$ for the Mach numbers in the normal direction (the former defined as Tsien's hypersonics similarity parameter).
+  A relation between the wave angle $\beta$ and the angle of streamline deflection $\theta$ can be obtained using the ratio $u_{2n}/u_{1n} = \tan{(\beta-\theta)}/\tan{\beta}$ along with the Rankine-Hugoniot conditions.
+  The $\theta-\beta-M$ relation is then derived and shown in the plot below next to the Rankine-Hugoniot ratios as the normal incoming Mach number approaches infinity:
+  \begin{align}
+    \tan{\theta} = \frac{2\cot{\beta}(M^2_1 \sin^2{\beta} - 1)}{2 + M^2_1 [\gamma + \cos{(2\beta)}]}
+  \end{align}
+  In the hypersonic limit, the pressure and temperature ratios increase unboundedly with the squared Mach number. The density reaches a maximum compression ratio of $(\gamma + 1)/(\gamma - 1) \approx 6$. The proportionality of the temperature ratio with the squared Mach number at large Mach numbers is the prediction of unrealistically high temperatures in the shock layer.
+  The expansion of a supersonic flow can be achieved through a convex corner, which generates an expansion fan through which the flow is accelerated and expanded isentropically.
+  In contrast to shock waves, the expansion fan occupies a finite-thickness region of space. Analysis of the stream deflection is achieved though the Prandtl-Meyer function:
+  \begin{align}
+    \nu(M) = \sqrt{\frac{\gamma + 1}{\gamma - 1}} \tan^{-1}{\sqrt{\frac{\gamma - 1}{\gamma + 1}(M^2 - 1)}} - \tan^{-1}{\sqrt{M^2 - 1}}
+  \end{align}
+  <div class="row my-3" align="center">
+    <div class="col-lg-6">
+      <img src="tbm_hl.png" style="width:100%">
+    </div>
+    <div class="col-lg-6">
+      <img src="rh_hl.png" style="width:100%">
+    </div>
+  </div>
+  <div class="row my-3" align="center">
+    <div class="col-lg-6">
+      <img src="pm_hl.png" style="width:100%">
+    </div>
+    <div class="col-lg-6">
+      <img src="theta_hl.png" style="width:100%">
+    </div>
+  </div>
+</p>
+
+<!-- 
+<hr>
+<h5>Crank-Nicolson FD for 1D Acoustic Wave Equation</h5>
+<p>AE 370: Aerospace Numermical Methods, UIUC (2020)</p>
+<p>
+  For this project, I devised a numerical method to study the wave equation. The wave equation serves as a timeless model used in various simulations for different engineering applications. Sound waves can be modeled using the acoustic wave equation. Piano tuners also utilize acoustic waves to match frequences of certain keys to keep pianos in tune. Oftentimes, pianos and other instruments are tuned using A440 (the A key just above middle C) as a reference. I looked into why the A note is used to tune instruments and whether there is an acoustic reason for this choice. The 1D wave equation took the following form for this study:
+  \begin{align}
+    &amp;\frac{\partial^2 u}{\partial t^2} = c^2 \frac{\partial^2 u}{\partial x^2} + g(x,t)\\ &amp;\quad 0 \leq t \leq T, a \leq x \leq b
+  \end{align}
+  where time $t$ spans from 0 to final time $T$, position $x$ spans from $a$ to $b$, $g(x,t)$ is the appropriate source term dependent on the exact solution, and $c$ is the speed of sound, assumed to be 343 m/s. To generate an exact solution in order to test the correctness of approximation methods used, the method of manufactured solutions is implemented using a very well-chosen solution to the wave equation as prescribed: $u(x,t) = u_m \sin{(\omega t - kx)}$, where $u_m$ is the amplitude of the wave, $\omega$ is the angular frequency, and $k$ is the wave number. For the case of the piano, $u_m$ is assumed to reach a maximum of 50 decibels. To solve for the source term $g(x,t)$, the generated exact solution can be substituted into the original wave equation, yielding $g(x,t) = u_m(c^2 k^2 - \omega^2)\sin{(\omega t - kx)}$. The complete form of the wave equation can be rewritten as:
+  \begin{align}
+    \frac{\partial^2 u}{\partial t^2} = c^2 &amp;\frac{\partial^2 u}{\partial x^2} + u_m(c^2 k^2 - \omega^2)\sin{(\omega t - kx)}\\ &amp;0 \leq t \leq T, a \leq x \leq b
+  \end{align}
+  Initial and boundary conditions can then be prescribed and a finite difference method can be implemented by using local interpolation through the method of lines. When solving initial boundary value problems (IBVPs), methods for solving time-dependent problems must be combined with methods for solving space-dependent problems. The method of lines helps discretize the IBVP in space to get a resulting initial value problem (IVP) of the form $\ddot{\boldsymbol{u}} = \boldsymbol{f}(\boldsymbol{u},t)$ with $\boldsymbol{f}(\boldsymbol{u},t) = \boldsymbol{Au} + \boldsymbol{g}(t)$ that can be solved using a numerical method. In order to solve the resulting IVP, a state-space representation is used by relating the system of first-order differential euqations to be able to step through the solution using the Crank-Nicolson method based on the trapezoidal rule, giving second-order convergence in time. The derivation of the Crank-Nicolson method begins by integrating the IVP from $t_k$ to $t_{k+1}$:
+  \begin{align}
+    \int_{t_k}^{t_{k+1}} \boldsymbol{\dot{z}} dt = \int_{t_k}^{t_{k+1}} \boldsymbol{\tilde{f}}(\boldsymbol{z}(t),t) dt
+  \end{align}
+  Evaluating and using the Lagrange basis to approximate and simplify:
+  \begin{align}
+    \boldsymbol{z}_{k+1} = \boldsymbol{z}_k + \frac{\Delta t}{2}(\boldsymbol{\tilde{f}}(\boldsymbol{z}_k,t_k) + \boldsymbol{\tilde{f}}(\boldsymbol{z}_k,t_k))
+  \end{align}
+  Substituting $\boldsymbol{\tilde{f}}(\boldsymbol{z},t) = \boldsymbol{Bz}+\boldsymbol{p}$:
+  \begin{align}
+    \boldsymbol{z}_{k+1} = (\boldsymbol{I}-\frac{\Delta t}{2}\boldsymbol{B})^{-1}(\boldsymbol{z}_k +\\ \frac{\Delta t}{2}\boldsymbol{Bz}_k + \frac{\Delta t}{2}(\boldsymbol{p}_k + \boldsymbol{p}_{k+1}))
+  \end{align}
+  Absolute stability regions can be determined. The Crank-Nicolson method is absolutely stable when $|1 + \lambda_j \Delta t/2|/|1 - \lambda_j \Delta t/2|$:
+  <div class="row my-3" align="center">
+    <div class="col-xl-4">
+      <img src="FE_stab.png" style="width:90%">
+    </div>
+    <div class="col-xl-4">
+      <img src="BE_stab.png" style="width:90%">
+    </div>
+    <div class="col-xl-4">
+      <img src="CN_stab.png" style="width:90%">
+    </div>
+  </div>
+  The truncation error is then derived for the Crank-Nicolson method to prove that it is indeed a second-order method and therefore more accurate than first-order Euler methods for a given $\Delta t$:
+  \begin{align}
+    \tau_k &amp;= \frac{\boldsymbol{u}(t_{k+1})-\boldsymbol{u}(t_k)}{\Delta t} - \frac{1}{2}(\boldsymbol{f}(\boldsymbol{u}(t_k),t_k)\\&amp;+\boldsymbol{f}(\boldsymbol{u}(t_{k+1}),t_{k+1})) \\
+    \tau_k &amp;= \frac{\boldsymbol{u}(t_{k+1})-\boldsymbol{u}(t_k)}{\Delta t} - \frac{1}{2}(\boldsymbol{\dot{u}}(t_k)+\boldsymbol{\dot{u}}(t_{k+1}))
+  \end{align}
+  Employing a Taylor series expansion lets us express all quantities evaluated at $t_{k+1}$ in terms of $t_k$:
+  \begin{align}
+  \boldsymbol{u}(t_{k+1}) &amp;= \boldsymbol{u}(t_k) + \Delta t \boldsymbol{\dot{u}}(t_k) + \frac{\Delta t^{2}}{2}\boldsymbol{\ddot{u}}(t_k)\\&amp; + \frac{\Delta t^{3}}{6}\boldsymbol{\dddot{u}}(t_k) + H.O.T. \\
+  \boldsymbol{\dot{u}}(t_{k+1}) &amp;= \boldsymbol{\dot{u}}(t_k) + \Delta t \boldsymbol{\ddot{u}}(t_k) \\&amp;+ \frac{\Delta t^{2}}{2}\boldsymbol{\dddot{u}}(t_k) + H.O.T.
+  \end{align}
+  And upon substitution:
+  \begin{align}
+    &amp;\boldsymbol{\tau}_k = \frac{\Delta t \boldsymbol{\dot{u}}(t_k) + \frac{\Delta t^{2}}{2}\boldsymbol{\ddot{u}}(t_k) + \frac{\Delta t^{3}}{6}\boldsymbol{\dddot{u}}(t_k)}{\Delta t}\\&amp; - \frac{1}{2}\left(2\boldsymbol{\dot{u}}(t_k) + \Delta t \boldsymbol{\ddot{u}}(t_k) + \frac{\Delta t^{2}}{2}\boldsymbol{\dddot{u}}(t_k)\right) + H.O.T. \\
+    &amp;\boldsymbol{\tau}_k = -\frac{\Delta t^2}{6}\boldsymbol{\dddot{u}}(t_k) + H.O.T. \\
+    &amp;\boldsymbol{\tau}_k = O(\Delta t^2)
+  \end{align}
+  Performing a spatial convergence test demonstrates that the Crank-Nicolson algorithm scales as $O(\Delta x^2)$ by using a fixed small $\Delta t$ of $\Delta t = 10^{-1}$ for $n = [20,40,80,100]^T$. Using a fixed small value of $\Delta t$ helps to ensure that the temporal error contribution is small, so the spatial error is dominant. Waterfall plots for the exact and finite difference solutions for the finest value of $n$ show that the solutions appear to agree.
+  <div class="row my-3" align="center">
+    <div class="col-lg-6">
+      <img src="waterfall_exact.png" style="width:90%">
+    </div>
+    <div class="col-lg-6">
+      <img src="waterfall_fd.png" style="width:90%">
+    </div>
+  </div>
+  Further demonstration of the correctness at $T=10$ shows that the convergence rate in space is equal to the order of the spatial discretization used (2, in this case). The spatial convergence test shows that both the backward Euler error and the Crank-Nicolson error scale as $O(\Delta x^2)$ since a second-order polynomial was used in the spatial discretization. Note also that the Crank-Nicolson error is again smaller than the backward Euler error, showing that the Crank-Nicolson method is more accurate. While the forward Euler method yields inaccurate results due to its very limited stability, other explicit methods, like the fourth-order Runge-Kutta, again demonstrate the proper scaling for spatial convergence.
+  <div class="row my-3" align="center">
+    <div class="col-lg-6">
+      <img src="spat.png" style="width:90%">
+    </div>
+    <div class="col-lg-6">
+      <img src="spat_rk4.png" style="width:90%">
+    </div>
+  </div>
+  The convergence rate in time is equal to the convergence rate of the time stepping method used for the IVP. For the Crank-Nicolson method, it should scale as $O(\Delta t^2)$, while backward Euler would yield an $O(\Delta t)$ convergence rate:
+  <div class="row my-3" align="center">
+    <div class="col-lg-6">
+      <img src="temp.png" style="width:90%">
+    </div>
+    <div class="col-lg-6">
+      <img src="temp_be.png" style="width:90%">
+    </div>
+  </div>
+  Various different methods to test error convergence as well as visual representations of the approximation in action demonstrate that the implementation has been achieved accurately. Following verification and validation of the successful implementation of the approximation generated by the Crank-Nicolson method, focus can now be directed towards the use of this model to analyze the tuning methods of pianos and other instruments. So why do piano tuners use A440 as the primary reference? This topic can be explored by looking at the shape of sound waves of certain keys as the wave propagates in space. For example, G$_4$ (the G key just above middle C) has an audio frequency of $391.9954$ Hertz (Hz). The same approximation can be applied to different notes, just by changing the frequencies. To acquire the rest of the wave properties needed to plot accurately, we set frequency $f = 391.9954$ Hz, angular frequency $\omega=2\pi f$, and wave number $k = \omega/c$. Amplitude $u_m$ can be approximated at about 50 decibles (more like 80 decibels when playing $fortissimo$). Just by changing the frequencies of the musical pitches of different notes, the spatial wave propagations can be approximated and compared:
+  <div class="row my-3" align="center">
+    <div class="col-lg-6">
+      <img src="G4.png" style="width:90%">
+    </div>
+    <div class="col-lg-6">
+      <img src="C.png" style="width:90%">
+    </div>
+  </div>
+  Two completely different notes with different pitches can also be compared, such as F$\sharp_5$ and D$\flat_6$. Looking into the uniqueness of A440 (the A note just above middle C) in comparison to A$_5$ (one octave above), again the spatial propagations can easily be approximated using the Crank-Nicolson method:
+  <div class="row my-3" align="center">
+    <div class="col-lg-6">
+      <img src="fs5.png" style="width:90%">
+    </div>
+    <div class="col-lg-6">
+      <img src="a.png" style="width:90%">
+    </div>
+  </div>
+  This phenomenon of the A note propagating almost identically regardless of octave is seen across all frequencies of the musical pitch A. Modern practices also show that A440 is often used as a tuning reference due to $just$ $intonation$, which is the tuning of musical intervals as whole number ratios of frequencies (seen with the two A keys compared, at 880 Hz and 440 Hz, a 2:1 ratio). So, it makes sense that, because of the identical spatial wave propagations with 2:1 frequency ratios regardless of specific octave, it is easier and more straightforward for tuners to tune pianos by looking at different musical pitches in relation to their nearest neighbor A note. Perhaps more useful, it is common to first make sure all A-keys are in tune, which is easy by matching the demonstrated similar propagations between octaves. A more complete tabulated set of piano A-notes and their associated frequencies in comparison to middle C can be found in the table. Spatial wave propagations of various A-notes are demonstrated below:
+  <div class="row my-3" align="center">
+    <div class="col-lg-12">
+      <img src="a2.png" style="width:90%">
+    </div>
+    <div class="col-lg-12">
+      <img src="a3.png" style="width:90%">
+    </div>
+  </div>
+  <table align="center" class="my-3">
+    <tr>
+      <th>Scientific Pitch Notation (Note)</th>
+      <th>Frequency (Hz)</th>
+    </tr>
+    <tr>
+      <th>A8</th>
+      <td>$7040$</td>
+    </tr>
+    <tr>
+      <th>A7</th>
+      <td>$3520$</td>
+    </tr>
+    <tr>
+      <th>A6</th>
+      <td>$1760$</td>
+    </tr>
+    <tr>
+      <th>A5</th>
+      <td>$880$</td>
+    </tr>
+    <tr>
+      <th>A4 (A440)</th>
+      <td>$440$</td>
+    </tr>
+    <tr>
+      <th>C4 (Middle C)</th>
+      <td>$261.6256$</td>
+    </tr>
+    <tr>
+      <th>A3</th>
+      <td>$220$</td>
+    </tr>
+    <tr>
+      <th>A2</th>
+      <td>$110$</td>
+    </tr>
+    <tr>
+      <th>A1</th>
+      <td>$55$</td>
+    </tr>
+  </table>
+  So what is special about A440? It is the first musical pitch of the A-note right above middle C, and, across octaves, all A-notes propagate remarkably similarly with other specific A-notes, making A440 a prime choice for piano tuners to use when tuning using frequencies. This study proved that the Crank-Nicolson method accurately approximates the solution to the wave equation as it is applicable to acoustic sound waves produced by pianos and other instruments. The Crank-Nicolson algorithm is a good candidate due to its large stability region and accuracy as compared with other methods such as RK4, backward Euler, and forward Euler.<br><br><br><br>
+</p> -->
+
+<!--ADD LATER<hr>
+<h5>Immersed Boundary (IB) Method for Navier-Stokes</h5>
+<p>AE 497: Undergraduate Researcher (NUF Group), UIUC (2020-2021)</p>
+
+<hr>
+<h5>Neural Networks for Fitting 3D Potential Energy Surfaces</h5>
+<p>AE 497: Undergraduate Researcher (CHESS), UIUC (2020-2021)</p>
+
+<hr>
+<h5>Relation of Dissocation Rates to the Centrifugal Barrier</h5>
+<p>AE 497: Undergraduate Researcher (CHESS), UIUC (2019-2020)</p>-->
+
+
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+<script src="index.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script>
+  MathJax = {
+    tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+  };
+  </script>
+</body>
+</html>
