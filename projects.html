@@ -120,22 +120,13 @@ Three FD schemes were implemented: 2nd-order central, 3rd-order biased, and 6th-
   </div>
 </div> -->
 
-
-<!--ADD LATER<hr>
-<h5>Linear Advection Rotational Flow with Nesting</h5>
-<p>ATMS 502/CSE 566: Numerical Fluid Dynamics, UIUC (2021)</p>
-
-<hr>
-<h5>Nonlinear 2D Quasi-Compressible Flow</h5>
-<p>ATMS 502/CSE 566: Numerical Fluid Dynamics, UIUC (2021)</p>-->
-
 <hr>
 <h5>2D Rotational Flow</h5>
 <p>ATMS 502/CSE 566: Numerical Fluid Dynamics, UIUC (2021)</p>
 <p>
   For this project, 2D linear advection is solved via fractional (directional) step splitting with a circular field initial conditions and 0-gradient boundary conditions. The rotational flow field is constant with time and integrated using 3 different methods: Lax-Wendroff, Takacs, and Crowley.
-  The computational domain is a 2D staggered C-grid. All methods are 2-time-level and 1D. Directional splitting applies advection in the $x$-direction followed by the $y$-direction. Up to 3 ghost points are required (for Crowley 6th order, where $\alpha = U\Delta t/\Delta x$).
-  \begin{align}
+  The computational domain is a 2D staggered C-grid. All methods are 2-time-level and 1D. Directional splitting applies advection in the $x$-direction followed by the $y$-direction. Up to 3 ghost points are required (for Crowley 6th order).
+  <!--\begin{align}
     \text{Lax-Wendroff: } \quad s_j^{n+1} = s_j^n &amp; - \frac{\nu}{2}\bigg(s_{j+1}^n - s_{j-1}^n\bigg) + \frac{\nu^2}{2}\bigg(s_{j+1}^n - 2 s_j^n + s_{j-1}^n\bigg) \\
     \text{Takacs: } \quad s_j^{n+1} = s_j^n &amp; - \frac{\nu}{2}\bigg(s_{j+1}^n - s_{j-1}^n\bigg) + \frac{\nu^2}{2}\bigg(s_{j+1}^n - 2s_j^n + s_{j-1}^n\bigg) \\
                                             &amp; - \Bigg(\frac{1+\nu}{6}\Bigg)\nu(\nu-1)\bigg(s_{j+1}^n - 3s_j^n + 3s_{j-1}^n - s_{j-2}^n\bigg) \\
@@ -145,7 +136,7 @@ Three FD schemes were implemented: 2nd-order central, 3rd-order biased, and 6th-
                                       &amp; + \frac{\alpha^4}{144}\bigg(-s_{j-3}^n + 12s_{j-2}^n - 39s_{j-1}^n + 56s_j^n - 39s_{j+1}^n + 12s_{j+2}^n - s_{j+3}^n\bigg) \\
                                       &amp; + \frac{\alpha^5}{240}\bigg(s_{j-3}^n - 4s_{j-2}-39s_{j-1}^n + 56s_j^n -39s_{j+1}^n + 12s_{j+2}^n - s_{j+3}^n\bigg) \\
                                       &amp; + \frac{\alpha^6}{720}\bigg(s_{j-3}^n - 6s_{j-2}^n + 15s_{j-1}^n - 20s_j^n + 15s_{j+1}^n - 6s_{j+2}^n + s_{j+3}^n\bigg)
-  \end{align}
+  \end{align}-->
   <div class="row" align="center">
     <div class="col-lg-12">
       <div class="embed-responsive embed-responsive-16by9">
@@ -166,7 +157,8 @@ Three FD schemes were implemented: 2nd-order central, 3rd-order biased, and 6th-
   \end{align}
   The solution domain is a 1D mesh (grid) of $nx$ points. The PDEs above are solved for each point on this mesh. The initial condition is a single sine wave with a wavelength of $nx\Delta x$ with a periodic boundary condition (i.e. the wave "exits" on the right side of the domain and "re-enters" on the left side for speed $c > 0$). The Lax-Wendroff scheme with forward time differencing and centered space differencing is employed to solve these PDEs:
   \begin{align}
-    q_j^{n+1} = q_j^n - \frac{\nu}{2}(q_{j+1}^n - q_{j-1}^n) + \sigma(q_{j+1}^n - 2q_j^n + q_{j-1}^n)
+    q_j^{n+1} &amp;= q_j^n - \frac{\nu}{2}(q_{j+1}^n - q_{j-1}^n) \\
+    &amp;+ \sigma(q_{j+1}^n - 2q_j^n + q_{j-1}^n)
   \end{align}
   where $q$ is the scalar field that is being advected, $n$ is the time level, $j$ is indexing the $nx$ grid points, $\nu$ is the Courant number, and $\sigma = \nu^2/2$. For the linear case, $\nu = c\Delta t/\Delta x$, and $q_j^n \Delta t/\Delta x$ otherwise. Both linear and nonlinear cases were simulated with a timestep $\Delta t = 0.05$ for 150 steps.
   The simulations show the formation of a shock with nonlinear advection, while the linear case results in a stabilizing solution.
@@ -200,8 +192,9 @@ Three FD schemes were implemented: 2nd-order central, 3rd-order biased, and 6th-
   \end{align}
   The solution procedure is to use a shooting technique. The state vector of unknows is $F = (f,f',f'',g,g')$. As input parameters, we need to define $\text{M}_e, \text{Pr}, \gamma$ and an expression for the Chapman-Rubesin parameter $C = (\rho\mu)/(\rho_e \mu_e)$. Using a power law of exponent $\sigma$ for the viscosity $\mu/\mu_e = (T/T_e)^\sigma$. Using the ideal gas law, we have $C = (\rho\mu)/(\rho_e \mu_e) = g^{\sigma - 1}$. The governing equations can be rewritten:
   \begin{align}
-    &amp; f''' = -\frac{f''}{g^{\sigma-1}}[(\sigma-1)g^{\sigma-2}g' + f] \\
-    &amp; g'' = -\frac{1}{g^{\sigma-1}}[(\sigma-1)g^{\sigma-2}g'^2 + \text{Pr}fg' + \text{Pr}g^{\sigma-1}(\gamma-1)\text{M}_e^2f''^2] = 0
+     f''' &amp;= -\frac{f''}{g^{\sigma-1}}[(\sigma-1)g^{\sigma-2}g' + f] \\
+     g'' &amp;= -\frac{1}{g^{\sigma-1}}[(\sigma-1)g^{\sigma-2}g'^2 + \text{Pr}fg' \\
+     &amp; + \text{Pr}g^{\sigma-1}(\gamma-1)\text{M}_e^2f''^2] = 0
   \end{align}
   We assumed $\sigma = 0.75, \text{Pr} = 0.72, \text{ and } \gamma = 1.4$. We considered a boundary layer with the following edge conditions: $\text{M}_e = 5$, $\text{Re}_{e,x} = 10,000$, $T_e = 223 \text{ K}$, $P_e = 1000 \text{ Pa}$, $\mu_e = 1.2 \times 10^{-5}$ Pa-s. Self-similar boundary layer temperature and velocity profiles for adiabatic and isothermal walls with $T_w/T_E = 6$ were plotted using Python.
   We also plotted dimensional boundary layer profiles of static (dashed) temperature, stagnation (solid) temperature, and streamwise velocity for the adiabatic wall, isothermal wall with $T_w/T_e = 4$, and isothermal wall with $T_w/T_e = 8$.
@@ -283,10 +276,10 @@ Three FD schemes were implemented: 2nd-order central, 3rd-order biased, and 6th-
   \end{align}
   In the hypersonic limit, the pressure and temperature ratios increase unboundedly with the squared Mach number. The density reaches a maximum compression ratio of $(\gamma + 1)/(\gamma - 1) \approx 6$. The proportionality of the temperature ratio with the squared Mach number at large Mach numbers is the prediction of unrealistically high temperatures in the shock layer.
   The expansion of a supersonic flow can be achieved through a convex corner, which generates an expansion fan through which the flow is accelerated and expanded isentropically.
-  In contrast to shock waves, the expansion fan occupies a finite-thickness region of space. Analysis of the stream deflection is achieved though the Prandtl-Meyer function:
-  \begin{align}
+  In contrast to shock waves, the expansion fan occupies a finite-thickness region of space. Analysis of the stream deflection is achieved though the Prandtl-Meyer function.
+  <!--\begin{align}
     \nu(M) = \sqrt{\frac{\gamma + 1}{\gamma - 1}} \tan^{-1}{\sqrt{\frac{\gamma - 1}{\gamma + 1}(M^2 - 1)}} - \tan^{-1}{\sqrt{M^2 - 1}}
-  \end{align}
+  \end{align}-->
   <div class="row my-3" align="center">
     <div class="col-lg-6">
       <img src="tbm_hl.png" style="width:100%">
