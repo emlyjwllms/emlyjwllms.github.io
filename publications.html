@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Emily Williams</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link id="dark-theme-style" rel="stylesheet" />
+    <link href="style.css" type="text/css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+</head>
+<body>
+  <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">Emily Williams</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-link mr-3" href="publications.html">Publications</a>
+          <a
+                  href="javascript:void()"
+                  class="btn btn-secondary btn-md custom"
+                  id="theme-toggler"
+                  onclick="toggleTheme()"
+                ></a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+<div class="container">
+
+    <h4>Publications</h4>
+
+    <h5>2022</h5>
+    <div class="card my-2">
+      <div class="card-body px-3">
+        <p class="card-text">
+          <b>Information-Theoretic Approach for Subgrid-Scale Modeling for High-Speed Compressible Wall Turbulence</b> <br>
+          <i>Williams, E. and Lozano-Dur&aacute;n, A.</i><br>
+          AIAA AVIATION Forum (June 2022)<br>
+           <a class="btn btn-sm btn-primary mt-2" data-bs-toggle="collapse" href="#aiaaaviation22abstract" role="button" aria-expanded="false" aria-controls="aiaaaviation22abstract">Abstract</a>
+           <div class="collapse" id="aiaaaviation22abstract">
+             <div class="bg-secondary p-3" style="border-radius:5px;border:1px solid #292b2c">
+              Current state-of-the-art computational fluid dynamics (CFD) algorithms solve a modified set of Navier-Stokes equations for large-eddy simulations (LES). These governing equations are simplified to minimize the number of subgrid-scale (SGS) models required to resolve the known ``closure'' problem. Existing literature provides reasonable explanation for neglecting some terms based on the physics of the flows studied, but these assumptions may not be valid for compressible turbulent flows at high Mach number or high Reynolds number. Furthermore, scale-resolving simulations at for high-speed turbulent flows are beyond our current computational resources. Thus, significant ongoing efforts are devoted to capturing the essential flow physics in the form of reduced-order models. Modeling techniques to date have disregarded an essential principle of physics: the conservation of information, which may aid the development of a new class of models. To this end, we will explore the potential of information theory in modeling these flows.
+            </div>  
+          </div>
+        </p>
+      </div>
+    </div>  
+
+    <h5>2021</h5>
+    <div class="card my-2">
+      <div class="card-body px-3">
+        <p class="card-text">
+          <b>Error Scaling of Wall-Modeled Large-Eddy Simulation of Compressible Wall Turbulence</b> <br>
+          <i>Williams, E. and Lozano-Dur&aacute;n, A.</i><br>
+          American Physical Society Division of Fluid Dynamics (November 2021)<br>
+           <a class="btn btn-sm btn-primary mt-2" data-bs-toggle="collapse" href="#aps21abstract" role="button" aria-expanded="false" aria-controls="aps21abstract">Abstract</a>
+           <div class="collapse" id="aps21abstract">
+             <div class="bg-secondary p-3" style="border-radius:5px;border:1px solid #292b2c">
+            Error scaling properties of large-eddy simulation of compressible wall-bounded turbulent flows are 
+            characterized. The statistical quantities of interest investigated are the mean velocity profile,
+            wall stress, and wall heat transfer. The errors scale as $(\Delta/L)^\alpha Re_\tau^\gamma M^\beta$, where $\Delta$ 
+            is the characteristic grid resolution, $Re_\tau$ is the friction Reynolds number, $L$ is the meaningful length-scale to normalize
+            $\Delta$ in order to collapse the errors across the wall-normal distance, and $M$ is the Mach number to account for compressibility 
+            effects in the channel flow. Different length-scales are used in determining $L$ such that errors along the wall-normal distance are effectively 
+            collapsed. The exponents $\alpha,$ $\gamma,$ and $\beta$ are estimated using theoretical analysis and validated through numerical simulations. 
+            </div>  
+          </div>
+        </p>
+      </div>
+    </div>              
+
+    <div class="card my-2">
+      <div class="card-body px-3">
+        <p class="card-text">
+          <b>Numerical Schlieren of the X-59 QueSST</b> <br>
+          <i>Williams, E., Ling. Y., Arranz, G., and Lozano-Dur&aacute;n, A.</i><br>
+          American Physical Society Division of Fluid Dynamics Gallery of Fluid Motion (November 2021)<br>
+          <a class="btn btn-sm btn-primary mt-2" data-bs-toggle="collapse" href="#aps21x59" role="button" aria-expanded="false" aria-controls="aps21x59">Abstract</a>
+          <a href="https://www.researchgate.net/publication/355174580_Numerical_Schlieren_of_the_X-59_Quesst" target="_blank"><button type="button" class="btn btn-sm btn-success mt-2">ResearchGate</button></a>
+          <div class="collapse" id="aps21x59">
+            <div class="bg-secondary p-3" style="border-radius:5px;border:1px solid #292b2c">
+              Numerical schlieren visualizations were created in ParaView by contouring the magnitude of the density gradients in the flow to capture the shock waves. The aircraft is also contoured based on the temperature at the surface during flight at cruise conditions. Wall-modeled large-eddy simulations were run through the charLES solver by Cascade Technologies, Inc. The solver integrates the filtered Navier-Stokes equations using a second-order finite volume method in space and a third- order explicit Runge-Kutta method in time. The mesh generator uses a Voronoi hexagonal close-packed point-seeding method with $\mathcal{O}(100\text{M})$ control volumes. An equilibrium wall model is used assuming an isothermal wall with a wall-stress boundary condition with the dynamic Smagorinsky subgrid-scale model.
+            </div>  
+          </div>
+        </p>
+      </div>
+    </div>
+
+    <div class="card my-2">
+      <div class="card-body px-3">
+        <p class="card-text">
+          <b>Can the X-Wing Survive the Reentry to Dagobah?</b> <br>
+          <i>Ling. Y., Williams, E., Arranz, G., and Lozano-Dur&aacute;n, A.</i><br>
+          American Physical Society Division of Fluid Dynamics Gallery of Fluid Motion (November 2021)<br>
+          <a class="btn btn-sm btn-primary mt-2" data-bs-toggle="collapse" href="#aps21xwing" role="button" aria-expanded="false" aria-controls="aps21xwing">Abstract</a>
+          <a href="https://www.researchgate.net/publication/355174590_Can_the_X-wing_survive_the_reentry_to_Dagobah" target="_blank"><button type="button" class="btn btn-sm btn-success mt-2">ResearchGate</button></a>
+          <div class="collapse" id="aps21xwing">
+            <div class="bg-secondary p-3" style="border-radius:5px;border:1px solid #292b2c">
+              Instructed by the Force spirit of deceased Obi-Wan Kenobi, Luke decided to go to Dagobah to train as a Jedi apprentice under the supervision of Jedi Master Yoda. While his friends were pursued by the Empire, Luke traveled in the T-65B X-wing fighter, a highly maneuverable and speedy starfighter of the Republic alliance. Reentry to the planet, however, could be a major challenge due to the high temperatures on the hull… Wall-modeled large-eddy simulation was conducted to test the viability of the reentry. The Reynolds number is $10^6$, and ambient temperature is 250K. Shock waves are visualized by contouring the magnitude of the density gradient. The highest temperature on the hull is 1750K. Assuming that the hull is made of Ti-6Al-4V and maintaining a Mach 5 descent rate, Luke can survive the reentry, find Yoda, and ultimately become a Jedi.
+            </div>  
+         </div>
+        </p>
+      </div>
+    </div>
+
+    <h5>2020</h5>
+    <div class="card my-2">
+      <div class="card-body px-3">
+        <p class="card-text">
+          <b>Relation of Dissociation Rates to the Centrifugal Barrier</b> <br>
+          <i>Williams, E., Sharma, M.P., Venturi, S., and Panesi, M.</i><br>
+          University of Illinois Undergraduate Research Symposium (April 2020)<br>
+          <!-- <a href="" target="_blank"><button type="button" class="btn btn-sm btn-success mt-2">ResearchGate</button></a> -->
+          <a class="btn btn-sm btn-primary mt-2" data-bs-toggle="collapse" href="#urs20" role="button" aria-expanded="false" aria-controls="urs20">Abstract</a>
+          <div class="collapse" id="urs20">
+            <div class="bg-secondary p-3" style="border-radius:5px;border:1px solid #292b2c">
+              Hypersonic re-entry flight experiences extreme temperatures leading to a state of chemical non-equilibrium in the flow. To analyze the state-to-state (StS) kinetics for these flows, we propose to fit the kinetics data using spare regression techniques. The advantages of obtaining an expression for the state-to-state dissociation rates in terms of the position of the centrifugal barrier are two-fold: it provides an insight into the relation of dissociation via various levels to the centrifugal barrier and can be used to arrive at a physics-informed grouping strategy to reduce the dimension of the kinetics system (for example from the order of 10000 to 10). This would further aid in modelling the reactions that take place in the flow in a computationally efficient way. For the purpose of fitting, we select a large basis set of functions that include exponentials and polynomials motivated by expressions derived in Transition State theory. It is followed by a sparse regression over this function basis set to obtain a rather simple looking expression.
+            </div>  
+         </div>
+        </p>
+      </div>
+    </div>
+    <br>
+
+
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+<script src="index.js"></script>
+<script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+<script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script>
+  MathJax = {
+    tex: {inlineMath: [['$', '$'], ['\\(', '\\)']]}
+  };
+  </script>
+</body>
+<!-- Copyright (C) Emily Williams -->
+</html>

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat');
 
 html, body {
     height: 100%;
@@ -11,7 +11,8 @@ html, body {
 
 body {
     padding-top: 6rem;
-  font-family: 'Ubuntu', sans-serif;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 10pt;
 }
 
 h5 {

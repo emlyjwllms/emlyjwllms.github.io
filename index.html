@@ -15,12 +15,12 @@
   <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
     <div class="container">
       <a class="navbar-brand" href="index.html">Emily Williams</a>
-
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-          <!--<a class="nav-link" href="projects.html">Projects</a>
-          <a class="nav-link" href="teaching.html">Teaching</a>
-          <a class="nav-link" href="honors.html">Honors</a>
-          <a class="nav-link disabled mr-3" href="publications.html">Publications</a>-->
+          <a class="nav-link mr-3" href="publications.html">Publications</a>
           <a
                   href="javascript:void()"
                   class="btn btn-secondary btn-md custom"
@@ -28,162 +28,39 @@
                   onclick="toggleTheme()"
                 ></a>
         </div>
+      </div>
     </div>
   </nav>
 <div class="container">
   <div class="row mb-3">
-      <div class="col-md-8 col-lg-9 my-3 pb-0" style="text-align: justify">
-        I am a graduate student at the Massachusetts Institute of Technology in Aeronautics and Astronautics with a specialization in Computational Science and Engineering. I am working with Dr. Adri&aacute;n Lozano-Dur&aacute;n on physics-based and data-driven modeling for computational fluid dynamics of turbulence. 
-        I completed my undergraduate degree in Aerospace Engineering with a minor in Atmospheric Sciences and a concentration in Computational Science and Engineering from the University of Illinois at Urbana-Champaign in May 2021.
-        My goal is to employ machine learning to model hypersonic flows, which involves complex aerothermodynamics and numerical methods.
-        <!--The simulation below is a compressible turbulent channel flow across the spanwise direction.
-              <iframe src="flow_span_PRES.mp4" style="width:100%;height:68.2%" class="my-3" allowfullscreen></iframe>-->
-              <hr class="mb-3">
-              <!-- <h5 style="margin-top:0em;">Recent Awards</h5>
-              <ul>
-                <li>AIAA Aviation Week Network 20 Twenties, 2021 [<a href="https://aviationweek.com/aerospace/aviation-week-network-announces-20-twenties-winners-2021" style="color:inherit;" target="_blank">URL</a>]</li>
-                <li>James Scholar Honors Program (UIUC), 2017-2021</li>
-                <li>Grainger Engineering Dean's List (UIUC), 2017-2021</li>
-                <li>University of Illinois Tutor of the Year (UIUC), 2021 [<a href="https://www.youtube.com/watch?v=ejVhSmlkxvg" style="color:inherit;" target="_blank">URL</a>]</li>
-                <li>Grainger Engineering Knight of St. Patrick (UIUC), 2021 [<a href="https://aerospace.illinois.edu/news/32908" style="color:inherit;" target="_blank">URL</a>]</li>
-                <--<li>NSF GRFP Honorable Mention, 2021</li>--
-                <li>Senior 100 Honorary (UIUC), 2021</li>
-                <li>Scott R. White Aerospace Engineering Visionary Scholarship (UIUC), 2020 [<a href="https://aerospace.illinois.edu/news/35314" style="color:inherit;" target="_blank">URL</a>]</li>
-                <li>Dale Margerum Memorial Award (UIUC), 2020</li>
-                <li>Philip Lazzara Memorial Scholarship (UIUC), 2020</li>
-                <li>Teachers Ranked as Excellent by Their Students - Center for Innovation in Teaching and Learning (UIUC), 2019</li>
-                <--<li>Boeing Women in Engineering Scholarship (UIUC), 2018</li>
-                <li>Illinois Space Grant (ISGC) Scholarship (UIUC), 2018</li>
-                <li>GE Women's Network Scholarship (UIUC), 2018</li>
-                <li>Department of Aerospace Engineering Academic Scholarship (UIUC), 2018</li>
-                <li>Harold and Ruth Hayward Tau Beta Pi Scholarship (UIUC), 2018</li>
-                <li>Grainger Engineering Scholarship for Continuing Students (UIUC), 2018</li>
-                <li>H.S. Stillwell Memorial Scholarship (UIUC), 2018</li>
-                <li>Illinois Engineering Achievement Scholarship (UIUC), 2017</li>
-                <li>Margorie M. Voigt Turley and William H. Turley Scholarship (UIUC), 2017</li>
-                <li>Tau Beta Pi Engineering Honor Society (UIUC), 2018-2021</li>
-                <li>MSCI Central States Chapter Scholarship (UIUC), 2017-2021</li>--
-              </ul> -->
-              <!-- <b>Williams, E.</b> and Lozano-Dur&aacute;n, A., ''Error Scaling of Wall-Modeled Large-Eddy Simulation of Compressible Wall Turbulence,''
-              American Physical Society Division of Fluid Dynamics, November 2021.<br><br> -->
-
-              <div class="card my-2">
-                <div class="card-body px-3">
-                  <p class="card-text">
-                    <b>Error Scaling of Wall-Modeled Large-Eddy Simulation of Compressible Wall Turbulence</b> <br>
-                    <i>Williams, E. and Lozano-Dur&aacute;n, A.</i><br>
-                    American Physical Society Division of Fluid Dynamics (November 2021)<br>
-                     <a class="btn btn-sm btn-primary mt-2" data-bs-toggle="collapse" href="#aps21abstract" role="button" aria-expanded="false" aria-controls="aps21abstract">Abstract</a>
-                     <div class="collapse" id="aps21abstract">
-                       <div class="bg-secondary p-3" style="border-radius:5px;border:1px solid #292b2c">
-                      Error scaling properties of large-eddy simulation of compressible wall-bounded turbulent flows are 
-                      characterized. The statistical quantities of interest investigated are the mean velocity profile,
-                      wall stress, and wall heat transfer. The errors scale as $(\Delta/L)^\alpha Re_\tau^\gamma M^\beta$, where $\Delta$ 
-                      is the characteristic grid resolution, $Re_\tau$ is the friction Reynolds number, $L$ is the meaningful length-scale to normalize
-                      $\Delta$ in order to collapse the errors across the wall-normal distance, and $M$ is the Mach number to account for compressibility 
-                      effects in the channel flow. Different length-scales are used in determining $L$ such that errors along the wall-normal distance are effectively 
-                      collapsed. The exponents $\alpha,$ $\gamma,$ and $\beta$ are estimated using theoretical analysis and validated through numerical simulations. 
-                      </div>  
-                    </div>
-                  </p>
-                </div>
-              </div>              
-
-              <div class="card my-2">
-                <div class="card-body px-3">
-                  <p class="card-text">
-                    <b>Numerical Schlieren of the X-59 QueSST</b> <br>
-                    <i>Williams, E., Ling. Y., Arranz, G., and Lozano-Dur&aacute;n, A.</i><br>
-                    American Physical Society Division of Fluid Dynamics Gallery of Fluid Motion (November 2021)<br>
-                    <a class="btn btn-sm btn-primary mt-2" data-bs-toggle="collapse" href="#aps21x59" role="button" aria-expanded="false" aria-controls="aps21x59">Abstract</a>
-                    <a href="https://www.researchgate.net/publication/355174580_Numerical_Schlieren_of_the_X-59_Quesst" target="_blank"><button type="button" class="btn btn-sm btn-success mt-2">ResearchGate</button></a>
-                    <div class="collapse" id="aps21x59">
-                      <div class="bg-secondary p-3" style="border-radius:5px;border:1px solid #292b2c">
-                        Numerical schlieren visualizations were created in ParaView by contouring the magnitude of the density gradients in the flow to capture the shock waves. The aircraft is also contoured based on the temperature at the surface during flight at cruise conditions. Wall-modeled large-eddy simulations were run through the charLES solver by Cascade Technologies, Inc. The solver integrates the filtered Navier-Stokes equations using a second-order finite volume method in space and a third- order explicit Runge-Kutta method in time. The mesh generator uses a Voronoi hexagonal close-packed point-seeding method with $\mathcal{O}(100\text{M})$ control volumes. An equilibrium wall model is used assuming an isothermal wall with a wall-stress boundary condition with the dynamic Smagorinsky subgrid-scale model.
-                      </div>  
-                    </div>
-                  </p>
-                </div>
-              </div>
-
-
-              <div class="card my-2">
-                <div class="card-body px-3">
-                  <p class="card-text">
-                    <b>Can the X-Wing Survive the Reentry to Dagobah?</b> <br>
-                    <i>Ling. Y., Williams, E., Arranz, G., and Lozano-Dur&aacute;n, A.</i><br>
-                    American Physical Society Division of Fluid Dynamics Gallery of Fluid Motion (November 2021)<br>
-                    <a class="btn btn-sm btn-primary mt-2" data-bs-toggle="collapse" href="#aps21xwing" role="button" aria-expanded="false" aria-controls="aps21xwing">Abstract</a>
-                    <a href="https://www.researchgate.net/publication/355174590_Can_the_X-wing_survive_the_reentry_to_Dagobah" target="_blank"><button type="button" class="btn btn-sm btn-success mt-2">ResearchGate</button></a>
-                    <div class="collapse" id="aps21xwing">
-                      <div class="bg-secondary p-3" style="border-radius:5px;border:1px solid #292b2c">
-                        Instructed by the Force spirit of deceased Obi-Wan Kenobi, Luke decided to go to Dagobah to train as a Jedi apprentice under the supervision of Jedi Master Yoda. While his friends were pursued by the Empire, Luke traveled in the T-65B X-wing fighter, a highly maneuverable and speedy starfighter of the Republic alliance. Reentry to the planet, however, could be a major challenge due to the high temperatures on the hull… Wall-modeled large-eddy simulation was conducted to test the viability of the reentry. The Reynolds number is $10^6$, and ambient temperature is 250K. Shock waves are visualized by contouring the magnitude of the density gradient. The highest temperature on the hull is 1750K. Assuming that the hull is made of Ti-6Al-4V and maintaining a Mach 5 descent rate, Luke can survive the reentry, find Yoda, and ultimately become a Jedi.
-                      </div>  
-                   </div>
-                  </p>
-                </div>
-              </div>
-
-              <div class="card my-2">
-                <div class="card-body px-3">
-                  <p class="card-text">
-                    <b>Relation of Dissociation Rates to the Centrifugal Barrier</b> <br>
-                    <i>Williams, E., Sharma, M.P., Venturi, S., and Panesi, M.</i><br>
-                    University of Illinois Undergraduate Research Symposium (April 2020)<br>
-                    <!-- <a href="" target="_blank"><button type="button" class="btn btn-sm btn-success mt-2">ResearchGate</button></a> -->
-                    <a class="btn btn-sm btn-primary mt-2" data-bs-toggle="collapse" href="#urs20" role="button" aria-expanded="false" aria-controls="urs20">Abstract</a>
-                    <div class="collapse" id="urs20">
-                      <div class="bg-secondary p-3" style="border-radius:5px;border:1px solid #292b2c">
-                        Hypersonic re-entry flight experiences extreme temperatures leading to a state of chemical non-equilibrium in the flow. To analyze the state-to-state (StS) kinetics for these flows, we propose to fit the kinetics data using spare regression techniques. The advantages of obtaining an expression for the state-to-state dissociation rates in terms of the position of the centrifugal barrier are two-fold: it provides an insight into the relation of dissociation via various levels to the centrifugal barrier and can be used to arrive at a physics-informed grouping strategy to reduce the dimension of the kinetics system (for example from the order of 10000 to 10). This would further aid in modelling the reactions that take place in the flow in a computationally efficient way. For the purpose of fitting, we select a large basis set of functions that include exponentials and polynomials motivated by expressions derived in Transition State theory. It is followed by a sparse regression over this function basis set to obtain a rather simple looking expression.
-                      </div>  
-                   </div>
-                  </p>
-                </div>
-              </div>
-
-              <hr>
-
+      <div class="d-flex col-md-3 col-lg-3 justify-content-center align-items-start">
+        <img src="ejw.JPG" style="width:150px; margin-top:12.5%;" class="card-img-top d-none d-md-block">
       </div>
-      <div class="col-md-4 col-lg-3 order-first order-md-last" align="center">
-        <div class="card my-3 align-items-center">
-          <img src="ejw.JPG" style="width:175px; margin-top:12.5%;" class="card-img-top">
-          <div class="card-body px-0">
-            <p class="card-text">              
-              <a href="mailto:ejwllms@mit.edu" style="color: inherit">email</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="EJW_CV.pdf" target="_blank" style="color: inherit">cv</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://scholar.google.com/citations?user=YVWR1kIAAAAJ&hl=en" target="_blank" style="color: inherit">google scholar</a>
-            </p>
-            <p class="card-text">(2021-) MS/PhD AA/CSE, MIT<br>(2017-2021) BS AE, UIUC<br>
-            <hr>
-                  <p><b>Research Interests:</b></p>
-                    Aerothermodynamics<br>
-                    Hypersonics<br>
-                    Turbulence<br>
-                    Magnetohydrodynamics<br>
-                    Quantum Computing<br>
-                    Computational Chemistry<br>
-                    Computational Aerodynamics<br>
-                    Fluid Dynamics<br>
-                    Numerical Methods<br>
-                    Machine Learning<br>
-                    Artificial Intelligence<br>
-                    High-Performance Computing
-                  </p>
-          </div>
+      <div class="col-md-9 col-lg-9 my-3 pb-0" style="text-align: justify">
+        I am a graduate student at the <a href="www.mit.edu" target="_blank" style="color:#3498DB">Massachusetts Institute of Technology</a> in <a href="aeroastro.mit.edu" target="_blank" style="color:#3498DB">Aeronautics and Astronautics</a> with a specialization in <a href="cse.mit.edu" target="_blank" style="color:#3498DB">Computational Science and Engineering</a>. I am working with Dr. <a href="adrianld.mit.edu" target="_blank" style="color:#3498DB">Adri&aacute;n Lozano-Dur&aacute;n</a> on physics-based and data-driven modeling for computational fluid dynamics of turbulence. 
+        I completed my undergraduate degree in <a href="https://aerospace.illinois.edu" target="_blank" style="color:#18BC9C">Aerospace Engineering</a> with a minor in <a href="https://atmos.illinois.edu" target="_blank" style="color:#18BC9C">Atmospheric Sciences</a> and a concentration in <a href="https://cse.illinois.edu" target="_blank" style="color:#18BC9C">Computational Science and Engineering</a> from the <a href="https://illinois.edu" target="_blank" style="color:#18BC9C">University of Illinois at Urbana-Champaign</a> in May 2021.
+        My goal is to employ machine learning to model hypersonic flows.
+        Starting in September 2021, I will be funded by the <a href="https://www.krellinst.org/csgf/" target="_blank" style="color:#E74C3C">Computational Science Graduate Fellowship</a> through the <a href="https://www.energy.gov/science/office-science" target="_blank" style="color:#E74C3C">Department of Energy</a>.
+        <br>
+        <div class="d-flex justify-content-center align-items-start mt-3 d-md-none" style="margin-bottom:-1.5em">
+          <img src="ejw.JPG" style="width:150px;" class="card-img-top">
         </div>
-        <div class="card my-3 align-items-center">
-                  <p class="pt-3"><b>Updates:</b></p>
-                  <p style="text-align:left" class="px-2">
-                    <b>Nov 2021:</b> Presented at APS DFD 2021!<br>
-                    <b>Oct 2021:</b> Received AIAA 20 Twenties Award!<br>
-                    <b>Sep 2021:</b> Started at MIT!<br>
-                    <b>May 2021:</b> Graduated from UIUC!<br>
-                  </p>
-          </div>
-        </div>
+        <br><br>
+        <p style="font-size:9pt">
+        <b>Research Interests: </b> <i>hypersonics, turbulence, quantum computation, computational fluid dynamics, numerical methods, machine learning, information theory, artificial intelligence, high-performance computing, aerothermodynamics</i>
+        <br><br>
+        <a href="mailto:ejwllms@mit.edu" style="color: inherit">email</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="EJW_CV.pdf" target="_blank" style="color: inherit">cv</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://scholar.google.com/citations?user=YVWR1kIAAAAJ&hl=en" target="_blank" style="color: inherit">google scholar</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://www.linkedin.com/in/emlyjwllms/" target="_blank" style="color: inherit">linkedin</a>&nbsp;&nbsp;|&nbsp;&nbsp;<a href="https://www.researchgate.net/profile/Emily-Williams-105" target="_blank" style="color: inherit">research gate</a>
+        </p>
       </div>
-      </div>
-
-
-    </div>
+  </div>
+<hr>
+  <p style="margin-top:2em;">
+    <b>November 2021:</b> Presented at American Physical Society (APS) Division of Fluid Dynamics (DFD)!<br>
+    <b>October 2021:</b> Received American Institute of Aeronautics and Astronautics (AIAA) and Aviation Week's 20 Twenties Award!<br>
+    <b>September 2021:</b> Started at MIT!<br>
+    <b>May 2021:</b> Graduated from UIUC!<br>
+  </p>
+          
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 <script src="index.js"></script>
